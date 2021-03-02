@@ -6,6 +6,7 @@ output: pdf_document
 ---
 
 ```{r}
-read("cardiomort.RData")
+load("cardiomort.RData")
+load("amy.rdata")
 ```
 
