@@ -1,0 +1,11 @@
+---
+title: "AA Case Study 3"
+author: "Andrea Aveni"
+date: "3/2/2021"
+output: pdf_document
+---
+
+```{r}
+read("cardiomort.RData")
+```
+
