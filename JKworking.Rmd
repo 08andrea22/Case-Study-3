@@ -1,0 +1,22 @@
+---
+title: "JK Working"
+author: "Jennifer Kampe"
+date: "3/2/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Load the data
+```{r}
+load("cardiomort.RData")
+load("amy.rdata")
+```
+
+Check out some variables, expected mortality is the Hospital Compare metric?
+```{r}
+all.equal(cardio$`Expected Mortality Rate`, 
+          cardio$`Observed Deaths`/cardio$`Total Procedures`)
+```
