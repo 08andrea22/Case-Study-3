@@ -60,3 +60,10 @@ dt %>%
 
 
 ```
+
+Add hospital covariates
+```{r}
+hos=data.frame(`Hospital Name` = unique(cardio$`Hospital Name`), teaching = NA, trauma = NA, nbeds = NA, rural = NA, hightech = NA)
+
+write.csv(hos, "hospital_covariates.csv", row.names=FALSE)
+```
