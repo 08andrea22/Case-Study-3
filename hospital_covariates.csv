@@ -64,20 +64,21 @@ Randall Children's Hospital at Legacy Emanuel,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,N
 Riley Hospital for Children at Indiana University Health,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 Seattle Children's Hospital,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 SSM Health Cardinal Glennon Children's Hospital,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-St. Christopher's Hospital for Children,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-St. Joseph's Children's Hospital BayCare Health System,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-St. Louis Children's Hospital,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-"Sutter Medical Center, Sacramento: Women's and Children's Center",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Texas Children's Hospital,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-The Children's Hospital of Alabama,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-The Johns Hopkins Hospital,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-UC Davis Medical Center,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-UCLA Mattel Children's Hospital,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-UCSF Benioff Children's Hospital,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-UF Health Shands Children's Hospital,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-University Hospital,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-University of Kentucky Healthcare,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-University of Maryland Children's Hospital,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-University of Minnesota Masonic Children's Hospital,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-University of Virginia Children's Hospital,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Yale-New Haven Children's Hospital,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+St. Christopher's Hospital for Children,1,1,1,1,189,NA,NA,0,1,4,1,NA,NA,NA,NA
+St. Joseph's Children's Hospital BayCare Health System,0,2,1,2,219,NA,64,0,1,4,NA,NA,NA,NA,NA
+St. Louis Children's Hospital,1,1,NA,1,402,NA,122,0,1,4,1,NA,NA,1,5
+"Sutter Medical Center, Sacramento: Women's and Children's Center",NA,NA,1,NA,242,60,NA,0,1,NA,1,NA,NA,NA,NA
+Texas Children's Hospital,0,1,1,1,973,NA,173,0,1,4,1,1,1,1,3
+The Children's Hospital of Alabama,1,1,1,1,332,NA,48,0,1,4,1,1,28,1,29
+The Johns Hopkins Hospital,1,1,1,1,196,137,45,0,1,4,1,1,29,1,20
+UC Davis Medical Center,1,1,1,1,129,72,49,0,1,4,1,NA,NA,NA,NA
+UCLA Mattel Children's Hospital,1,1,1,1,156,62,22,0,1,4,1,NA,NA,NA,NA
+UCSF Benioff Children's Hospital,1,1,1,1,183,NA,50,0,1,4,1,NA,NA,NA,NA
+UF Health Shands Children's Hospital,1,1,1,NA,208,NA,52,0,1,4,1,1,12,NA,NA
+University Hospital,NA,NA,NA,NA,NA,NA,NA,NA,1,4,NA,NA,NA,NA,NA
+University of Kentucky Healthcare,1,1,NA,1,149,28,90,0,1,4,NA,NA,NA,NA,NA
+University of Maryland Children's Hospital,1,1,1,1,123,19,52,0,1,4,1,1,1,NA,NA
+University of Minnesota Masonic Children's Hospital,NA,3,NA,3,212,NA,NA,0,1,4,NA,NA,NA,NA,NA
+University of Virginia Children's Hospital,NA,1,1,1,105,54,51,0,1,4,1,1,37,0,NA
+Yale-New Haven Children's Hospital,1,1,1,1,202,NA,NA,0,1,4,1,0,NA,1,43
+hospital,teaching,trauma_level,helipad,ped_trauma_level,nbeds,npediatricbeds,nbassinets,rural,nicu,nicu_level,top50_ped_anyspecialty,top50_ped_cardio,rank_ped_cardio,top50_ped_pulm,rank_ped_pulm
