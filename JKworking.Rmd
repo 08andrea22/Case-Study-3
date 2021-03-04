@@ -7,6 +7,9 @@ output: pdf_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(tidyr)
+library(dplyr)
+library(ggplot2)
 ```
 
 Load the data
@@ -19,4 +22,41 @@ Check out some variables, expected mortality is the Hospital Compare metric?
 ```{r}
 all.equal(cardio$`Expected Mortality Rate`, 
           cardio$`Observed Deaths`/cardio$`Total Procedures`)
+```
+
+Data cleaning
+```{r}
+df = cardio %>%
+  group_by(`Hospital Name`) %>%
+  summarize(volume = max(`Total Procedures`)) %>%
+  right_join(cardio) %>%
+  mutate(procedure = sub("STAT Mortality ", "", `Procedure Type`)) %>%
+  select(-`Procedure Type`) %>%
+  mutate(fatality = `Observed Deaths` / `Total Procedures`)
+
+# Plot fatality rate versus total volume by category
+df %>% filter(procedure !="Category 5") %>%
+  ggplot(aes(x=volume, y=fatality)) + 
+  geom_point() + 
+  facet_wrap(~ procedure)
+
+df %>% filter(procedure =="Category 5") %>%
+  ggplot(aes(x=volume, y=fatality)) + 
+  geom_point() 
+```
+
+Andrea's mortality rate by procedure plot
+```{r}
+dt=df%>%
+  group_by(procedure)%>%
+  summarize(deaths=sum(`Observed Deaths`), tot=sum(`Total Procedures`))%>%
+  mutate(fatality=deaths/tot) %>%
+  select(procedure, fatality, ) %>%
+  filter(procedure !="Overall")
+
+dt %>%
+  ggplot(aes(x=procedure, y=fatality))+
+  geom_col() 
+
+
 ```
