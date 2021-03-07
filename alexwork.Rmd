@@ -7,5 +7,128 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(ggplot2)
+library(grid)
+library(gridExtra)
+```
+
+# data
+
+```{r}
+load("cardiomort.RData")
+```
+
+
+# subsetting into overall and categories
+
+```{r}
+cardio_ov <- cardio[cardio$`Procedure Type` == "Overall", ]
+cardio_cat <- cardio[cardio$`Procedure Type` != "Overall", ]
+
+colnames(cardio_cat) <- c("id", "name", "category", "deaths", "procedures", "EMR")
+cardio_cat$category <- as.factor(cardio_cat$category)
+cardio_cat$category <- recode(cardio_cat$category,
+       "STAT Mortality Category 1" = 1,
+       "STAT Mortality Category 2" = 2,
+       "STAT Mortality Category 3" = 3,
+       "STAT Mortality Category 4" = 4,
+       "STAT Mortality Category 5" = 5)
+cardio_cat$category <- as.factor(cardio_cat$category)
+```
+
+
+# Basic Facts
+
+```{r}
+length(levels(as.factor(cardio$`Hospital Name`)))
+
+```
+There are 82 hospitals, scattered seemingly across the US.
+
+# Contingency Tables
+```{r}
+procedures <- aggregate(cardio_cat$procedures, by = list(Category = cardio_cat$category), FUN = sum)
+colnames(procedures) <- c("Category", "Procedures")
+procedures
+```
+
+In the whole data, we see that the ranking of number of procedures for each category is 2, 1, 4, 3, 5.
+
+```{r}
+deaths <- aggregate(cardio_cat$deaths, by = list(Category = cardio_cat$category), FUN = sum)
+colnames(deaths) <- c("Category", "Deaths")
+deaths
+```
+
+
+In the whole data, we see that the ranking of number of deaths for each category is 4, 5, 2, 3, 1. 
+
+# Summary Statistics of Volume
+
+```{r}
+quantile(cardio_ov$`Total Procedures`, c(0.025, 0.5, 0.975))
+```
+The median number of procedures is 761. 
+
+```{r}
+ggplot(data.frame("Procedures" = cardio_ov$`Total Procedures`), aes(x = Procedures)) + geom_histogram()
+```
+We can see that most hospitals have fewer than 2,000 cases, though some have above that. The distribution of the procedures is multimodal and right skewed, with the largest mode occurring between 500 and 1,000 procedures.
+
+# Summary Statistics of Death
+
+```{r}
+quantile(cardio_ov$`Observed Deaths`, c(0.025, 0.5, 0.975))
+```
+The median number of deaths is 20. 
+
+```{r}
+ggplot(data.frame("Deaths" = cardio_ov$`Observed Deaths`), aes(x = Deaths)) + geom_histogram()
+```
+Similarly, the distribution of deaths is right skwed, with multiple modes in between - and 45 deaths.
+
+# Summary Statistics of Volume and Deaths
+
+```{r}
+ggplot(data = cardio_ov, aes(x = `Total Procedures`, y = `Observed Deaths`)) + geom_point()
+```
+In the aggregated data, it does seem that the total number of procedures is positively correlated with the number of deaths (makes sense).
+
+Let's replicate the same graph from the paper.
+
+```{r}
+cardio_ov$mort_rate <- cardio_ov$`Observed Deaths`/cardio_ov$`Total Procedures`
+
+ggplot(data = cardio_ov, aes(x = `Total Procedures`, y = mort_rate)) + geom_point()
+```
+Similar to the paper, the variation in $\mathcal{O}_h$ is highest at hospitals with fewer total procedures. However, we don't quite see the same dramatic decrease they have in the paper (probably because we're focusing on different conditions). 
+
+# Similar Statistcs by Category
+
+
+```{r}
+ggplot(cardio_cat, aes(x = procedures, y = deaths, color = category)) + geom_point()
+```
+And from this we can see which are the most deadly categories. 
+
+```{r}
+cardio_cat$mort_rate <- cardio_cat$deaths/cardio_cat$procedures
+
+ggplot(data = cardio_ov, aes(x = `Total Procedures`, y = mort_rate)) + geom_point()
+```
+```{r}
+plots <- list()
+for (j in 1:5) {
+  plots[[j]] <- ggplot(data = cardio_cat[cardio_cat$category == toString(j), ], aes(x = procedures, y = mort_rate)) + geom_point() + labs(title = paste("Category", toString(j)))
+}
+
+grid.arrange(plots[[1]], plots[[2]], plots[[3]], plots[[4]], plots[[5]], widths = c(1,1), layout_matrix = rbind(c(1,2), c(3,4), c(5,5)))
+
+```
+# Adding to Hospital Covariates
+
+```{r}
+hosp <- read.csv("hospital_covariates.csv")
 ```
 
