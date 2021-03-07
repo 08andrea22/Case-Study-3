@@ -57,7 +57,7 @@ coordinates=c(
   
   7233323, 32+46/60+45/60^2, 96+48/60+32/60^2, Texas, Dallas,
   6020864, 33+45/60+18/60^2, 84+23/60+24/60^2, Georgia, Atlanta,
-  0, 0, 0, 0 ,0,
+  NA,NA,NA,NA,NA,NA,
   2932415, 39+44/60+21/60^2, 104+59/60+25/60^2, Colorado, Denver,
   1270530, 29+95/60, 90+8/60, Louisiana, New_Orleans,
   373590, 40+43/60+15/60^2, 89+36/60+34/60^2, Illinois, Peoria,
@@ -88,10 +88,54 @@ coordinates=c(
   6133552, 38.8575, 77.2278, Washington, DC,
   6158824, 25.791525, -80.212575, Florida, Miami,
   
+  6158824, 25+46/60+31/60^2, 80+12/60+32/60^2, Florida, Miami, 215,
+  2870569, 27.764495, 82.640584, Florida, St_Petersburg, 259,
+  1348260, 35.1440, 90.0325, Tennessee, Menphis, 255,
+  4224851, 34.0525, 117.264167, California, San_Bernardino, 507,
+  243537, 43.653, 70.276, Maine, Portland, 637,
+  219802, 44.020278, 92.481667, Minnesota, Rochester, 2059,
+  NA,NA,NA,NA,NA,NA,
+  19979477, 40.790066, 73.953249, NY, NY, 1141,
+  548404, 32.782455, 79.951245, SC, Charleston, 279,
+  2078035, 39.953235, 82.979359, Ohio, Columbus, 673,
   
+  2387138, 28.376702, 81.273605, Florida, Orlando, 130,
+  19979477, 40.8397, 73.9412, NY, NY, 299,
+  6158824, 25.741458, 80.294267, Florida, Miami, 289,
+  1265108, 38.248444, 85.749722, Kentucky, Louisville, 300,
+  1270530, 29.963231, 90.145370, Louisiana, New_Orleans, 767,
+  577941, 40.264096, 76.673541, Pennsylvania, Harrisburg, 134,
+  4857962, 33.478909, 112.041576, Arizona, Phoenix, 433,
+  1222540, 40.771111, 111.838889, Utah, Salt_Lak_City, 289,
+  573493, 47.649, 117.413, Washington, Spokane, 632,
+  3338330, 32.798056, 117.151111, California, San_Digo, 524,
   
+  2057009, 41.504444, 81.605833, Ohio, Clevland, 244,
+  2478810, 45.5446, 122.6700, Oregon, Portland, 165,
+  2048703, 39.776806, 86.179167, Indiana, Indianapolis, 354,
+  3979845, 47.662778, 122.281667, Washington, Sattle, 407,
+  2807338, 38.6212, 90.2392, Missouri, St_Louis, NA,
+  6096120, 40.0066, 75.1245, Pennsylvania, Philadelphia, 189,
+  3097859, 27.968056, 82.476389, Florida, Tampa, NA,
+  2807338, 38.6375, 90.2651, Missouri, St_Louis, 402,
+  2500000, 38.581667, 121.494444, California, Sacramento, 242,
+  7066141, 29.7077, 95.4016, Texas, Houston, 973,
+  
+  1151801, 33.505556, 86.806111, Alabama, Birmingham, 332,
+  2802789, 39.296251, 76.591805, Maryland, Baltimore, 1091,
+  2500000, 38.5549, 121.4565, California, Sacramento, 625,
+  13131431, 34.066351, 118.447094, California, Los_Angeles, 156,
+  4729484, 37.7647974, 122.389903, California, San_Francisco, 183,
+  288212, 29.6399, 82.3431, Florida, Gainesville, 208,
+  NA,NA,NA,NA,NA,NA,
+  517056, 38.0312, 84.5074, Kentucky, Lexington, NA,
+  2802789, 39.2883, 76.6236, Maryland, Baltimore, 767,
+  3629190, 44.967222, 93.2375, Minnesota, Minneapolis, 212,
+  
+  229304, 38.032778, 78.497370, Virginia, Charlottesville, 106,
+  862477, 41.304354, 72.936647, Connecticut, New_Haven, 202,
 )
 
-ta[41:50]
+ta[71:80]
 ```
 
