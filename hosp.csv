@@ -1,0 +1,83 @@
+"hospital","teaching","trauma_level","helipad","ped_trauma","ped_trauma_level","nbeds","npediatricbeds","nbassinets","rural","nicu","nicu_level","top50_ped_anyspecialty","top50_ped_cardio","rank_ped_cardio","top50_ped_pulm","rank_ped_pulm"
+"Advocate Children's Hospital","1","1","1",0,"0","409","259","150","0","1","3","1","1","25",NA,NA
+"Akron Children's Hospital","1","2","1",1,"2","289","289",NA,"0","1","3","1","0",NA,"1",NA
+"Albany Medical Center","1","1","1",1,"2","734","125",NA,"0","1","4",NA,"0",NA,NA,NA
+"Alfred I. duPont Hospital for Children","1","1","0",1,"1","208","208",NA,"0","1","4",NA,"0",NA,NA,NA
+"American Family Children's Hospital-University of Wisconsin Hospitals and Clinics","1","1","0",1,"1","111","111",NA,"0","1","4","1","1","36","1",NA
+"Ann & Robert H. Lurie Children's Hospital of Chicago","1","1","1",1,"1","312","312",NA,"0","1","4","1","1","18","1","19"
+"Arkansas Children's Hospital","1","1","1",1,"1","336","336",NA,"0","1","4","1","1","49","1","34"
+"Arnold Palmer Medical Center","1","1","1",1,"1","158","158",NA,"0","1","3","1","40",NA,NA,NA
+"Boston Children's Hospital","1","1","1",1,"1","404","404",NA,"0","1","4","1","1","4","1","1"
+"C.S. Mott Children's Hospital - University of Michigan","1","1","1",1,"1","348","348",NA,"0","1","4","1","1","24","1","18"
+"Children's Health Medical Center Dallas","1","1","1",1,"1","490","490",NA,"0","1","4","1","0",NA,"1","25"
+"Children's Healthcare of Atlanta","1","1","1",1,"1","295","295",NA,"0","1","4","1","1","26","1","17"
+"Children's Hospital & Medical Center","1","2","0",1,"2","145","145",NA,"0","1","4","1","1","39","1","50"
+"Children's Hospital Colorado","1","1","1",1,"1","434","434",NA,"0","1","4","1","1","6","1","5"
+"Children's Hospital New Orleans","1","1","1",1,"1","229","229",NA,"0","1","4","0","0",NA,"0",NA
+"Children's Hospital of Illinois","1","1","1",1,"1","144","144",NA,"0","1","3","1","0",NA,"0",NA
+"Children's Hospital of Los Angeles","1","1","1",1,"1","495","495",NA,"0","1","4","1","1","3","1","12"
+"Children's Hospital of Michigan","1","1","1",1,"1","227","227",NA,"0","1","4","1","1","47","0",NA
+"Children's Hospital of Philadelphia","1","1","1",1,"1","594","594",NA,"0","1","4","1","1","7","1","2"
+"Children's Hospital of Pittsburgh","1","1","1",1,"1","315","315",NA,"0","1","4","1","1","3","1","6"
+"Children's Hospital of the King's Daughters","1","1","1",1,"1","206","206",NA,"0","1","4","0","0",NA,"0",NA
+"Children's Hospital of Wisconsin","1","1","1",1,"1","298","298",NA,"0","1","4","1","1","18","1","15"
+"Children's Hospitals and Clinics of Minnesota","1","1","1",1,"1","381","381",NA,"0","1","4","1","0",NA,"1","44"
+"Children's Memorial Hermann Hospital","1","1","1",1,"1","310","234",NA,"0","1","4","1","1","22","0",NA
+"Children's Mercy Kansas City","1","1","1",1,"1","367","367",NA,"0","1","4","1","1","23","1","35"
+"CHOC Children's Hospital","1","2","1",1,"2","316","316",NA,"0","1","4","1","0",NA,"1","27"
+"Cincinnati Children's Hospital Medical Center","1","1","1",1,"1","692","692",NA,"0","1","4","1","1","14","1","4"
+"Cleveland Clinic","1","1","1",1,"1","389","389",NA,"0","1","3","1","1","15","1","32"
+"CMC-Levine Children's Hospital","1","1","1",1,"1","234","234",NA,"0","1","4","1","1","35","1","35"
+"Cohen Children's Medical Center of New York","1","1","1",1,"1","202","202",NA,"0","1","4","1","0",NA,"1","30"
+"Connecticut Children's Medical Center","1","1","1",1,"1","187","187",NA,"0","1","4","1","0",NA,"0",NA
+"Cook Children's Medical Center","1","2","1",1,"2","430","430",NA,"0","1","4","1","0",NA,"0",NA
+"Dell Children's Medical Center","1","1","1",1,"1","248","248",NA,"0","1","4","0","0",NA,"0",NA
+"Doernbecher Children's Hospital/Oregon Health & Science University","1","1","1",1,"1","145","145",NA,"0","1","4","1","0",NA,"0",NA
+"Duke University Hospital","1","1","1",1,"1","957","240",NA,"0","1","4","1","1","35","0",NA
+"Florida Hospital for Children","1","1","1",1,"1","198","198",NA,"0","1","4","1","0",NA,"0",NA
+"Geisinger Medical Center","1","1","1",1,"2","594","91",NA,"1","1","4","0","0",NA,"0",NA
+"Helen DeVos Children's Hospital","1","1","1",1,"1","241","241",NA,"0","1","4","1","1","34","1","45"
+"Inova Children's Hospital","1","1","1",1,"1","226","226",NA,"1","1","4","0","0",NA,"0",NA
+"Jackson Memorial Hospital","1","1","1",1,"1","1550","245",NA,"0","1","3","1","0",NA,"0",NA
+"Joe DiMaggio Children's Hospital","1","1","1",1,"1","226","226",NA,"0","1","3","1","1","48","0",NA
+"Johns Hopkins All Children's Hospital","1","2","1",1,"2","259",NA,"97","0","1","4","1",NA,NA,"1","47"
+"Le Bonheur Children's Hospital","1","1","1",1,"1","255",NA,"60","0","1","4","1","1","13","1","46"
+"Loma Linda University Medical Center and Children's Hospital","1","1","1",1,"1","343",NA,"84","0","1","4",NA,NA,NA,NA,NA
+"Maine Medical Center","1","1","1",1,"1","116",NA,"31","0","1","3",NA,NA,NA,NA,NA
+"Mayo Clinic Hospital - Rochester","1","1","1",1,"1","148",NA,NA,"0","1",NA,"1","1","42",NA,NA
+"Mercy Medical Center","1","2","1",1,"2","178",NA,NA,"0","1","3",NA,NA,NA,NA,NA
+"Mount Sinai Hospital",NA,NA,NA,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"MUSC Children's Hospital","1","1","1",1,"1","250",NA,"66","0","1","4","1","1","10",NA,NA
+"Nationwide Children's Hospital","1","1","1",1,"1","673",NA,"114","0","1","4","1","1","32","1","6"
+"Nemours Children's Hospital","1","2","1",1,"2","130",NA,NA,"0","1","3",NA,NA,NA,NA,NA
+"New York Presbyterian / Morgan Stanley Children's Hospital","1","1",NA,1,"1","299","27","62","0","1","4","1","1","21","1","20"
+"Nicklaus Children's Hospital","1","1","1",1,"1","309",NA,"40","0","1","3","1","1","46","1","35"
+"Norton Children's Hospital","1","1","1",1,"1","300",NA,"101","0","1","4","1",NA,NA,NA,NA
+"Ochsner Health System","1","1","1",1,"1","125","71","54","0","1","4","1","1","42",NA,NA
+"Penn State Children's Hospital","1","1","1",1,"1","134","72","42","0","1","4","1","1","16","1","38"
+"Phoenix Children's Hospital","1","1","1",1,"1","433","46","33","0","1","3","1",NA,NA,"1","37"
+"Primary Children's Hospital","1","1","1",1,"1","289","160","50","0","1","4","1","1","44",NA,NA
+"Providence Sacred Heart Medical Center and Children's Hospital","1","1","1",1,"1","632","177",NA,"0","1","4","0",NA,NA,NA,NA
+"Rady Children's Hospital San Diego","1","1","1",1,"1","505",NA,"60","0","1","4","1","1","21","1","18"
+"Rainbow Babies & Children's Hospital","1","1","0",1,"1","244",NA,NA,"0","1","4","1",NA,NA,"1","20"
+"Randall Children's Hospital at Legacy Emanuel","1","1","1",1,"1","165","24","45","0","1","4","1",NA,NA,"1","14"
+"Riley Hospital for Children at Indiana University Health","1","1","1",1,"1","465",NA,"60","0","1","4","1","1","5","1","14"
+"Seattle Children's Hospital","1","1","1",1,"1","407","59","32","0","1","4","1","1","16","1","10"
+"SSM Health Cardinal Glennon Children's Hospital","1","1","1",1,"1","195",NA,"65","0","1","4","1","1","45","1","48"
+"St. Christopher's Hospital for Children","1","1","1",1,"1","189",NA,NA,"0","1","4","1",NA,NA,NA,NA
+"St. Joseph's Children's Hospital BayCare Health System","1","2","1",1,"2","219",NA,"64","0","1","4","1","1","17","1","8"
+"St. Louis Children's Hospital","1","1",NA,1,"1","402",NA,"122","0","1","4","1",NA,NA,"1","5"
+"Sutter Medical Center, Sacramento: Women's and Children's Center","1",NA,"1",1,NA,"242","60",NA,"0","1",NA,"1",NA,NA,NA,NA
+"Texas Children's Hospital","1","1","1",1,"1","973",NA,"173","0","1","4","1","1","1","1","3"
+"The Children's Hospital of Alabama","1","1","1",1,"1","332",NA,"48","0","1","4","1","1","28","1","29"
+"The Johns Hopkins Hospital","1","1","1",1,"1","196","137","45","0","1","4","1","1","29","1","20"
+"UC Davis Medical Center","1","1","1",1,"1","129","72","49","0","1","4","1","1","36","1","29"
+"UCLA Mattel Children's Hospital","1","1","1",1,"1","156","62","22","0","1","4","1",NA,NA,NA,NA
+"UCSF Benioff Children's Hospital","1","1","1",1,"1","183",NA,"50","0","1","4","1",NA,NA,NA,NA
+"UF Health Shands Children's Hospital","1","1","1",1,NA,"208",NA,"52","0","1","4","1","1","12",NA,NA
+"University Hospital",NA,NA,NA,1,NA,NA,NA,NA,NA,"1","4",NA,NA,NA,NA,NA
+"University of Kentucky Healthcare","1","1",NA,1,"1","149","28","90","0","1","4","1","1","14",NA,NA
+"University of Maryland Children's Hospital","1","1","1",1,"1","123","19","52","0","1","4","1","1","1",NA,NA
+"University of Minnesota Masonic Children's Hospital","1","3",NA,1,"3","212",NA,NA,"0","1","4","1",NA,NA,NA,NA
+"University of Virginia Children's Hospital","1","1","1",1,"1","105","54","51","0","1","4","1","1","37","0",NA
+"Yale-New Haven Children's Hospital","1","1","1",1,"1","202",NA,NA,"0","1","4","1","0",NA,"1","43"

@@ -11,6 +11,7 @@ library(dplyr)
 library(ggplot2)
 library(grid)
 library(gridExtra)
+library(tibble)
 ```
 
 # data
@@ -129,6 +130,11 @@ grid.arrange(plots[[1]], plots[[2]], plots[[3]], plots[[4]], plots[[5]], widths 
 # Adding to Hospital Covariates
 
 ```{r}
-hosp <- read.csv("hospital_covariates.csv")
+hosp_ad <- read.csv("hospital_covariates.csv")
+hosp_jk <- read.csv("hospital_covariates_jk.csv")
+hosp <- rbind(hosp_jk[1:41, colnames(hosp_ad)], hosp_ad[42:82, ])
+hosp <- add_column(hosp, ped_trauma = c(hosp_jk[1:41, "ped_trauma"], rep(1, 41)), .after = "helipad")
+write.csv(hosp, "hosp.csv", row.names = F)
+
 ```
 
