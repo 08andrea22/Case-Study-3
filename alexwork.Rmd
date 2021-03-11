@@ -12,6 +12,8 @@ library(ggplot2)
 library(grid)
 library(gridExtra)
 library(tibble)
+library(rstanarm)
+library(latex2exp)
 ```
 
 # data
@@ -135,6 +137,58 @@ hosp_jk <- read.csv("hospital_covariates_jk.csv")
 hosp <- rbind(hosp_jk[1:41, colnames(hosp_ad)], hosp_ad[42:82, ])
 hosp <- add_column(hosp, ped_trauma = c(hosp_jk[1:41, "ped_trauma"], rep(1, 41)), .after = "helipad")
 write.csv(hosp, "hosp.csv", row.names = F)
+
+# rewriting hosp
+hosp <- read.csv("hosp.csv")
+hosp_ad <- read.csv("hospital_covariates.csv")
+hosp_ad <- hosp_ad[42:82, ]
+names <- hosp_ad$hospital != "University Hospital" & hosp_ad$hospital != "Mount Sinai Hospital"
+names <- names[-length(names)]
+hosp_red <- hosp[42:82, ]
+hosp_red[names, ] <- hosp_ad[names, ]
+hosp[42:82, ] <- hosp_red
+write.csv(hosp, "hosp.csv", row.names = F)
+
+
+```
+
+# Bayesian Hospital Compare Model (Reference Model)
+
+```{r}
+options(mc.cores = 2)
+hosp_comp <- stan_glmer(cbind(deaths, procedures - deaths) ~ category + name + (1|name),
+                   data = cardio_cat,
+                   family = binomial(link = "logit"),
+                   chains = 2,
+                   iter = 5000)
+names <- rownames(summary(hosp_comp))
+intercepts <- names[grepl("b[(Intercept)", names, fixed = TRUE)]
+alpha <- as.matrix(hosp_comp, pars = intercepts)
+alpha_cis <- posterior_interval(hosp_comp, pars = intercepts, prob = .95) # credible intervals
+alpha_means <- colMeans(alpha) # posterior means
+
+# Figure 3(b) from Paper (stratified by category)
+fits <- data.frame("name" = cardio_cat$name, "category" = cardio_cat$category, "p_hat" = fitted.values(hosp_comp), "procedures" = cardio_cat$procedures)
+
+plots <- list()
+for (j in 1:5) {
+  plots[[j]] <- ggplot(data = fits[fits$category == toString(j), ], aes(x = procedures, y = p_hat)) + geom_point() + labs(title = paste("Category", toString(j)))
+}
+
+grid.arrange(plots[[1]], plots[[2]], plots[[3]], plots[[4]], plots[[5]], widths = c(1,1), layout_matrix = rbind(c(1,2), c(3,4), c(5,5)))
+
+# Figure 3(b) from Paper (not stratified by category)
+Phat <- fits %>% group_by(name) %>% summarize(P_hat = mean(p_hat))
+Phat <- as.data.frame(Phat)
+fits <- left_join(fits, Phat)
+
+ggplot(data = fits, aes(x = procedures, y = P_hat)) + geom_point() + labs(title = TeX("$\\hat{P}$ Values Against Procedures"))
+
+# Figure 3(a) from Paper (not stratified)
+ahat <- data.frame("name" = cardio_ov$`Hospital Name`, "procedures" = cardio_ov$`Total Procedures`, "alpha_hat" = alpha_means)
+
+ggplot(data = ahat, aes(x = procedures, y = alpha_hat)) + geom_point() + labs(title = TeX("$\\hat{\\alpha}$ Values Against Procedures"))
+
 
 ```
 
