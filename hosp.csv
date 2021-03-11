@@ -1,45 +1,45 @@
 hospital,teaching,trauma_level,helipad,ped_trauma,ped_trauma_level,nbeds,npediatricbeds,nbassinets,rural,nicu,nicu_level,top50_ped_anyspecialty,top50_ped_cardio,rank_ped_cardio,top50_ped_pulm,rank_ped_pulm
-Advocate Children's Hospital,1,1,1,0,0,409,259,150,0,1,3,1,1,25,NA,NA
-Akron Children's Hospital,1,2,1,1,2,289,289,NA,0,1,3,1,0,NA,1,NA
-Albany Medical Center,1,1,1,1,2,734,125,NA,0,1,4,NA,0,NA,NA,NA
-Alfred I. duPont Hospital for Children,1,1,0,1,1,208,208,NA,0,1,4,NA,0,NA,NA,NA
-American Family Children's Hospital-University of Wisconsin Hospitals and Clinics,1,1,0,1,1,111,111,NA,0,1,4,1,1,36,1,NA
-Ann & Robert H. Lurie Children's Hospital of Chicago,1,1,1,1,1,312,312,NA,0,1,4,1,1,18,1,19
-Arkansas Children's Hospital,1,1,1,1,1,336,336,NA,0,1,4,1,1,49,1,34
-Arnold Palmer Medical Center,1,1,1,1,1,158,158,NA,0,1,3,1,40,NA,NA,NA
-Boston Children's Hospital,1,1,1,1,1,404,404,NA,0,1,4,1,1,4,1,1
-C.S. Mott Children's Hospital - University of Michigan,1,1,1,1,1,348,348,NA,0,1,4,1,1,24,1,18
-Children's Health Medical Center Dallas,1,1,1,1,1,490,490,NA,0,1,4,1,0,NA,1,25
-Children's Healthcare of Atlanta,1,1,1,1,1,295,295,NA,0,1,4,1,1,26,1,17
-Children's Hospital & Medical Center,1,2,0,1,2,145,145,NA,0,1,4,1,1,39,1,50
-Children's Hospital Colorado,1,1,1,1,1,434,434,NA,0,1,4,1,1,6,1,5
-Children's Hospital New Orleans,1,1,1,1,1,229,229,NA,0,1,4,0,0,NA,0,NA
-Children's Hospital of Illinois,1,1,1,1,1,144,144,NA,0,1,3,1,0,NA,0,NA
-Children's Hospital of Los Angeles,1,1,1,1,1,495,495,NA,0,1,4,1,1,3,1,12
-Children's Hospital of Michigan,1,1,1,1,1,227,227,NA,0,1,4,1,1,47,0,NA
-Children's Hospital of Philadelphia,1,1,1,1,1,594,594,NA,0,1,4,1,1,7,1,2
-Children's Hospital of Pittsburgh,1,1,1,1,1,315,315,NA,0,1,4,1,1,3,1,6
-Children's Hospital of the King's Daughters,1,1,1,1,1,206,206,NA,0,1,4,0,0,NA,0,NA
-Children's Hospital of Wisconsin,1,1,1,1,1,298,298,NA,0,1,4,1,1,18,1,15
-Children's Hospitals and Clinics of Minnesota,1,1,1,1,1,381,381,NA,0,1,4,1,0,NA,1,44
-Children's Memorial Hermann Hospital,1,1,1,1,1,310,234,NA,0,1,4,1,1,22,0,NA
-Children's Mercy Kansas City,1,1,1,1,1,367,367,NA,0,1,4,1,1,23,1,35
-CHOC Children's Hospital,1,2,1,1,2,316,316,NA,0,1,4,1,0,NA,1,27
-Cincinnati Children's Hospital Medical Center,1,1,1,1,1,692,692,NA,0,1,4,1,1,14,1,4
-Cleveland Clinic,1,1,1,1,1,389,389,NA,0,1,3,1,1,15,1,32
-CMC-Levine Children's Hospital,1,1,1,1,1,234,234,NA,0,1,4,1,1,35,1,35
-Cohen Children's Medical Center of New York,1,1,1,1,1,202,202,NA,0,1,4,1,0,NA,1,30
+Advocate Children's Hospital,1,1,1,0,0,409,259,150,0,1,3,1,1,25,0,NA
+Akron Children's Hospital,1,2,1,1,2,289,289,59,0,1,3,1,0,1,0,NA
+Albany Medical Center,1,1,1,1,2,734,125,NA,0,1,4,0,0,NA,0,NA
+Alfred I. duPont Hospital for Children,1,1,0,1,1,208,208,36,0,1,4,1,0,NA,0,NA
+American Family Children's Hospital-University of Wisconsin Hospitals and Clinics,1,1,0,1,1,111,111,26,0,1,4,1,1,36,1,NA
+Ann & Robert H. Lurie Children's Hospital of Chicago,1,1,1,1,1,312,312,64,0,1,4,1,1,18,1,19
+Arkansas Children's Hospital,1,1,1,1,1,336,336,104,0,1,4,1,1,49,1,34
+Arnold Palmer Medical Center,1,1,1,1,1,158,158,142,0,1,3,1,1,40,0,NA
+Boston Children's Hospital,1,1,1,1,1,404,404,24,0,1,4,1,1,4,1,1
+C.S. Mott Children's Hospital - University of Michigan,1,1,1,1,1,348,348,52,0,1,4,1,1,24,1,18
+Children's Health Medical Center Dallas,1,1,1,1,1,490,490,47,0,1,4,1,0,NA,1,25
+Children's Healthcare of Atlanta,1,1,1,1,1,295,295,84,0,1,4,1,1,26,1,17
+Children's Hospital & Medical Center,1,2,0,1,2,145,145,40,0,1,4,1,1,39,1,50
+Children's Hospital Colorado,1,1,1,1,1,434,434,49,0,1,4,1,1,6,1,5
+Children's Hospital New Orleans,1,1,1,1,1,229,229,36,0,1,4,0,0,NA,0,NA
+Children's Hospital of Illinois,1,1,1,1,1,144,144,64,0,1,3,1,0,NA,0,NA
+Children's Hospital of Los Angeles,1,1,1,1,1,495,495,58,0,1,4,1,1,3,1,12
+Children's Hospital of Michigan,1,1,1,1,1,227,227,40,0,1,4,1,1,47,0,NA
+Children's Hospital of Philadelphia,1,1,1,1,1,594,594,95,0,1,4,1,1,7,1,2
+Children's Hospital of Pittsburgh,1,1,1,1,1,315,315,77,0,1,4,1,1,3,1,6
+Children's Hospital of the King's Daughters,1,1,1,1,1,206,206,70,0,1,4,0,0,NA,0,NA
+Children's Hospital of Wisconsin,1,1,1,1,1,298,298,70,0,1,4,1,1,18,1,15
+Children's Hospitals and Clinics of Minnesota,1,1,1,1,1,381,381,200,0,1,4,1,0,NA,1,44
+Children's Memorial Hermann Hospital,1,1,1,1,1,310,234,118,0,1,4,1,1,22,0,NA
+Children's Mercy Kansas City,1,1,1,1,1,367,367,80,0,1,4,1,1,23,1,35
+CHOC Children's Hospital,1,2,1,1,2,316,316,91,0,1,4,1,0,NA,1,27
+Cincinnati Children's Hospital Medical Center,1,1,1,1,1,692,692,59,0,1,4,1,1,14,1,4
+Cleveland Clinic,1,1,1,1,1,389,389,72,0,1,3,1,1,15,1,32
+CMC-Levine Children's Hospital,1,1,1,1,1,234,234,85,0,1,4,1,1,35,1,35
+Cohen Children's Medical Center of New York,1,1,1,1,1,202,202,57,0,1,4,1,0,NA,1,30
 Connecticut Children's Medical Center,1,1,1,1,1,187,187,NA,0,1,4,1,0,NA,0,NA
-Cook Children's Medical Center,1,2,1,1,2,430,430,NA,0,1,4,1,0,NA,0,NA
-Dell Children's Medical Center,1,1,1,1,1,248,248,NA,0,1,4,0,0,NA,0,NA
-Doernbecher Children's Hospital/Oregon Health & Science University,1,1,1,1,1,145,145,NA,0,1,4,1,0,NA,0,NA
-Duke University Hospital,1,1,1,1,1,957,240,NA,0,1,4,1,1,35,0,NA
-Florida Hospital for Children,1,1,1,1,1,198,198,NA,0,1,4,1,0,NA,0,NA
-Geisinger Medical Center,1,1,1,1,2,594,91,NA,1,1,4,0,0,NA,0,NA
-Helen DeVos Children's Hospital,1,1,1,1,1,241,241,NA,0,1,4,1,1,34,1,45
-Inova Children's Hospital,1,1,1,1,1,226,226,NA,1,1,4,0,0,NA,0,NA
-Jackson Memorial Hospital,1,1,1,1,1,1550,245,NA,0,1,3,1,0,NA,0,NA
-Joe DiMaggio Children's Hospital,1,1,1,1,1,226,226,NA,0,1,3,1,1,48,0,NA
+Cook Children's Medical Center,1,2,1,1,2,430,430,99,0,1,4,1,0,NA,0,NA
+Dell Children's Medical Center,1,1,1,1,1,248,248,30,0,1,4,0,0,NA,0,NA
+Doernbecher Children's Hospital/Oregon Health & Science University,1,1,1,1,1,145,145,46,0,1,4,1,0,NA,0,NA
+Duke University Hospital,1,1,1,1,1,957,240,67,0,1,4,1,1,35,0,NA
+Florida Hospital for Children,1,1,1,1,1,198,198,81,0,1,4,1,0,NA,0,NA
+Geisinger Medical Center,1,1,1,1,2,594,91,41,1,1,4,0,0,NA,0,NA
+Helen DeVos Children's Hospital,1,1,1,1,1,241,241,108,0,1,4,1,1,34,1,45
+Inova Children's Hospital,1,1,1,1,1,226,226,108,1,1,4,0,0,NA,0,NA
+Jackson Memorial Hospital,1,1,1,1,1,1550,245,126,0,1,3,1,0,NA,0,NA
+Joe DiMaggio Children's Hospital,1,1,1,1,1,226,226,84,0,1,3,1,1,48,0,NA
 Johns Hopkins All Children's Hospital,1,2,1,1,2,259,NA,97,0,1,4,1,NA,NA,1,47
 Le Bonheur Children's Hospital,1,1,1,1,1,255,NA,60,0,1,4,1,1,13,1,46
 Loma Linda University Medical Center and Children's Hospital,1,1,1,1,1,343,NA,84,0,1,4,NA,NA,NA,NA,NA
