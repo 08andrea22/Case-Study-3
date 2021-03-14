@@ -14,6 +14,7 @@ library(gridExtra)
 library(tibble)
 library(rstanarm)
 library(latex2exp)
+library(tidyr)
 
 ```
 
@@ -154,13 +155,30 @@ hosp_red[names, ] <- hosp_ad[names, ]
 hosp[42:82, ] <- hosp_red
 write.csv(hosp, "hosp.csv", row.names = F)
 
+# changing NAs in rankings
+hosp <- hosp %>% replace_na(list("top50_ped_anyspecialty" = 0, "top50_ped_cardio" = 0, "top50_ped_pulm" = 0))
+write.csv(hosp, "hosp.csv")
 
 ```
 
 # EDA with the other hospital covariates
 
 ```{r}
+# beds
+ggplot(hosp, aes(x = nbeds)) + geom_histogram(bins = 35, color = "blue", fill = "skyblue1") + xlab("Hospital Beds") + ylab("Count") 
 
+ggplot(data.frame(Beds = hosp$nbeds, Procedures = cardio_ov$`Total Procedures`), aes (x = Beds, y = Procedures)) + geom_point()
+
+ggplot(data.frame(Beds = hosp$nbeds, Deaths = cardio_ov$`Observed Deaths`), aes (x = Beds, y = Deaths)) + geom_point()
+
+# bassinets
+ggplot(hosp[!is.na(hosp$nbassinets), ], aes(x = nbassinets)) + geom_histogram(bins = 35, color = "red", fill = "pink") + xlab("NICU Beds") + ylab("Count") 
+
+ggplot(data.frame(Beds = hosp[!is.na(hosp$nbassinets), ]$nbeds, Procedures = cardio_ov[!is.na(hosp$nbassinets), ]$`Total Procedures`), aes (x = Beds, y = Procedures)) + geom_point() + xlab("NICU Beds")
+
+ggplot(data.frame(Beds = hosp[!is.na(hosp$nbassinets), ]$nbeds, Deaths = cardio_ov[!is.na(hosp$nbassinets), ]$`Observed Deaths`), aes (x = Beds, y = Deaths)) + geom_point()
+
+# cardiology rank
 
 ```
 
@@ -175,7 +193,12 @@ hosp_comp <- stan_glmer(cbind(deaths, procedures - deaths) ~ category + name + (
                    chains = 2,
                    iter = 1000,
                    control = list(adapt_delta = 0.85))
+
+# saving
 saveRDS(hosp_comp, "hosp_comp.rds")
+
+# posterity
+hosp_comp <- readRDS("hosp_comp.rds")
 names <- rownames(summary(hosp_comp))
 intercepts <- names[grepl("b[(Intercept)", names, fixed = TRUE)]
 alpha <- as.matrix(hosp_comp, pars = intercepts)
@@ -187,7 +210,7 @@ fits <- data.frame("name" = cardio_cat$name, "category" = cardio_cat$category, "
 
 plots <- list()
 for (j in 1:5) {
-  plots[[j]] <- ggplot(data = fits[fits$category == toString(j), ], aes(x = procedures, y = p_hat)) + geom_point() + labs(title = paste("Category", toString(j)))
+  plots[[j]] <- ggplot(data = fits[fits$category == toString(j), ], aes(x = procedures, y = p_hat)) + geom_point() + labs(title = paste("Category", toString(j))) + xlab("Procedures") + ylab(TeX("$\\hat{p}$")) + theme(axis.title.y = element_text(angle = 0))
 }
 
 grid.arrange(plots[[1]], plots[[2]], plots[[3]], plots[[4]], plots[[5]], widths = c(1,1), layout_matrix = rbind(c(1,2), c(3,4), c(5,5)))
