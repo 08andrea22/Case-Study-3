@@ -14,6 +14,7 @@ library(gridExtra)
 library(tibble)
 library(rstanarm)
 library(latex2exp)
+
 ```
 
 # data
@@ -26,6 +27,7 @@ load("cardiomort.RData")
 # subsetting into overall and categories
 
 ```{r}
+# cardio data
 cardio_ov <- cardio[cardio$`Procedure Type` == "Overall", ]
 cardio_cat <- cardio[cardio$`Procedure Type` != "Overall", ]
 
@@ -38,6 +40,9 @@ cardio_cat$category <- recode(cardio_cat$category,
        "STAT Mortality Category 4" = 4,
        "STAT Mortality Category 5" = 5)
 cardio_cat$category <- as.factor(cardio_cat$category)
+
+# hospital covariates
+hosp <- read.csv("hosp.csv")
 ```
 
 
@@ -152,6 +157,14 @@ write.csv(hosp, "hosp.csv", row.names = F)
 
 ```
 
+# EDA with the other hospital covariates
+
+```{r}
+
+
+```
+
+
 # Bayesian Hospital Compare Model (Reference Model)
 
 ```{r}
@@ -160,7 +173,9 @@ hosp_comp <- stan_glmer(cbind(deaths, procedures - deaths) ~ category + name + (
                    data = cardio_cat,
                    family = binomial(link = "logit"),
                    chains = 2,
-                   iter = 5000)
+                   iter = 1000,
+                   control = list(adapt_delta = 0.85))
+saveRDS(hosp_comp, "hosp_comp.rds")
 names <- rownames(summary(hosp_comp))
 intercepts <- names[grepl("b[(Intercept)", names, fixed = TRUE)]
 alpha <- as.matrix(hosp_comp, pars = intercepts)
@@ -191,4 +206,5 @@ ggplot(data = ahat, aes(x = procedures, y = alpha_hat)) + geom_point() + labs(ti
 
 
 ```
+
 
