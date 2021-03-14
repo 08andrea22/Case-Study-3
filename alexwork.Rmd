@@ -157,7 +157,7 @@ write.csv(hosp, "hosp.csv", row.names = F)
 
 # changing NAs in rankings
 hosp <- hosp %>% replace_na(list("top50_ped_anyspecialty" = 0, "top50_ped_cardio" = 0, "top50_ped_pulm" = 0))
-write.csv(hosp, "hosp.csv")
+write.csv(hosp, "hosp.csv", row.names = F)
 
 ```
 
@@ -179,6 +179,12 @@ ggplot(data.frame(Beds = hosp[!is.na(hosp$nbassinets), ]$nbeds, Procedures = car
 ggplot(data.frame(Beds = hosp[!is.na(hosp$nbassinets), ]$nbeds, Deaths = cardio_ov[!is.na(hosp$nbassinets), ]$`Observed Deaths`), aes (x = Beds, y = Deaths)) + geom_point()
 
 # cardiology rank
+colnames(cardio_ov) <- c("id", "hospital", "type", "deaths", "procedures", "EMR")
+cardio_ov <- cardio_ov[ , -3]
+hosp <- full_join(cardio_ov, hosp)
+hosp <- hosp[, -6]
+write.csv(hosp, "hosp.csv", row.names = F)
+
 
 ```
 

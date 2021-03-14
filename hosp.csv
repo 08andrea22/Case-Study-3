@@ -1,83 +1,83 @@
-"","hospital","teaching","trauma_level","helipad","ped_trauma","ped_trauma_level","nbeds","npediatricbeds","nbassinets","rural","nicu","nicu_level","top50_ped_anyspecialty","top50_ped_cardio","rank_ped_cardio","top50_ped_pulm","rank_ped_pulm"
-"1","Advocate Children's Hospital",1,1,1,0,0,409,259,150,0,1,3,1,1,25,0,NA
-"2","Akron Children's Hospital",1,2,1,1,2,289,289,59,0,1,3,1,0,1,0,NA
-"3","Albany Medical Center",1,1,1,1,2,734,125,NA,0,1,4,0,0,NA,0,NA
-"4","Alfred I. duPont Hospital for Children",1,1,0,1,1,208,208,36,0,1,4,1,0,NA,0,NA
-"5","American Family Children's Hospital-University of Wisconsin Hospitals and Clinics",1,1,0,1,1,111,111,26,0,1,4,1,1,36,1,NA
-"6","Ann & Robert H. Lurie Children's Hospital of Chicago",1,1,1,1,1,312,312,64,0,1,4,1,1,18,1,19
-"7","Arkansas Children's Hospital",1,1,1,1,1,336,336,104,0,1,4,1,1,49,1,34
-"8","Arnold Palmer Medical Center",1,1,1,1,1,158,158,142,0,1,3,1,1,40,0,NA
-"9","Boston Children's Hospital",1,1,1,1,1,404,404,24,0,1,4,1,1,4,1,1
-"10","C.S. Mott Children's Hospital - University of Michigan",1,1,1,1,1,348,348,52,0,1,4,1,1,24,1,18
-"11","Children's Health Medical Center Dallas",1,1,1,1,1,490,490,47,0,1,4,1,0,NA,1,25
-"12","Children's Healthcare of Atlanta",1,1,1,1,1,295,295,84,0,1,4,1,1,26,1,17
-"13","Children's Hospital & Medical Center",1,2,0,1,2,145,145,40,0,1,4,1,1,39,1,50
-"14","Children's Hospital Colorado",1,1,1,1,1,434,434,49,0,1,4,1,1,6,1,5
-"15","Children's Hospital New Orleans",1,1,1,1,1,229,229,36,0,1,4,0,0,NA,0,NA
-"16","Children's Hospital of Illinois",1,1,1,1,1,144,144,64,0,1,3,1,0,NA,0,NA
-"17","Children's Hospital of Los Angeles",1,1,1,1,1,495,495,58,0,1,4,1,1,3,1,12
-"18","Children's Hospital of Michigan",1,1,1,1,1,227,227,40,0,1,4,1,1,47,0,NA
-"19","Children's Hospital of Philadelphia",1,1,1,1,1,594,594,95,0,1,4,1,1,7,1,2
-"20","Children's Hospital of Pittsburgh",1,1,1,1,1,315,315,77,0,1,4,1,1,3,1,6
-"21","Children's Hospital of the King's Daughters",1,1,1,1,1,206,206,70,0,1,4,0,0,NA,0,NA
-"22","Children's Hospital of Wisconsin",1,1,1,1,1,298,298,70,0,1,4,1,1,18,1,15
-"23","Children's Hospitals and Clinics of Minnesota",1,1,1,1,1,381,381,200,0,1,4,1,0,NA,1,44
-"24","Children's Memorial Hermann Hospital",1,1,1,1,1,310,234,118,0,1,4,1,1,22,0,NA
-"25","Children's Mercy Kansas City",1,1,1,1,1,367,367,80,0,1,4,1,1,23,1,35
-"26","CHOC Children's Hospital",1,2,1,1,2,316,316,91,0,1,4,1,0,NA,1,27
-"27","Cincinnati Children's Hospital Medical Center",1,1,1,1,1,692,692,59,0,1,4,1,1,14,1,4
-"28","Cleveland Clinic",1,1,1,1,1,389,389,72,0,1,3,1,1,15,1,32
-"29","CMC-Levine Children's Hospital",1,1,1,1,1,234,234,85,0,1,4,1,1,35,1,35
-"30","Cohen Children's Medical Center of New York",1,1,1,1,1,202,202,57,0,1,4,1,0,NA,1,30
-"31","Connecticut Children's Medical Center",1,1,1,1,1,187,187,NA,0,1,4,1,0,NA,0,NA
-"32","Cook Children's Medical Center",1,2,1,1,2,430,430,99,0,1,4,1,0,NA,0,NA
-"33","Dell Children's Medical Center",1,1,1,1,1,248,248,30,0,1,4,0,0,NA,0,NA
-"34","Doernbecher Children's Hospital/Oregon Health & Science University",1,1,1,1,1,145,145,46,0,1,4,1,0,NA,0,NA
-"35","Duke University Hospital",1,1,1,1,1,957,240,67,0,1,4,1,1,35,0,NA
-"36","Florida Hospital for Children",1,1,1,1,1,198,198,81,0,1,4,1,0,NA,0,NA
-"37","Geisinger Medical Center",1,1,1,1,2,594,91,41,1,1,4,0,0,NA,0,NA
-"38","Helen DeVos Children's Hospital",1,1,1,1,1,241,241,108,0,1,4,1,1,34,1,45
-"39","Inova Children's Hospital",1,1,1,1,1,226,226,108,1,1,4,0,0,NA,0,NA
-"40","Jackson Memorial Hospital",1,1,1,1,1,1550,245,126,0,1,3,1,0,NA,0,NA
-"41","Joe DiMaggio Children's Hospital",1,1,1,1,1,226,226,84,0,1,3,1,1,48,0,NA
-"42","Johns Hopkins All Children's Hospital",1,2,1,1,2,259,NA,97,0,1,4,1,0,NA,1,47
-"43","Le Bonheur Children's Hospital",1,1,1,1,1,255,NA,60,0,1,4,1,1,13,1,46
-"44","Loma Linda University Medical Center and Children's Hospital",1,1,1,1,1,343,NA,84,0,1,4,0,0,NA,0,NA
-"45","Maine Medical Center",1,1,1,1,1,116,NA,31,0,1,3,0,0,NA,0,NA
-"46","Mayo Clinic Hospital - Rochester",1,1,1,1,1,148,NA,NA,0,1,NA,1,1,42,0,NA
-"47","Mercy Medical Center",1,2,1,1,2,178,NA,NA,0,1,3,0,0,NA,0,NA
-"48","Mount Sinai Hospital",1,1,1,1,1,102,102,NA,0,1,4,1,0,NA,0,NA
-"49","MUSC Children's Hospital",1,1,1,1,1,250,NA,66,0,1,4,1,1,10,0,NA
-"50","Nationwide Children's Hospital",1,1,1,1,1,673,NA,114,0,1,4,1,1,32,1,6
-"51","Nemours Children's Hospital",1,2,1,1,2,130,NA,NA,0,1,3,0,0,NA,0,NA
-"52","New York Presbyterian / Morgan Stanley Children's Hospital",1,1,NA,1,1,299,27,62,0,1,4,1,1,21,1,20
-"53","Nicklaus Children's Hospital",1,1,1,1,1,309,NA,40,0,1,3,1,1,46,1,35
-"54","Norton Children's Hospital",1,1,1,1,1,300,NA,101,0,1,4,1,0,NA,0,NA
-"55","Ochsner Health System",1,1,1,1,1,125,71,54,0,1,4,1,1,42,0,NA
-"56","Penn State Children's Hospital",1,1,1,1,1,134,72,42,0,1,4,1,1,16,1,38
-"57","Phoenix Children's Hospital",1,1,1,1,1,433,46,33,0,1,3,1,0,NA,1,37
-"58","Primary Children's Hospital",1,1,1,1,1,289,160,50,0,1,4,1,1,44,0,NA
-"59","Providence Sacred Heart Medical Center and Children's Hospital",1,1,1,1,1,632,177,NA,0,1,4,0,0,NA,0,NA
-"60","Rady Children's Hospital San Diego",1,1,1,1,1,505,NA,60,0,1,4,1,1,21,1,18
-"61","Rainbow Babies & Children's Hospital",1,1,0,1,1,244,NA,NA,0,1,4,1,0,NA,1,20
-"62","Randall Children's Hospital at Legacy Emanuel",1,1,1,1,1,165,24,45,0,1,4,1,0,NA,1,14
-"63","Riley Hospital for Children at Indiana University Health",1,1,1,1,1,465,NA,60,0,1,4,1,1,5,1,14
-"64","Seattle Children's Hospital",1,1,1,1,1,407,59,32,0,1,4,1,1,16,1,10
-"65","SSM Health Cardinal Glennon Children's Hospital",1,1,1,1,1,195,NA,65,0,1,4,1,1,45,1,48
-"66","St. Christopher's Hospital for Children",1,1,1,1,1,189,NA,NA,0,1,4,1,0,NA,0,NA
-"67","St. Joseph's Children's Hospital BayCare Health System",1,2,1,1,2,219,NA,64,0,1,4,1,1,17,1,8
-"68","St. Louis Children's Hospital",1,1,NA,1,1,402,NA,122,0,1,4,1,0,NA,1,5
-"69","Sutter Medical Center, Sacramento: Women's and Children's Center",1,NA,1,1,NA,242,60,NA,0,1,NA,1,0,NA,0,NA
-"70","Texas Children's Hospital",1,1,1,1,1,973,NA,173,0,1,4,1,1,1,1,3
-"71","The Children's Hospital of Alabama",1,1,1,1,1,332,NA,48,0,1,4,1,1,28,1,29
-"72","The Johns Hopkins Hospital",1,1,1,1,1,196,137,45,0,1,4,1,1,29,1,20
-"73","UC Davis Medical Center",1,1,1,1,1,129,72,49,0,1,4,1,1,36,1,29
-"74","UCLA Mattel Children's Hospital",1,1,1,1,1,156,62,22,0,1,4,1,0,NA,0,NA
-"75","UCSF Benioff Children's Hospital",1,1,1,1,1,183,NA,50,0,1,4,1,0,NA,0,NA
-"76","UF Health Shands Children's Hospital",1,1,1,1,NA,208,NA,52,0,1,4,1,1,12,0,NA
-"77","University Hospital",1,1,1,1,1,244,244,NA,0,1,4,1,0,NA,1,14
-"78","University of Kentucky Healthcare",1,1,NA,1,1,149,28,90,0,1,4,1,1,14,0,NA
-"79","University of Maryland Children's Hospital",1,1,1,1,1,123,19,52,0,1,4,1,1,1,0,NA
-"80","University of Minnesota Masonic Children's Hospital",1,3,NA,1,3,212,NA,NA,0,1,4,1,0,NA,0,NA
-"81","University of Virginia Children's Hospital",1,1,1,1,1,105,54,51,0,1,4,1,1,37,0,NA
-"82","Yale-New Haven Children's Hospital",1,1,1,1,1,202,NA,NA,0,1,4,1,0,NA,1,43
+"id","hospital","deaths","procedures","EMR","teaching","trauma_level","helipad","ped_trauma","ped_trauma_level","nbeds","npediatricbeds","nbassinets","rural","nicu","nicu_level","top50_ped_anyspecialty","top50_ped_cardio","rank_ped_cardio","top50_ped_pulm","rank_ped_pulm"
+"1548375082","Advocate Children's Hospital",20,1222,0.026,1,1,1,0,0,409,259,150,0,1,3,1,1,25,0,NA
+"1861506560","Akron Children's Hospital",8,376,0.016,1,2,1,1,2,289,289,59,0,1,3,1,0,1,0,NA
+"1376577247","Albany Medical Center",5,308,0.023,1,1,1,1,2,734,125,NA,0,1,4,0,0,NA,0,NA
+"1467505073","Alfred I. duPont Hospital for Children",20,632,0.045,1,1,0,1,1,208,208,36,0,1,4,1,0,NA,0,NA
+"1922043744","American Family Children's Hospital-University of Wisconsin Hospitals and Clinics",6,396,0.029,1,1,0,1,1,111,111,26,0,1,4,1,1,36,1,NA
+"1235234535","Ann & Robert H. Lurie Children's Hospital of Chicago",20,1260,0.024,1,1,1,1,1,312,312,64,0,1,4,1,1,18,1,19
+"1194776757","Arkansas Children's Hospital",32,925,0.031,1,1,1,1,1,336,336,104,0,1,4,1,1,49,1,34
+"1184709057","Arnold Palmer Medical Center",11,463,0.04,1,1,1,1,1,158,158,142,0,1,3,1,1,40,0,NA
+"1710087127","Boston Children's Hospital",105,3823,0.029,1,1,1,1,1,404,404,24,0,1,4,1,1,4,1,1
+"1003878539","C.S. Mott Children's Hospital - University of Michigan",71,1951,0.039,1,1,1,1,1,348,348,52,0,1,4,1,1,24,1,18
+"1194743013","Children's Health Medical Center Dallas",33,1470,0.026,1,1,1,1,1,490,490,47,0,1,4,1,0,NA,1,25
+"1689744450","Children's Healthcare of Atlanta",106,2634,0.029,1,1,1,1,1,295,295,84,0,1,4,1,1,26,1,17
+"1346297843","Children's Hospital & Medical Center",37,996,0.037,1,2,0,1,2,145,145,40,0,1,4,1,1,39,1,50
+"1336245828","Children's Hospital Colorado",44,1640,0.029,1,1,1,1,1,434,434,49,0,1,4,1,1,6,1,5
+"1104819366","Children's Hospital New Orleans",29,659,0.033,1,1,1,1,1,229,229,36,0,1,4,0,0,NA,0,NA
+"1790734127","Children's Hospital of Illinois",9,466,0.022,1,1,1,1,1,144,144,64,0,1,3,1,0,NA,0,NA
+"1366527954","Children's Hospital of Los Angeles",73,2442,0.035,1,1,1,1,1,495,495,58,0,1,4,1,1,3,1,12
+"1538471800","Children's Hospital of Michigan",27,784,0.029,1,1,1,1,1,227,227,40,0,1,4,1,1,47,0,NA
+"1760562581","Children's Hospital of Philadelphia",85,2546,0.032,1,1,1,1,1,594,594,95,0,1,4,1,1,7,1,2
+"1164426896","Children's Hospital of Pittsburgh",24,1239,0.035,1,1,1,1,1,315,315,77,0,1,4,1,1,3,1,6
+"1912919481","Children's Hospital of the King's Daughters",10,287,0.014,1,1,1,1,1,206,206,70,0,1,4,0,0,NA,0,NA
+"1750482022","Children's Hospital of Wisconsin",32,1347,0.032,1,1,1,1,1,298,298,70,0,1,4,1,1,18,1,15
+"1881793750","Children's Hospitals and Clinics of Minnesota",42,1129,0.031,1,1,1,1,1,381,381,200,0,1,4,1,0,NA,1,44
+"1982666111","Children's Memorial Hermann Hospital",21,787,0.042,1,1,1,1,1,310,234,118,0,1,4,1,1,22,0,NA
+"1366515488","Children's Mercy Kansas City",29,1314,0.026,1,1,1,1,1,367,367,80,0,1,4,1,1,23,1,35
+"1811080526","CHOC Children's Hospital",10,587,0.022,1,2,1,1,2,316,316,91,0,1,4,1,0,NA,1,27
+"1609915784","Cincinnati Children's Hospital Medical Center",54,1362,0.036,1,1,1,1,1,692,692,59,0,1,4,1,1,14,1,4
+"1679525919","Cleveland Clinic",14,792,0.021,1,1,1,1,1,389,389,72,0,1,3,1,1,15,1,32
+"1699829887","CMC-Levine Children's Hospital",28,1177,0.033,1,1,1,1,1,234,234,85,0,1,4,1,1,35,1,35
+"1174530349","Cohen Children's Medical Center of New York",11,398,0.021,1,1,1,1,1,202,202,57,0,1,4,1,0,NA,1,30
+"1215947387","Connecticut Children's Medical Center",1,251,0.018,1,1,1,1,1,187,187,NA,0,1,4,1,0,NA,0,NA
+"1891765178","Cook Children's Medical Center",31,1166,0.039,1,2,1,1,2,430,430,99,0,1,4,1,0,NA,0,NA
+"1447355771","Dell Children's Medical Center",11,401,0.011,1,1,1,1,1,248,248,30,0,1,4,0,0,NA,0,NA
+"1609824010","Doernbecher Children's Hospital/Oregon Health & Science University",20,732,0.027,1,1,1,1,1,145,145,46,0,1,4,1,0,NA,0,NA
+"1992703540","Duke University Hospital",38,926,0.029,1,1,1,1,1,957,240,67,0,1,4,1,1,35,0,NA
+"1457500191","Florida Hospital for Children",14,428,0.022,1,1,1,1,1,198,198,81,0,1,4,1,0,NA,0,NA
+"1235215427","Geisinger Medical Center",0,116,0.013,1,1,1,1,2,594,91,41,1,1,4,0,0,NA,0,NA
+"1922090554","Helen DeVos Children's Hospital",8,698,0.03,1,1,1,1,1,241,241,108,0,1,4,1,1,34,1,45
+"1831220714","Inova Children's Hospital",21,496,0.019,1,1,1,1,1,226,226,108,1,1,4,0,0,NA,0,NA
+"1225033020","Jackson Memorial Hospital",12,332,0.02,1,1,1,1,1,1550,245,126,0,1,3,1,0,NA,0,NA
+"1306177589","Joe DiMaggio Children's Hospital",21,569,0.029,1,1,1,1,1,226,226,84,0,1,3,1,1,48,0,NA
+"1427114099","Johns Hopkins All Children's Hospital",25,705,0.029,1,2,1,1,2,259,NA,97,0,1,4,1,0,NA,1,47
+"1386709871","Le Bonheur Children's Hospital",24,1018,0.038,1,1,1,1,1,255,NA,60,0,1,4,1,1,13,1,46
+"1194731935","Loma Linda University Medical Center and Children's Hospital",32,725,0.032,1,1,1,1,1,343,NA,84,0,1,4,0,0,NA,0,NA
+"1760436216","Maine Medical Center",10,316,0.016,1,1,1,1,1,116,NA,31,0,1,3,0,0,NA,0,NA
+"1841266194","Mayo Clinic Hospital - Rochester",38,1460,0.025,1,1,1,1,1,148,NA,NA,0,1,NA,1,1,42,0,NA
+"1508964883","Mercy Medical Center",5,380,0.018,1,2,1,1,2,178,NA,NA,0,1,3,0,0,NA,0,NA
+"1932103413","Mount Sinai Hospital",18,512,0.019,1,1,1,1,1,102,102,NA,0,1,4,1,0,NA,0,NA
+"1073605879","MUSC Children's Hospital",22,1152,0.03,1,1,1,1,1,250,NA,66,0,1,4,1,1,10,0,NA
+"1093894131","Nationwide Children's Hospital",61,1399,0.032,1,1,1,1,1,673,NA,114,0,1,4,1,1,32,1,6
+"1881944346","Nemours Children's Hospital",1,110,0.01,1,2,1,1,2,130,NA,NA,0,1,3,0,0,NA,0,NA
+"1194832477","New York Presbyterian / Morgan Stanley Children's Hospital",58,2420,0.025,1,1,NA,1,1,299,27,62,0,1,4,1,1,21,1,20
+"1871540237","Nicklaus Children's Hospital",36,952,0.03,1,1,1,1,1,309,NA,40,0,1,3,1,1,46,1,35
+"1982609442","Norton Children's Hospital",34,879,0.028,1,1,1,1,1,300,NA,101,0,1,4,1,0,NA,0,NA
+"1811973100","Ochsner Health System",9,374,0.021,1,1,1,1,1,125,71,54,0,1,4,1,1,42,0,NA
+"1568435477","Penn State Children's Hospital",5,581,0.029,1,1,1,1,1,134,72,42,0,1,4,1,1,16,1,38
+"1760480503","Phoenix Children's Hospital",23,1572,0.03,1,1,1,1,1,433,46,33,0,1,3,1,0,NA,1,37
+"1235148594","Primary Children's Hospital",46,1377,0.025,1,1,1,1,1,289,160,50,0,1,4,1,1,44,0,NA
+"1891947263","Providence Sacred Heart Medical Center and Children's Hospital",10,479,0.025,1,1,1,1,1,632,177,NA,0,1,4,0,0,NA,0,NA
+"1710065933","Rady Children's Hospital San Diego",30,1136,0.029,1,1,1,1,1,505,NA,60,0,1,4,1,1,21,1,18
+"1518042175","Rainbow Babies & Children's Hospital",3,148,0.023,1,1,0,1,1,244,NA,NA,0,1,4,1,0,NA,1,20
+"1831112358","Randall Children's Hospital at Legacy Emanuel",9,502,0.017,1,1,1,1,1,165,24,45,0,1,4,1,0,NA,1,14
+"1295928299","Riley Hospital for Children at Indiana University Health",33,1409,0.037,1,1,1,1,1,465,NA,60,0,1,4,1,1,5,1,14
+"1467536276","Seattle Children's Hospital",36,1426,0.029,1,1,1,1,1,407,59,32,0,1,4,1,1,16,1,10
+"1255664645","SSM Health Cardinal Glennon Children's Hospital",20,782,0.032,1,1,1,1,1,195,NA,65,0,1,4,1,1,45,1,48
+"1114959582","St. Christopher's Hospital for Children",10,223,0.031,1,1,1,1,1,189,NA,NA,0,1,4,1,0,NA,0,NA
+"1881632818","St. Joseph's Children's Hospital BayCare Health System",12,512,0.024,1,2,1,1,2,219,NA,64,0,1,4,1,1,17,1,8
+"1992727663","St. Louis Children's Hospital",29,1060,0.026,1,1,NA,1,1,402,NA,122,0,1,4,1,0,NA,1,5
+"1811946734","Sutter Medical Center, Sacramento: Women's and Children's Center",10,371,0.019,1,NA,1,1,NA,242,60,NA,0,1,NA,1,0,NA,0,NA
+"1477643690","Texas Children's Hospital",43,2703,0.029,1,1,1,1,1,973,NA,173,0,1,4,1,1,1,1,3
+"1205935012","The Children's Hospital of Alabama",35,1149,0.032,1,1,1,1,1,332,NA,48,0,1,4,1,1,28,1,29
+"1780665315","The Johns Hopkins Hospital",18,859,0.025,1,1,1,1,1,196,137,45,0,1,4,1,1,29,1,20
+"1710918545","UC Davis Medical Center",11,327,0.022,1,1,1,1,1,129,72,49,0,1,4,1,1,36,1,29
+"1609131655","UCLA Mattel Children's Hospital",15,521,0.025,1,1,1,1,1,156,62,22,0,1,4,1,0,NA,0,NA
+"1689772592","UCSF Benioff Children's Hospital",24,1211,0.025,1,1,1,1,1,183,NA,50,0,1,4,1,0,NA,0,NA
+"1699874248","UF Health Shands Children's Hospital",7,824,0.022,1,1,1,1,NA,208,NA,52,0,1,4,1,1,12,0,NA
+"1821011248","University Hospital",14,490,0.029,1,1,1,1,1,244,244,NA,0,1,4,1,0,NA,1,14
+"1518911338","University of Kentucky Healthcare",0,27,0.007,1,1,NA,1,1,149,28,90,0,1,4,1,1,14,0,NA
+"1174660120","University of Maryland Children's Hospital",6,494,0.021,1,1,1,1,1,123,19,52,0,1,4,1,1,1,0,NA
+"1013994359","University of Minnesota Masonic Children's Hospital",18,483,0.021,1,3,NA,1,3,212,NA,NA,0,1,4,1,0,NA,0,NA
+"1780630608","University of Virginia Children's Hospital",27,740,0.036,1,1,1,1,1,105,54,51,0,1,4,1,1,37,0,NA
+"1336139500","Yale-New Haven Children's Hospital",4,271,0.014,1,1,1,1,1,202,NA,NA,0,1,4,1,0,NA,1,43
