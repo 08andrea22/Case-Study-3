@@ -31,6 +31,8 @@ load("cardiomort.RData")
 # cardio data
 cardio_ov <- cardio[cardio$`Procedure Type` == "Overall", ]
 cardio_cat <- cardio[cardio$`Procedure Type` != "Overall", ]
+colnames(cardio_ov) <- c("id", "hospital", "type", "deaths", "procedures", "EMR")
+cardio_ov <- cardio_ov[ , -3]
 
 colnames(cardio_cat) <- c("id", "name", "category", "deaths", "procedures", "EMR")
 cardio_cat$category <- as.factor(cardio_cat$category)
@@ -76,40 +78,40 @@ In the whole data, we see that the ranking of number of deaths for each category
 # Summary Statistics of Volume
 
 ```{r}
-quantile(cardio_ov$`Total Procedures`, c(0.025, 0.5, 0.975))
+quantile(cardio_ov$procedures, c(0.025, 0.5, 0.975))
 ```
 The median number of procedures is 761. 
 
 ```{r}
-ggplot(data.frame("Procedures" = cardio_ov$`Total Procedures`), aes(x = Procedures)) + geom_histogram()
+ggplot(data.frame("Procedures" = cardio_ov$procedures), aes(x = Procedures)) + geom_histogram()
 ```
 We can see that most hospitals have fewer than 2,000 cases, though some have above that. The distribution of the procedures is multimodal and right skewed, with the largest mode occurring between 500 and 1,000 procedures.
 
 # Summary Statistics of Death
 
 ```{r}
-quantile(cardio_ov$`Observed Deaths`, c(0.025, 0.5, 0.975))
+quantile(cardio_ov$deaths, c(0.025, 0.5, 0.975))
 ```
 The median number of deaths is 20. 
 
 ```{r}
-ggplot(data.frame("Deaths" = cardio_ov$`Observed Deaths`), aes(x = Deaths)) + geom_histogram()
+ggplot(data.frame("Deaths" = cardio_ov$deaths), aes(x = Deaths)) + geom_histogram()
 ```
 Similarly, the distribution of deaths is right skwed, with multiple modes in between - and 45 deaths.
 
 # Summary Statistics of Volume and Deaths
 
 ```{r}
-ggplot(data = cardio_ov, aes(x = `Total Procedures`, y = `Observed Deaths`)) + geom_point()
+ggplot(data = cardio_ov, aes(x = procedures, y = deaths)) + geom_point()
 ```
 In the aggregated data, it does seem that the total number of procedures is positively correlated with the number of deaths (makes sense).
 
 Let's replicate the same graph from the paper.
 
 ```{r}
-cardio_ov$mort_rate <- cardio_ov$`Observed Deaths`/cardio_ov$`Total Procedures`
+cardio_ov$mort_rate <- cardio_ov$deaths/cardio_ov$procedures
 
-ggplot(data = cardio_ov, aes(x = `Total Procedures`, y = mort_rate)) + geom_point()
+ggplot(data = cardio_ov, aes(x = procedures, y = mort_rate)) + geom_point()
 ```
 Similar to the paper, the variation in $\mathcal{O}_h$ is highest at hospitals with fewer total procedures. However, we don't quite see the same dramatic decrease they have in the paper (probably because we're focusing on different conditions). 
 
@@ -124,7 +126,7 @@ And from this we can see which are the most deadly categories.
 ```{r}
 cardio_cat$mort_rate <- cardio_cat$deaths/cardio_cat$procedures
 
-ggplot(data = cardio_ov, aes(x = `Total Procedures`, y = mort_rate)) + geom_point()
+ggplot(data = cardio_ov, aes(x = procedures, y = mort_rate)) + geom_point()
 ```
 ```{r}
 plots <- list()
@@ -165,25 +167,57 @@ write.csv(hosp, "hosp.csv", row.names = F)
 
 ```{r}
 # beds
-ggplot(hosp, aes(x = nbeds)) + geom_histogram(bins = 35, color = "blue", fill = "skyblue1") + xlab("Hospital Beds") + ylab("Count") 
+ggplot(hosp, aes(x = nbeds)) + geom_histogram(bins = 35, color = "blue", fill = "skyblue1") + xlab("Hospital Beds") + ylab("Count") +
+  labs(title = "Histogram of Hospital Beds")
 
-ggplot(data.frame(Beds = hosp$nbeds, Procedures = cardio_ov$`Total Procedures`), aes (x = Beds, y = Procedures)) + geom_point()
+ggplot(data.frame(Beds = hosp$nbeds, Procedures = cardio_ov$procedures), aes (x = Beds, y = Procedures)) + geom_point() +
+  labs(title = "Procedures Against Hospital Beds")
 
-ggplot(data.frame(Beds = hosp$nbeds, Deaths = cardio_ov$`Observed Deaths`), aes (x = Beds, y = Deaths)) + geom_point()
+ggplot(data.frame(Beds = hosp$nbeds, Deaths = cardio_ov$deaths), aes (x = Beds, y = Deaths)) + geom_point() +
+  labs(title = "Deaths Against Hospital Beds")
 
 # bassinets
-ggplot(hosp[!is.na(hosp$nbassinets), ], aes(x = nbassinets)) + geom_histogram(bins = 35, color = "red", fill = "pink") + xlab("NICU Beds") + ylab("Count") 
+ggplot(hosp[!is.na(hosp$nbassinets), ], aes(x = nbassinets)) + geom_histogram(bins = 35, color = "red", fill = "pink") + xlab("NICU Beds") + ylab("Count") +
+  labs(title = "Histogram of NICU Beds")
 
-ggplot(data.frame(Beds = hosp[!is.na(hosp$nbassinets), ]$nbeds, Procedures = cardio_ov[!is.na(hosp$nbassinets), ]$`Total Procedures`), aes (x = Beds, y = Procedures)) + geom_point() + xlab("NICU Beds")
+ggplot(data.frame(Beds = hosp[!is.na(hosp$nbassinets), ]$nbeds, Procedures = cardio_ov[!is.na(hosp$nbassinets), ]$procedures), aes (x = Beds, y = Procedures)) + geom_point() + xlab("NICU Beds") +
+  labs(title = "Procedures Against NICU Beds")
 
-ggplot(data.frame(Beds = hosp[!is.na(hosp$nbassinets), ]$nbeds, Deaths = cardio_ov[!is.na(hosp$nbassinets), ]$`Observed Deaths`), aes (x = Beds, y = Deaths)) + geom_point()
+ggplot(data.frame(Beds = hosp[!is.na(hosp$nbassinets), ]$nbeds, Deaths = cardio_ov[!is.na(hosp$nbassinets), ]$deaths), aes (x = Beds, y = Deaths)) + geom_point() +
+  xlab("NICU Beds") + labs(title = "Deaths Against NICU Beds")
+
+# overall rank
+ggplot(hosp, aes(x = as.factor(top50_ped_anyspecialty),y = procedures, fill = as.factor(top50_ped_anyspecialty))) + geom_boxplot() + 
+  labs(title = "Procedures Compared to Ranking Indicator", fill = "Ranked in Top 50") + scale_fill_discrete(labels = c("No", "Yes")) + ylab("Procedures") + xlab("Ranked Indicator")
+
+ggplot(hosp, aes(x = as.factor(top50_ped_anyspecialty),y = deaths, fill = as.factor(top50_ped_anyspecialty))) + geom_boxplot() + 
+  labs(title = "Deaths Compared to Ranking Indicator", fill = "Ranked in Top 50") + scale_fill_discrete(labels = c("No", "Yes")) + ylab("Deaths") + xlab("Ranked Indicator")
 
 # cardiology rank
-colnames(cardio_ov) <- c("id", "hospital", "type", "deaths", "procedures", "EMR")
-cardio_ov <- cardio_ov[ , -3]
-hosp <- full_join(cardio_ov, hosp)
-hosp <- hosp[, -6]
-write.csv(hosp, "hosp.csv", row.names = F)
+
+ggplot(hosp, aes(x = as.factor(top50_ped_cardio), y = deaths, fill = as.factor(top50_ped_cardio))) + geom_boxplot() + 
+  labs(title = "Procedures Compared to Ranking Indicator for Cardiology", fill = "Ranked in Top 50 for Cardiology") + scale_fill_discrete(labels = c("No", "Yes")) + ylab("Deaths") + xlab("Ranked Indicator")
+
+
+ggplot(hosp[!is.na(hosp$rank_ped_cardio), ], aes(x = rank_ped_cardio, y = procedures)) + geom_point() + 
+  xlab("Cardiology Ranking") + ylab("Procedures") + labs(title = "Procedures Against Cardiology Ranking")
+
+ggplot(hosp[!is.na(hosp$rank_ped_cardio), ], aes(x = rank_ped_cardio, y = deaths)) + geom_point() + 
+  xlab("Cardiology Ranking") + ylab("Deaths") + labs(title = "Deaths Against Cardiology Ranking")
+
+
+# pulmonology rank
+
+ggplot(hosp, aes(x = as.factor(top50_ped_pulm), y = deaths, fill = as.factor(top50_ped_pulm))) + geom_boxplot() + 
+  labs(title = "Procedures Compared to Ranking Indicator for Pulmonology", fill = "Ranked in Top 50 for Cardiology") + scale_fill_discrete(labels = c("No", "Yes")) + ylab("Deaths") + xlab("Ranked Indicator")
+
+
+ggplot(hosp[!is.na(hosp$rank_ped_pulm), ], aes(x = rank_ped_cardio, y = procedures)) + geom_point() + 
+  xlab("Pulmonology Ranking") + ylab("Procedures") + labs(title = "Procedures Against Pulmonology Ranking")
+
+ggplot(hosp[!is.na(hosp$rank_ped_pulm), ], aes(x = rank_ped_cardio, y = deaths)) + geom_point() + 
+  xlab("Pulmonology Ranking") + ylab("Deaths") + labs(title = "Deaths Against Pulmonology Ranking")
+
 
 
 ```
@@ -229,7 +263,7 @@ fits <- left_join(fits, Phat)
 ggplot(data = fits, aes(x = procedures, y = P_hat)) + geom_point() + labs(title = TeX("$\\hat{P}$ Values Against Procedures"))
 
 # Figure 3(a) from Paper (not stratified)
-ahat <- data.frame("name" = cardio_ov$`Hospital Name`, "procedures" = cardio_ov$`Total Procedures`, "alpha_hat" = alpha_means)
+ahat <- data.frame("name" = cardio_ov$`Hospital Name`, "procedures" = cardio_ov$procedures, "alpha_hat" = alpha_means)
 
 ggplot(data = ahat, aes(x = procedures, y = alpha_hat)) + geom_point() + labs(title = TeX("$\\hat{\\alpha}$ Values Against Procedures"))
 
