@@ -10,6 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyr)
 library(dplyr)
 library(ggplot2)
+library(reshape2)
 ```
 
 Load the data
@@ -28,11 +29,12 @@ Data cleaning
 ```{r}
 df = cardio %>%
   group_by(`Hospital Name`) %>%
-  summarize(volume = max(`Total Procedures`)) %>%
+  summarize(volume = max(`Total Procedures`), overall_deaths = max(`Observed Deaths`)) %>%
   right_join(cardio) %>%
   mutate(category = sub("STAT Mortality ", "", `Procedure Type`)) %>%
   select(-`Procedure Type`) %>%
-  mutate(mort_rate = `Observed Deaths` / `Total Procedures`) %>%
+  mutate(mort_rate = `Observed Deaths` / `Total Procedures`, 
+         mort_rate_overall = overall_deaths/volume) %>%
   #filter(procedure!="Overall") %>%
   rename(hospital = `Hospital Name`, deaths = `Observed Deaths`, 
          procedures = `Total Procedures`, EMR = `Expected Mortality Rate`) %>%
@@ -56,14 +58,14 @@ df %>%
 Andrea's mortality rate by procedure plot
 ```{r}
 dt=df%>%
-  group_by(procedure)%>%
-  summarize(deaths=sum(`Observed Deaths`), tot=sum(`Total Procedures`))%>%
+  group_by(category)%>%
+  summarize(deaths=sum(deaths), tot=sum(procedures))%>%
   mutate(fatality=deaths/tot) %>%
-  select(procedure, fatality, ) %>%
-  filter(procedure !="Overall")
+  select(category, fatality, ) %>%
+  filter(category !="Overall")
 
 dt %>%
-  ggplot(aes(x=procedure, y=fatality))+
+  ggplot(aes(x=category, y=fatality))+
   geom_col() 
 
 
@@ -80,11 +82,45 @@ Combine hospital covariates and Dunson's data
 ```{r}
 # Drop overall category
 df1 <- filter(df,category!="Overall")
+
+# Add procedures , proportions by hospital
+cats <- dcast(melt(df1[, c(1,6,8)]), hospital  ~ category + variable)
+df1 <- inner_join(df1, cats)
+
+df1 <- df1 %>% rename(cat1 = `Category 1_procedures`, cat2 = `Category 2_procedures`, 
+               cat3 = `Category 3_procedures`, cat4 = `Category 4_procedures`, 
+               cat5 = `Category 5_procedures`, total_procedures = volume) %>%
+      mutate(prop_5 = cat5/total_procedures, prop_4 = cat4/total_procedures, 
+              prop_45 = (cat4 + cat5)/ total_procedures) %>%
+      select(hospital, id, category, procedures, deaths, mort_rate, mort_rate_overall, EMR, everything()) 
+
 hosp <- read.csv("hosp.csv", header=TRUE)
 hosp <- hosp %>% select(-c(deaths, procedures, EMR, hospital))
 hosp_full <- left_join(df1, hosp, by = "id") 
 write.csv(hosp_full, "hosp_full.csv", row.names=FALSE)
+      
+                
 ```
 
+EDA
 
+```{r}
+# cardiology rank
+
+ggplot(hosp, aes(x = as.factor(top50_ped_cardio), y = deaths, fill = as.factor(top50_ped_cardio))) + geom_boxplot() + 
+  labs(title = "Procedures Compared to Ranking Indicator for Cardiology", fill = "Ranked in Top 50 for Cardiology") + scale_fill_discrete(labels = c("No", "Yes")) + ylab("Deaths") + xlab("Ranked Indicator")
+
+# Mortality rate versus proportion of category five procedures
+
+
+
+ df1 %>% group_by(hospital)%>%
+  summarize(total_cat45=sum(deaths), tot=sum(procedures))%>%
+  mutate(fatality=deaths/tot) %>%
+  select(category, fatality, ) %>%
+  filter(category !="Overall")
+
+
+
+```
 
