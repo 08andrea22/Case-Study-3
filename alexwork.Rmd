@@ -46,6 +46,7 @@ cardio_cat$category <- as.factor(cardio_cat$category)
 
 # hospital covariates
 hosp <- read.csv("hosp.csv")
+hosp_full <- read.csv("hosp_full.csv")
 ```
 
 
@@ -139,7 +140,7 @@ grid.arrange(plots[[1]], plots[[2]], plots[[3]], plots[[4]], plots[[5]], widths 
 ```
 # Adding to Hospital Covariates
 
-```{r}
+```{r. eval = F}
 hosp_ad <- read.csv("hospital_covariates.csv")
 hosp_jk <- read.csv("hospital_covariates_jk.csv")
 hosp <- rbind(hosp_jk[1:41, colnames(hosp_ad)], hosp_ad[42:82, ])
@@ -313,16 +314,16 @@ dell
 # Bayesian Hospital Compare Model (Reference Model)
 
 ```{r}
-options(mc.cores = 2)
-hosp_comp <- stan_glmer(cbind(deaths, procedures - deaths) ~ category + name + (1|name),
-                   data = cardio_cat,
-                   family = binomial(link = "logit"),
-                   chains = 2,
-                   iter = 1000,
-                   control = list(adapt_delta = 0.85))
+#options(mc.cores = 2)
+#hosp_comp <- stan_glmer(cbind(deaths, procedures - deaths) ~ category + name + (1|name),
+                   #data = cardio_cat,
+                   #family = binomial(link = "logit"),
+                   #chains = 2,
+                   #iter = 1000,
+                   #control = list(adapt_delta = 0.85))
 
 # saving
-saveRDS(hosp_comp, "hosp_comp.rds")
+#saveRDS(hosp_comp, "hosp_comp.rds")
 
 # posterity
 hosp_comp <- readRDS("hosp_comp.rds")
@@ -350,7 +351,7 @@ fits <- left_join(fits, Phat)
 ggplot(data = fits, aes(x = procedures, y = P_hat)) + geom_point() + labs(title = TeX("$\\hat{P}$ Values Against Procedures"))
 
 # Figure 3(a) from Paper (not stratified)
-ahat <- data.frame("name" = cardio_ov$`Hospital Name`, "procedures" = cardio_ov$procedures, "alpha_hat" = alpha_means)
+ahat <- data.frame("name" = cardio_ov$hospital, "procedures" = cardio_ov$procedures, "alpha_hat" = alpha_means)
 
 ggplot(data = ahat, aes(x = procedures, y = alpha_hat)) + geom_point() + labs(title = TeX("$\\hat{\\alpha}$ Values Against Procedures"))
 
