@@ -188,10 +188,10 @@ ggplot(data.frame(Beds = hosp[!is.na(hosp$nbassinets), ]$nbeds, Deaths = cardio_
 
 # overall rank
 ggplot(hosp, aes(x = as.factor(top50_ped_anyspecialty),y = procedures, fill = as.factor(top50_ped_anyspecialty))) + geom_boxplot() + 
-  labs(title = "Procedures Compared to Ranking Indicator", fill = "Ranked in Top 50") + scale_fill_discrete(labels = c("No", "Yes")) + ylab("Procedures") + xlab("Ranked Indicator")
+  labs(title = "Procedures Compared to Ranking Indicator", fill = "Ranked in Top 50 (Any Specialty)") + scale_fill_discrete(labels = c("No", "Yes")) + ylab("Procedures") + xlab("Ranked Indicator")
 
 ggplot(hosp, aes(x = as.factor(top50_ped_anyspecialty),y = deaths, fill = as.factor(top50_ped_anyspecialty))) + geom_boxplot() + 
-  labs(title = "Deaths Compared to Ranking Indicator", fill = "Ranked in Top 50") + scale_fill_discrete(labels = c("No", "Yes")) + ylab("Deaths") + xlab("Ranked Indicator")
+  labs(title = "Deaths Compared to Ranking Indicator", fill = "Ranked in Top 50 (Any Specialty)") + scale_fill_discrete(labels = c("No", "Yes")) + ylab("Deaths") + xlab("Ranked Indicator")
 
 # cardiology rank
 
@@ -222,6 +222,93 @@ ggplot(hosp[!is.na(hosp$rank_ped_pulm), ], aes(x = rank_ped_cardio, y = deaths))
 
 ```
 
+
+# Lets combine some earlier plots with the hospital covariates
+
+```{r}
+
+# observed mortality rate with ranking (overall)
+
+
+## any specialty
+ggplot(data = hosp, aes(x = procedures, y = mort_rate)) + geom_point(aes(color = as.factor(top50_ped_anyspecialty)), size = 2) + labs(title = "Observed Mortality Rate", color = "Ranked in Top 50 (Any Specialty)") + scale_color_discrete(labels = c("No", "Yes")) + ylab("Mortality Rate") + xlab("Procedures")
+
+## cardiology
+ggplot(data = hosp, aes(x = procedures, y = mort_rate)) + geom_point(aes(color = as.factor(top50_ped_cardio)), size = 2) + labs(title = "Observed Mortality Rate (Top Ranked in Cardiology)", color = "Ranked in Top 50 in Cardiology") + scale_color_discrete(labels = c("No", "Yes")) + ylab("Mortality Rate") + xlab("Procedures")
+
+ggplot(data = hosp[!is.na(hosp$rank_ped_cardio), ], aes(x = procedures, y = mort_rate)) + geom_point(aes(color = rank_ped_cardio), size = 2) + labs(title = "Observed Mortality Rate (Top Ranked in Cardiology)", color = "Cardiology Rank") + ylab("Mortality Rate") + xlab("Procedures") + scale_color_viridis_c(option = "A")
+
+## pulmonology
+ggplot(data = hosp, aes(x = procedures, y = mort_rate)) + geom_point(aes(color = as.factor(top50_ped_pulm)), size = 2) + labs(title = "Observed Mortality Rate (Top Ranked in Pulmonology)", color = "Ranked in Top 50 in Pulmonology") + scale_color_discrete(labels = c("No", "Yes")) + ylab("Mortality Rate") + xlab("Procedures")
+
+ggplot(data = hosp[!is.na(hosp$rank_ped_pulm), ], aes(x = procedures, y = mort_rate)) + geom_point(aes(color = rank_ped_pulm), size = 2) + labs(title = "Observed Mortality Rate (Top Ranked in Pulmonology)", color = "Pulmonology Rank") + ylab("Mortality Rate") + xlab("Procedures") + scale_color_viridis_c(option = "B")
+
+# observed mortality rate with ranking (by category)
+
+## any specialty
+
+plots <- list()
+for (j in 1:5) {
+  plots[[j]] <- ggplot(data = hosp_full[hosp_full$category == paste("Category", toString(j)), ], aes(x = procedures, y = mort_rate, color = as.factor(top50_ped_anyspecialty))) + geom_point() + labs(title = paste("Category", toString(j)), color = "Ranked")
+}
+
+grid.arrange(plots[[1]], plots[[2]], plots[[3]], plots[[4]], plots[[5]], widths = c(1,1), layout_matrix = rbind(c(1,2), c(3,4), c(5,5)))
+
+ggplot(data = hosp_full, aes(x = category, y = sqrt(mort_rate), fill = as.factor(top50_ped_anyspecialty))) + geom_boxplot() +
+  ylab(TeX("$\\sqrt{OMR}$")) + labs(title = "Observed Mortality Rate (OMR)", fill = "Ranked") + scale_fill_discrete(label = c("No", "Yes"))
+
+## cardiology
+plots <- list()
+for (j in 1:5) {
+  plots[[j]] <- ggplot(data = hosp_full[hosp_full$category == paste("Category", toString(j)), ], aes(x = procedures, y = mort_rate, color = as.factor(top50_ped_cardio))) + geom_point() + labs(title = paste("Category", toString(j)), color = "Ranked (Card)")
+}
+
+grid.arrange(plots[[1]], plots[[2]], plots[[3]], plots[[4]], plots[[5]], widths = c(1,1), layout_matrix = rbind(c(1,2), c(3,4), c(5,5)))
+
+
+ggplot(data = hosp_full, aes(x = category, y = sqrt(mort_rate), fill = as.factor(top50_ped_cardio))) + geom_boxplot() +
+  ylab(TeX("$\\sqrt{OMR}$")) + labs(title = "Observed Mortality Rate (OMR) with Cardiology Ranking", fill = "Ranked (Card)") + scale_fill_discrete(label = c("No", "Yes"))
+
+## pulmonology
+
+plots <- list()
+for (j in 1:5) {
+  plots[[j]] <- ggplot(data = hosp_full[hosp_full$category == paste("Category", toString(j)), ], aes(x = procedures, y = mort_rate, color = as.factor(top50_ped_pulm))) + geom_point() + labs(title = paste("Category", toString(j)), color = "Ranked (Pulm)")
+}
+
+grid.arrange(plots[[1]], plots[[2]], plots[[3]], plots[[4]], plots[[5]], widths = c(1,1), layout_matrix = rbind(c(1,2), c(3,4), c(5,5)))
+
+
+ggplot(data = hosp_full, aes(x = category, y = sqrt(mort_rate), fill = as.factor(top50_ped_pulm))) + geom_boxplot() +
+  ylab(TeX("$\\sqrt{OMR}$")) + labs(title = "Observed Mortality Rate (OMR) with Pulmonology Ranking", fill = "Ranked (Pulm)") + scale_fill_discrete(label = c("No", "Yes"))
+```
+
+* Variation/mean of observed mortality rate differ by category and by ranking. 
+
+* Question: Will higher ranked hospitals have more beds?
+
+```{r}
+ggplot(hosp, aes(x= as.factor(top50_ped_anyspecialty), y = nbeds, fill = as.factor(top50_ped_anyspecialty))) + geom_boxplot() + 
+  labs(title = "Hospital Beds by Ranking Status") + xlab("Ranked Indicator") + ylab("Hospital Beds") + theme(legend.position = "none")
+  
+ggplot(hosp, aes(x= as.factor(top50_ped_cardio), y = nbeds, fill = as.factor(top50_ped_cardio) )) + geom_boxplot() + 
+  labs(title = "Hospital Beds by Cardiology Ranking Status") + xlab("Ranked Indicator") + ylab("Hospital Beds") + theme(legend.position = "none")
+
+ggplot(hosp, aes(x= as.factor(top50_ped_pulm), y = nbeds, fill = as.factor(top50_ped_pulm))) + geom_boxplot() + 
+  labs(title = "Hospital Beds by Pulmonology Ranking Status") + xlab("Ranked Indicator") + ylab("Hospital Beds") + theme(legend.position = "none")
+```
+
+
+# Dell Children's Medical Center
+
+* I'm only just now realizing that Dell Children's Medical Center has an observed mortality rate of 1 in category 5.
+
+```{r}
+dell <- hosp_full[hosp_full$hospital == "Dell Children's Medical Center", ] 
+dell
+```
+
+* it would appear that Dell has very few procedures for high categories... leading to high mortality rates
 
 # Bayesian Hospital Compare Model (Reference Model)
 
