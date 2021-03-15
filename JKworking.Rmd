@@ -30,19 +30,27 @@ df = cardio %>%
   group_by(`Hospital Name`) %>%
   summarize(volume = max(`Total Procedures`)) %>%
   right_join(cardio) %>%
-  mutate(procedure = sub("STAT Mortality ", "", `Procedure Type`)) %>%
+  mutate(category = sub("STAT Mortality ", "", `Procedure Type`)) %>%
   select(-`Procedure Type`) %>%
-  mutate(fatality = `Observed Deaths` / `Total Procedures`)
+  mutate(mort_rate = `Observed Deaths` / `Total Procedures`) %>%
+  #filter(procedure!="Overall") %>%
+  rename(hospital = `Hospital Name`, deaths = `Observed Deaths`, 
+         procedures = `Total Procedures`, EMR = `Expected Mortality Rate`) %>%
+  mutate(id = as.numeric(id)) %>%
+  mutate(category = as.factor(category)) %>%
+  as.data.frame()
+  
 
 # Plot fatality rate versus total volume by category
 df %>% filter(procedure !="Category 5") %>%
-  ggplot(aes(x=volume, y=fatality)) + 
+  ggplot(aes(x=volume, y=mort_rate)) + 
   geom_point() + 
-  facet_wrap(~ procedure)
+  facet_wrap(~ procedure, scales="free_y")
 
-df %>% filter(procedure =="Category 5") %>%
-  ggplot(aes(x=volume, y=fatality)) + 
-  geom_point() 
+df %>% 
+  ggplot(aes(x=procedures, y=mort_rate)) + 
+  geom_point()  + 
+  facet_wrap(~ category, scales="free")
 ```
 
 Andrea's mortality rate by procedure plot
@@ -67,3 +75,16 @@ hos=data.frame(hospital = unique(cardio$`Hospital Name`), teaching = NA, trauma_
 
 write.csv(hos, "hospital_covariates.csv", row.names=FALSE)
 ```
+
+Combine hospital covariates and Dunson's data
+```{r}
+# Drop overall category
+df1 <- filter(df,category!="Overall")
+hosp <- read.csv("hosp.csv", header=TRUE)
+hosp <- hosp %>% select(-c(deaths, procedures, EMR, hospital))
+hosp_full <- left_join(df1, hosp, by = "id") 
+write.csv(hosp_full, "hosp_full.csv", row.names=FALSE)
+```
+
+
+

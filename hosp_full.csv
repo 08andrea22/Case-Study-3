@@ -1,0 +1,408 @@
+"hospital","volume","id","deaths","procedures","EMR","category","mort_rate","teaching","trauma_level","helipad","ped_trauma","ped_trauma_level","nbeds","npediatricbeds","nbassinets","rural","nicu","nicu_level","top50_ped_anyspecialty","top50_ped_cardio","rank_ped_cardio","top50_ped_pulm","rank_ped_pulm"
+"Advocate Children's Hospital",1222,1548375082,1,319,0.004,"Category 1",0.00313479623824451,1,1,1,0,0,409,259,150,0,1,3,1,1,25,0,NA
+"Advocate Children's Hospital",1222,1548375082,5,436,0.012,"Category 2",0.0114678899082569,1,1,1,0,0,409,259,150,0,1,3,1,1,25,0,NA
+"Advocate Children's Hospital",1222,1548375082,2,176,0.02,"Category 3",0.0113636363636364,1,1,1,0,0,409,259,150,0,1,3,1,1,25,0,NA
+"Advocate Children's Hospital",1222,1548375082,7,231,0.058,"Category 4",0.0303030303030303,1,1,1,0,0,409,259,150,0,1,3,1,1,25,0,NA
+"Advocate Children's Hospital",1222,1548375082,5,60,0.136,"Category 5",0.0833333333333333,1,1,1,0,0,409,259,150,0,1,3,1,1,25,0,NA
+"Akron Children's Hospital",376,1861506560,0,162,0.003,"Category 1",0,1,2,1,1,2,289,289,59,0,1,3,1,0,1,0,NA
+"Akron Children's Hospital",376,1861506560,1,107,0.01,"Category 2",0.00934579439252336,1,2,1,1,2,289,289,59,0,1,3,1,0,1,0,NA
+"Akron Children's Hospital",376,1861506560,2,42,0.016,"Category 3",0.0476190476190476,1,2,1,1,2,289,289,59,0,1,3,1,0,1,0,NA
+"Akron Children's Hospital",376,1861506560,4,54,0.045,"Category 4",0.0740740740740741,1,2,1,1,2,289,289,59,0,1,3,1,0,1,0,NA
+"Akron Children's Hospital",376,1861506560,1,11,0.103,"Category 5",0.0909090909090909,1,2,1,1,2,289,289,59,0,1,3,1,0,1,0,NA
+"Albany Medical Center",308,1376577247,0,131,0.003,"Category 1",0,1,1,1,1,2,734,125,NA,0,1,4,0,0,NA,0,NA
+"Albany Medical Center",308,1376577247,0,76,0.015,"Category 2",0,1,1,1,1,2,734,125,NA,0,1,4,0,0,NA,0,NA
+"Albany Medical Center",308,1376577247,1,49,0.016,"Category 3",0.0204081632653061,1,1,1,1,2,734,125,NA,0,1,4,0,0,NA,0,NA
+"Albany Medical Center",308,1376577247,2,38,0.052,"Category 4",0.0526315789473684,1,1,1,1,2,734,125,NA,0,1,4,0,0,NA,0,NA
+"Albany Medical Center",308,1376577247,2,14,0.196,"Category 5",0.142857142857143,1,1,1,1,2,734,125,NA,0,1,4,0,0,NA,0,NA
+"Alfred I. duPont Hospital for Children",632,1467505073,1,179,0.005,"Category 1",0.00558659217877095,1,1,0,1,1,208,208,36,0,1,4,1,0,NA,0,NA
+"Alfred I. duPont Hospital for Children",632,1467505073,2,152,0.022,"Category 2",0.0131578947368421,1,1,0,1,1,208,208,36,0,1,4,1,0,NA,0,NA
+"Alfred I. duPont Hospital for Children",632,1467505073,3,97,0.027,"Category 3",0.0309278350515464,1,1,0,1,1,208,208,36,0,1,4,1,0,NA,0,NA
+"Alfred I. duPont Hospital for Children",632,1467505073,14,185,0.101,"Category 4",0.0756756756756757,1,1,0,1,1,208,208,36,0,1,4,1,0,NA,0,NA
+"Alfred I. duPont Hospital for Children",632,1467505073,0,19,0.145,"Category 5",0,1,1,0,1,1,208,208,36,0,1,4,1,0,NA,0,NA
+"American Family Children's Hospital-University of Wisconsin Hospitals and Clinics",396,1922043744,0,130,0.004,"Category 1",0,1,1,0,1,1,111,111,26,0,1,4,1,1,36,1,NA
+"American Family Children's Hospital-University of Wisconsin Hospitals and Clinics",396,1922043744,1,132,0.016,"Category 2",0.00757575757575758,1,1,0,1,1,111,111,26,0,1,4,1,1,36,1,NA
+"American Family Children's Hospital-University of Wisconsin Hospitals and Clinics",396,1922043744,0,41,0.025,"Category 3",0,1,1,0,1,1,111,111,26,0,1,4,1,1,36,1,NA
+"American Family Children's Hospital-University of Wisconsin Hospitals and Clinics",396,1922043744,4,76,0.067,"Category 4",0.0526315789473684,1,1,0,1,1,111,111,26,0,1,4,1,1,36,1,NA
+"American Family Children's Hospital-University of Wisconsin Hospitals and Clinics",396,1922043744,1,17,0.165,"Category 5",0.0588235294117647,1,1,0,1,1,111,111,26,0,1,4,1,1,36,1,NA
+"Ann & Robert H. Lurie Children's Hospital of Chicago",1260,1235234535,0,478,0.003,"Category 1",0,1,1,1,1,1,312,312,64,0,1,4,1,1,18,1,19
+"Ann & Robert H. Lurie Children's Hospital of Chicago",1260,1235234535,2,357,0.012,"Category 2",0.00560224089635854,1,1,1,1,1,312,312,64,0,1,4,1,1,18,1,19
+"Ann & Robert H. Lurie Children's Hospital of Chicago",1260,1235234535,1,124,0.023,"Category 3",0.00806451612903226,1,1,1,1,1,312,312,64,0,1,4,1,1,18,1,19
+"Ann & Robert H. Lurie Children's Hospital of Chicago",1260,1235234535,11,269,0.064,"Category 4",0.0408921933085502,1,1,1,1,1,312,312,64,0,1,4,1,1,18,1,19
+"Ann & Robert H. Lurie Children's Hospital of Chicago",1260,1235234535,6,32,0.145,"Category 5",0.1875,1,1,1,1,1,312,312,64,0,1,4,1,1,18,1,19
+"Arkansas Children's Hospital",925,1194776757,1,266,0.004,"Category 1",0.0037593984962406,1,1,1,1,1,336,336,104,0,1,4,1,1,49,1,34
+"Arkansas Children's Hospital",925,1194776757,7,272,0.019,"Category 2",0.0257352941176471,1,1,1,1,1,336,336,104,0,1,4,1,1,49,1,34
+"Arkansas Children's Hospital",925,1194776757,4,131,0.023,"Category 3",0.0305343511450382,1,1,1,1,1,336,336,104,0,1,4,1,1,49,1,34
+"Arkansas Children's Hospital",925,1194776757,18,222,0.07,"Category 4",0.0810810810810811,1,1,1,1,1,336,336,104,0,1,4,1,1,49,1,34
+"Arkansas Children's Hospital",925,1194776757,2,34,0.123,"Category 5",0.0588235294117647,1,1,1,1,1,336,336,104,0,1,4,1,1,49,1,34
+"Arnold Palmer Medical Center",463,1184709057,0,120,0.005,"Category 1",0,1,1,1,1,1,158,158,142,0,1,3,1,1,40,0,NA
+"Arnold Palmer Medical Center",463,1184709057,2,175,0.02,"Category 2",0.0114285714285714,1,1,1,1,1,158,158,142,0,1,3,1,1,40,0,NA
+"Arnold Palmer Medical Center",463,1184709057,1,53,0.034,"Category 3",0.0188679245283019,1,1,1,1,1,158,158,142,0,1,3,1,1,40,0,NA
+"Arnold Palmer Medical Center",463,1184709057,5,78,0.066,"Category 4",0.0641025641025641,1,1,1,1,1,158,158,142,0,1,3,1,1,40,0,NA
+"Arnold Palmer Medical Center",463,1184709057,3,37,0.197,"Category 5",0.0810810810810811,1,1,1,1,1,158,158,142,0,1,3,1,1,40,0,NA
+"Boston Children's Hospital",3823,1710087127,7,1111,0.004,"Category 1",0.0063006300630063,1,1,1,1,1,404,404,24,0,1,4,1,1,4,1,1
+"Boston Children's Hospital",3823,1710087127,18,1205,0.016,"Category 2",0.0149377593360996,1,1,1,1,1,404,404,24,0,1,4,1,1,4,1,1
+"Boston Children's Hospital",3823,1710087127,14,471,0.03,"Category 3",0.029723991507431,1,1,1,1,1,404,404,24,0,1,4,1,1,4,1,1
+"Boston Children's Hospital",3823,1710087127,45,853,0.062,"Category 4",0.0527549824150059,1,1,1,1,1,404,404,24,0,1,4,1,1,4,1,1
+"Boston Children's Hospital",3823,1710087127,21,183,0.106,"Category 5",0.114754098360656,1,1,1,1,1,404,404,24,0,1,4,1,1,4,1,1
+"C.S. Mott Children's Hospital - University of Michigan",1951,1003878539,2,528,0.004,"Category 1",0.00378787878787879,1,1,1,1,1,348,348,52,0,1,4,1,1,24,1,18
+"C.S. Mott Children's Hospital - University of Michigan",1951,1003878539,8,512,0.017,"Category 2",0.015625,1,1,1,1,1,348,348,52,0,1,4,1,1,24,1,18
+"C.S. Mott Children's Hospital - University of Michigan",1951,1003878539,8,321,0.022,"Category 3",0.0249221183800623,1,1,1,1,1,348,348,52,0,1,4,1,1,24,1,18
+"C.S. Mott Children's Hospital - University of Michigan",1951,1003878539,37,450,0.079,"Category 4",0.0822222222222222,1,1,1,1,1,348,348,52,0,1,4,1,1,24,1,18
+"C.S. Mott Children's Hospital - University of Michigan",1951,1003878539,16,140,0.157,"Category 5",0.114285714285714,1,1,1,1,1,348,348,52,0,1,4,1,1,24,1,18
+"Children's Health Medical Center Dallas",1470,1194743013,0,434,0.004,"Category 1",0,1,1,1,1,1,490,490,47,0,1,4,1,0,NA,1,25
+"Children's Health Medical Center Dallas",1470,1194743013,8,517,0.014,"Category 2",0.0154738878143133,1,1,1,1,1,490,490,47,0,1,4,1,0,NA,1,25
+"Children's Health Medical Center Dallas",1470,1194743013,0,131,0.023,"Category 3",0,1,1,1,1,1,490,490,47,0,1,4,1,0,NA,1,25
+"Children's Health Medical Center Dallas",1470,1194743013,19,329,0.062,"Category 4",0.0577507598784195,1,1,1,1,1,490,490,47,0,1,4,1,0,NA,1,25
+"Children's Health Medical Center Dallas",1470,1194743013,6,59,0.09,"Category 5",0.101694915254237,1,1,1,1,1,490,490,47,0,1,4,1,0,NA,1,25
+"Children's Healthcare of Atlanta",2634,1689744450,3,748,0.003,"Category 1",0.00401069518716578,1,1,1,1,1,295,295,84,0,1,4,1,1,26,1,17
+"Children's Healthcare of Atlanta",2634,1689744450,15,712,0.015,"Category 2",0.0210674157303371,1,1,1,1,1,295,295,84,0,1,4,1,1,26,1,17
+"Children's Healthcare of Atlanta",2634,1689744450,14,375,0.019,"Category 3",0.0373333333333333,1,1,1,1,1,295,295,84,0,1,4,1,1,26,1,17
+"Children's Healthcare of Atlanta",2634,1689744450,42,659,0.054,"Category 4",0.0637329286798179,1,1,1,1,1,295,295,84,0,1,4,1,1,26,1,17
+"Children's Healthcare of Atlanta",2634,1689744450,32,140,0.148,"Category 5",0.228571428571429,1,1,1,1,1,295,295,84,0,1,4,1,1,26,1,17
+"Children's Hospital & Medical Center",996,1346297843,2,267,0.004,"Category 1",0.00749063670411985,1,2,0,1,2,145,145,40,0,1,4,1,1,39,1,50
+"Children's Hospital & Medical Center",996,1346297843,6,291,0.019,"Category 2",0.0206185567010309,1,2,0,1,2,145,145,40,0,1,4,1,1,39,1,50
+"Children's Hospital & Medical Center",996,1346297843,2,189,0.029,"Category 3",0.0105820105820106,1,2,0,1,2,145,145,40,0,1,4,1,1,39,1,50
+"Children's Hospital & Medical Center",996,1346297843,22,216,0.09,"Category 4",0.101851851851852,1,2,0,1,2,145,145,40,0,1,4,1,1,39,1,50
+"Children's Hospital & Medical Center",996,1346297843,5,33,0.162,"Category 5",0.151515151515152,1,2,0,1,2,145,145,40,0,1,4,1,1,39,1,50
+"Children's Hospital Colorado",1640,1336245828,0,554,0.004,"Category 1",0,1,1,1,1,1,434,434,49,0,1,4,1,1,6,1,5
+"Children's Hospital Colorado",1640,1336245828,6,491,0.016,"Category 2",0.0122199592668024,1,1,1,1,1,434,434,49,0,1,4,1,1,6,1,5
+"Children's Hospital Colorado",1640,1336245828,4,160,0.024,"Category 3",0.025,1,1,1,1,1,434,434,49,0,1,4,1,1,6,1,5
+"Children's Hospital Colorado",1640,1336245828,24,343,0.063,"Category 4",0.0699708454810496,1,1,1,1,1,434,434,49,0,1,4,1,1,6,1,5
+"Children's Hospital Colorado",1640,1336245828,10,92,0.126,"Category 5",0.108695652173913,1,1,1,1,1,434,434,49,0,1,4,1,1,6,1,5
+"Children's Hospital New Orleans",659,1104819366,1,178,0.003,"Category 1",0.00561797752808989,1,1,1,1,1,229,229,36,0,1,4,0,0,NA,0,NA
+"Children's Hospital New Orleans",659,1104819366,4,226,0.017,"Category 2",0.0176991150442478,1,1,1,1,1,229,229,36,0,1,4,0,0,NA,0,NA
+"Children's Hospital New Orleans",659,1104819366,3,97,0.022,"Category 3",0.0309278350515464,1,1,1,1,1,229,229,36,0,1,4,0,0,NA,0,NA
+"Children's Hospital New Orleans",659,1104819366,15,121,0.084,"Category 4",0.12396694214876,1,1,1,1,1,229,229,36,0,1,4,0,0,NA,0,NA
+"Children's Hospital New Orleans",659,1104819366,6,37,0.126,"Category 5",0.162162162162162,1,1,1,1,1,229,229,36,0,1,4,0,0,NA,0,NA
+"Children's Hospital of Illinois",466,1790734127,1,202,0.003,"Category 1",0.00495049504950495,1,1,1,1,1,144,144,64,0,1,3,1,0,NA,0,NA
+"Children's Hospital of Illinois",466,1790734127,1,145,0.014,"Category 2",0.00689655172413793,1,1,1,1,1,144,144,64,0,1,3,1,0,NA,0,NA
+"Children's Hospital of Illinois",466,1790734127,1,33,0.028,"Category 3",0.0303030303030303,1,1,1,1,1,144,144,64,0,1,3,1,0,NA,0,NA
+"Children's Hospital of Illinois",466,1790734127,4,69,0.059,"Category 4",0.0579710144927536,1,1,1,1,1,144,144,64,0,1,3,1,0,NA,0,NA
+"Children's Hospital of Illinois",466,1790734127,2,17,0.156,"Category 5",0.117647058823529,1,1,1,1,1,144,144,64,0,1,3,1,0,NA,0,NA
+"Children's Hospital of Los Angeles",2442,1366527954,4,670,0.004,"Category 1",0.00597014925373134,1,1,1,1,1,495,495,58,0,1,4,1,1,3,1,12
+"Children's Hospital of Los Angeles",2442,1366527954,10,742,0.013,"Category 2",0.0134770889487871,1,1,1,1,1,495,495,58,0,1,4,1,1,3,1,12
+"Children's Hospital of Los Angeles",2442,1366527954,7,245,0.029,"Category 3",0.0285714285714286,1,1,1,1,1,495,495,58,0,1,4,1,1,3,1,12
+"Children's Hospital of Los Angeles",2442,1366527954,35,660,0.064,"Category 4",0.053030303030303,1,1,1,1,1,495,495,58,0,1,4,1,1,3,1,12
+"Children's Hospital of Los Angeles",2442,1366527954,17,125,0.186,"Category 5",0.136,1,1,1,1,1,495,495,58,0,1,4,1,1,3,1,12
+"Children's Hospital of Michigan",784,1538471800,1,225,0.004,"Category 1",0.00444444444444444,1,1,1,1,1,227,227,40,0,1,4,1,1,47,0,NA
+"Children's Hospital of Michigan",784,1538471800,3,259,0.016,"Category 2",0.0115830115830116,1,1,1,1,1,227,227,40,0,1,4,1,1,47,0,NA
+"Children's Hospital of Michigan",784,1538471800,2,85,0.024,"Category 3",0.0235294117647059,1,1,1,1,1,227,227,40,0,1,4,1,1,47,0,NA
+"Children's Hospital of Michigan",784,1538471800,13,184,0.062,"Category 4",0.0706521739130435,1,1,1,1,1,227,227,40,0,1,4,1,1,47,0,NA
+"Children's Hospital of Michigan",784,1538471800,8,31,0.128,"Category 5",0.258064516129032,1,1,1,1,1,227,227,40,0,1,4,1,1,47,0,NA
+"Children's Hospital of Philadelphia",2546,1760562581,3,738,0.004,"Category 1",0.0040650406504065,1,1,1,1,1,594,594,95,0,1,4,1,1,7,1,2
+"Children's Hospital of Philadelphia",2546,1760562581,13,869,0.017,"Category 2",0.0149597238204833,1,1,1,1,1,594,594,95,0,1,4,1,1,7,1,2
+"Children's Hospital of Philadelphia",2546,1760562581,14,313,0.029,"Category 3",0.0447284345047923,1,1,1,1,1,594,594,95,0,1,4,1,1,7,1,2
+"Children's Hospital of Philadelphia",2546,1760562581,34,489,0.074,"Category 4",0.0695296523517382,1,1,1,1,1,594,594,95,0,1,4,1,1,7,1,2
+"Children's Hospital of Philadelphia",2546,1760562581,21,137,0.133,"Category 5",0.153284671532847,1,1,1,1,1,594,594,95,0,1,4,1,1,7,1,2
+"Children's Hospital of Pittsburgh",1239,1164426896,0,379,0.004,"Category 1",0,1,1,1,1,1,315,315,77,0,1,4,1,1,3,1,6
+"Children's Hospital of Pittsburgh",1239,1164426896,4,427,0.015,"Category 2",0.00936768149882904,1,1,1,1,1,315,315,77,0,1,4,1,1,3,1,6
+"Children's Hospital of Pittsburgh",1239,1164426896,2,122,0.026,"Category 3",0.0163934426229508,1,1,1,1,1,315,315,77,0,1,4,1,1,3,1,6
+"Children's Hospital of Pittsburgh",1239,1164426896,15,264,0.084,"Category 4",0.0568181818181818,1,1,1,1,1,315,315,77,0,1,4,1,1,3,1,6
+"Children's Hospital of Pittsburgh",1239,1164426896,3,47,0.209,"Category 5",0.0638297872340425,1,1,1,1,1,315,315,77,0,1,4,1,1,3,1,6
+"Children's Hospital of the King's Daughters",287,1912919481,0,127,0.003,"Category 1",0,1,1,1,1,1,206,206,70,0,1,4,0,0,NA,0,NA
+"Children's Hospital of the King's Daughters",287,1912919481,2,98,0.013,"Category 2",0.0204081632653061,1,1,1,1,1,206,206,70,0,1,4,0,0,NA,0,NA
+"Children's Hospital of the King's Daughters",287,1912919481,3,25,0.019,"Category 3",0.12,1,1,1,1,1,206,206,70,0,1,4,0,0,NA,0,NA
+"Children's Hospital of the King's Daughters",287,1912919481,5,35,0.052,"Category 4",0.142857142857143,1,1,1,1,1,206,206,70,0,1,4,0,0,NA,0,NA
+"Children's Hospital of the King's Daughters",287,1912919481,0,2,0.07,"Category 5",0,1,1,1,1,1,206,206,70,0,1,4,0,0,NA,0,NA
+"Children's Hospital of Wisconsin",1347,1750482022,0,331,0.004,"Category 1",0,1,1,1,1,1,298,298,70,0,1,4,1,1,18,1,15
+"Children's Hospital of Wisconsin",1347,1750482022,2,476,0.02,"Category 2",0.00420168067226891,1,1,1,1,1,298,298,70,0,1,4,1,1,18,1,15
+"Children's Hospital of Wisconsin",1347,1750482022,3,221,0.024,"Category 3",0.0135746606334842,1,1,1,1,1,298,298,70,0,1,4,1,1,18,1,15
+"Children's Hospital of Wisconsin",1347,1750482022,22,268,0.073,"Category 4",0.082089552238806,1,1,1,1,1,298,298,70,0,1,4,1,1,18,1,15
+"Children's Hospital of Wisconsin",1347,1750482022,5,51,0.128,"Category 5",0.0980392156862745,1,1,1,1,1,298,298,70,0,1,4,1,1,18,1,15
+"Children's Hospitals and Clinics of Minnesota",1129,1881793750,0,323,0.004,"Category 1",0,1,1,1,1,1,381,381,200,0,1,4,1,0,NA,1,44
+"Children's Hospitals and Clinics of Minnesota",1129,1881793750,3,399,0.016,"Category 2",0.0075187969924812,1,1,1,1,1,381,381,200,0,1,4,1,0,NA,1,44
+"Children's Hospitals and Clinics of Minnesota",1129,1881793750,4,141,0.021,"Category 3",0.0283687943262411,1,1,1,1,1,381,381,200,0,1,4,1,0,NA,1,44
+"Children's Hospitals and Clinics of Minnesota",1129,1881793750,23,205,0.071,"Category 4",0.11219512195122,1,1,1,1,1,381,381,200,0,1,4,1,0,NA,1,44
+"Children's Hospitals and Clinics of Minnesota",1129,1881793750,12,61,0.162,"Category 5",0.19672131147541,1,1,1,1,1,381,381,200,0,1,4,1,0,NA,1,44
+"Children's Memorial Hermann Hospital",787,1982666111,1,210,0.005,"Category 1",0.00476190476190476,1,1,1,1,1,310,234,118,0,1,4,1,1,22,0,NA
+"Children's Memorial Hermann Hospital",787,1982666111,5,246,0.021,"Category 2",0.0203252032520325,1,1,1,1,1,310,234,118,0,1,4,1,1,22,0,NA
+"Children's Memorial Hermann Hospital",787,1982666111,0,89,0.025,"Category 3",0,1,1,1,1,1,310,234,118,0,1,4,1,1,22,0,NA
+"Children's Memorial Hermann Hospital",787,1982666111,11,189,0.086,"Category 4",0.0582010582010582,1,1,1,1,1,310,234,118,0,1,4,1,1,22,0,NA
+"Children's Memorial Hermann Hospital",787,1982666111,4,53,0.166,"Category 5",0.0754716981132075,1,1,1,1,1,310,234,118,0,1,4,1,1,22,0,NA
+"Children's Mercy Kansas City",1314,1366515488,1,394,0.003,"Category 1",0.00253807106598985,1,1,1,1,1,367,367,80,0,1,4,1,1,23,1,35
+"Children's Mercy Kansas City",1314,1366515488,5,414,0.012,"Category 2",0.0120772946859903,1,1,1,1,1,367,367,80,0,1,4,1,1,23,1,35
+"Children's Mercy Kansas City",1314,1366515488,2,154,0.019,"Category 3",0.012987012987013,1,1,1,1,1,367,367,80,0,1,4,1,1,23,1,35
+"Children's Mercy Kansas City",1314,1366515488,12,283,0.06,"Category 4",0.0424028268551237,1,1,1,1,1,367,367,80,0,1,4,1,1,23,1,35
+"Children's Mercy Kansas City",1314,1366515488,9,69,0.109,"Category 5",0.130434782608696,1,1,1,1,1,367,367,80,0,1,4,1,1,23,1,35
+"CHOC Children's Hospital",587,1811080526,2,175,0.003,"Category 1",0.0114285714285714,1,2,1,1,2,316,316,91,0,1,4,1,0,NA,1,27
+"CHOC Children's Hospital",587,1811080526,1,214,0.015,"Category 2",0.00467289719626168,1,2,1,1,2,316,316,91,0,1,4,1,0,NA,1,27
+"CHOC Children's Hospital",587,1811080526,1,61,0.02,"Category 3",0.0163934426229508,1,2,1,1,2,316,316,91,0,1,4,1,0,NA,1,27
+"CHOC Children's Hospital",587,1811080526,3,127,0.051,"Category 4",0.0236220472440945,1,2,1,1,2,316,316,91,0,1,4,1,0,NA,1,27
+"CHOC Children's Hospital",587,1811080526,3,10,0.129,"Category 5",0.3,1,2,1,1,2,316,316,91,0,1,4,1,0,NA,1,27
+"Cincinnati Children's Hospital Medical Center",1362,1609915784,1,276,0.004,"Category 1",0.0036231884057971,1,1,1,1,1,692,692,59,0,1,4,1,1,14,1,4
+"Cincinnati Children's Hospital Medical Center",1362,1609915784,11,497,0.019,"Category 2",0.0221327967806841,1,1,1,1,1,692,692,59,0,1,4,1,1,14,1,4
+"Cincinnati Children's Hospital Medical Center",1362,1609915784,4,179,0.025,"Category 3",0.0223463687150838,1,1,1,1,1,692,692,59,0,1,4,1,1,14,1,4
+"Cincinnati Children's Hospital Medical Center",1362,1609915784,31,339,0.077,"Category 4",0.0914454277286136,1,1,1,1,1,692,692,59,0,1,4,1,1,14,1,4
+"Cincinnati Children's Hospital Medical Center",1362,1609915784,7,71,0.12,"Category 5",0.0985915492957746,1,1,1,1,1,692,692,59,0,1,4,1,1,14,1,4
+"Cleveland Clinic",792,1679525919,0,188,0.003,"Category 1",0,1,1,1,1,1,389,389,72,0,1,3,1,1,15,1,32
+"Cleveland Clinic",792,1679525919,4,312,0.011,"Category 2",0.0128205128205128,1,1,1,1,1,389,389,72,0,1,3,1,1,15,1,32
+"Cleveland Clinic",792,1679525919,1,99,0.019,"Category 3",0.0101010101010101,1,1,1,1,1,389,389,72,0,1,3,1,1,15,1,32
+"Cleveland Clinic",792,1679525919,7,165,0.05,"Category 4",0.0424242424242424,1,1,1,1,1,389,389,72,0,1,3,1,1,15,1,32
+"Cleveland Clinic",792,1679525919,2,28,0.108,"Category 5",0.0714285714285714,1,1,1,1,1,389,389,72,0,1,3,1,1,15,1,32
+"CMC-Levine Children's Hospital",1177,1699829887,0,363,0.003,"Category 1",0,1,1,1,1,1,234,234,85,0,1,4,1,1,35,1,35
+"CMC-Levine Children's Hospital",1177,1699829887,8,433,0.017,"Category 2",0.0184757505773672,1,1,1,1,1,234,234,85,0,1,4,1,1,35,1,35
+"CMC-Levine Children's Hospital",1177,1699829887,1,103,0.023,"Category 3",0.00970873786407767,1,1,1,1,1,234,234,85,0,1,4,1,1,35,1,35
+"CMC-Levine Children's Hospital",1177,1699829887,13,221,0.074,"Category 4",0.0588235294117647,1,1,1,1,1,234,234,85,0,1,4,1,1,35,1,35
+"CMC-Levine Children's Hospital",1177,1699829887,6,57,0.206,"Category 5",0.105263157894737,1,1,1,1,1,234,234,85,0,1,4,1,1,35,1,35
+"Cohen Children's Medical Center of New York",398,1174530349,2,186,0.004,"Category 1",0.010752688172043,1,1,1,1,1,202,202,57,0,1,4,1,0,NA,1,30
+"Cohen Children's Medical Center of New York",398,1174530349,1,89,0.016,"Category 2",0.0112359550561798,1,1,1,1,1,202,202,57,0,1,4,1,0,NA,1,30
+"Cohen Children's Medical Center of New York",398,1174530349,2,53,0.022,"Category 3",0.0377358490566038,1,1,1,1,1,202,202,57,0,1,4,1,0,NA,1,30
+"Cohen Children's Medical Center of New York",398,1174530349,4,61,0.058,"Category 4",0.0655737704918033,1,1,1,1,1,202,202,57,0,1,4,1,0,NA,1,30
+"Cohen Children's Medical Center of New York",398,1174530349,2,9,0.174,"Category 5",0.222222222222222,1,1,1,1,1,202,202,57,0,1,4,1,0,NA,1,30
+"Connecticut Children's Medical Center",251,1215947387,0,124,0.003,"Category 1",0,1,1,1,1,1,187,187,NA,0,1,4,1,0,NA,0,NA
+"Connecticut Children's Medical Center",251,1215947387,0,61,0.015,"Category 2",0,1,1,1,1,1,187,187,NA,0,1,4,1,0,NA,0,NA
+"Connecticut Children's Medical Center",251,1215947387,1,29,0.026,"Category 3",0.0344827586206897,1,1,1,1,1,187,187,NA,0,1,4,1,0,NA,0,NA
+"Connecticut Children's Medical Center",251,1215947387,0,32,0.054,"Category 4",0,1,1,1,1,1,187,187,NA,0,1,4,1,0,NA,0,NA
+"Connecticut Children's Medical Center",251,1215947387,0,5,0.185,"Category 5",0,1,1,1,1,1,187,187,NA,0,1,4,1,0,NA,0,NA
+"Cook Children's Medical Center",1166,1891765178,1,239,0.005,"Category 1",0.00418410041841004,1,2,1,1,2,430,430,99,0,1,4,1,0,NA,0,NA
+"Cook Children's Medical Center",1166,1891765178,6,433,0.017,"Category 2",0.0138568129330254,1,2,1,1,2,430,430,99,0,1,4,1,0,NA,0,NA
+"Cook Children's Medical Center",1166,1891765178,1,151,0.025,"Category 3",0.00662251655629139,1,2,1,1,2,430,430,99,0,1,4,1,0,NA,0,NA
+"Cook Children's Medical Center",1166,1891765178,16,281,0.07,"Category 4",0.0569395017793594,1,2,1,1,2,430,430,99,0,1,4,1,0,NA,0,NA
+"Cook Children's Medical Center",1166,1891765178,7,62,0.222,"Category 5",0.112903225806452,1,2,1,1,2,430,430,99,0,1,4,1,0,NA,0,NA
+"Dell Children's Medical Center",401,1447355771,4,176,0.003,"Category 1",0.0227272727272727,1,1,1,1,1,248,248,30,0,1,4,0,0,NA,0,NA
+"Dell Children's Medical Center",401,1447355771,2,114,0.01,"Category 2",0.0175438596491228,1,1,1,1,1,248,248,30,0,1,4,0,0,NA,0,NA
+"Dell Children's Medical Center",401,1447355771,2,54,0.016,"Category 3",0.037037037037037,1,1,1,1,1,248,248,30,0,1,4,0,0,NA,0,NA
+"Dell Children's Medical Center",401,1447355771,2,56,0.031,"Category 4",0.0357142857142857,1,1,1,1,1,248,248,30,0,1,4,0,0,NA,0,NA
+"Dell Children's Medical Center",401,1447355771,1,1,0.077,"Category 5",1,1,1,1,1,1,248,248,30,0,1,4,0,0,NA,0,NA
+"Doernbecher Children's Hospital/Oregon Health & Science University",732,1609824010,0,242,0.004,"Category 1",0,1,1,1,1,1,145,145,46,0,1,4,1,0,NA,0,NA
+"Doernbecher Children's Hospital/Oregon Health & Science University",732,1609824010,4,231,0.014,"Category 2",0.0173160173160173,1,1,1,1,1,145,145,46,0,1,4,1,0,NA,0,NA
+"Doernbecher Children's Hospital/Oregon Health & Science University",732,1609824010,0,88,0.016,"Category 3",0,1,1,1,1,1,145,145,46,0,1,4,1,0,NA,0,NA
+"Doernbecher Children's Hospital/Oregon Health & Science University",732,1609824010,10,134,0.067,"Category 4",0.0746268656716418,1,1,1,1,1,145,145,46,0,1,4,1,0,NA,0,NA
+"Doernbecher Children's Hospital/Oregon Health & Science University",732,1609824010,6,37,0.154,"Category 5",0.162162162162162,1,1,1,1,1,145,145,46,0,1,4,1,0,NA,0,NA
+"Duke University Hospital",926,1992703540,0,307,0.003,"Category 1",0,1,1,1,1,1,957,240,67,0,1,4,1,1,35,0,NA
+"Duke University Hospital",926,1992703540,7,305,0.014,"Category 2",0.0229508196721311,1,1,1,1,1,957,240,67,0,1,4,1,1,35,0,NA
+"Duke University Hospital",926,1992703540,4,79,0.026,"Category 3",0.0506329113924051,1,1,1,1,1,957,240,67,0,1,4,1,1,35,0,NA
+"Duke University Hospital",926,1992703540,23,206,0.072,"Category 4",0.111650485436893,1,1,1,1,1,957,240,67,0,1,4,1,1,35,0,NA
+"Duke University Hospital",926,1992703540,4,29,0.151,"Category 5",0.137931034482759,1,1,1,1,1,957,240,67,0,1,4,1,1,35,0,NA
+"Florida Hospital for Children",428,1457500191,1,126,0.003,"Category 1",0.00793650793650794,1,1,1,1,1,198,198,81,0,1,4,1,0,NA,0,NA
+"Florida Hospital for Children",428,1457500191,3,183,0.013,"Category 2",0.0163934426229508,1,1,1,1,1,198,198,81,0,1,4,1,0,NA,0,NA
+"Florida Hospital for Children",428,1457500191,1,38,0.022,"Category 3",0.0263157894736842,1,1,1,1,1,198,198,81,0,1,4,1,0,NA,0,NA
+"Florida Hospital for Children",428,1457500191,9,74,0.066,"Category 4",0.121621621621622,1,1,1,1,1,198,198,81,0,1,4,1,0,NA,0,NA
+"Florida Hospital for Children",428,1457500191,0,7,0.139,"Category 5",0,1,1,1,1,1,198,198,81,0,1,4,1,0,NA,0,NA
+"Geisinger Medical Center",116,1235215427,0,43,0.003,"Category 1",0,1,1,1,1,2,594,91,41,1,1,4,0,0,NA,0,NA
+"Geisinger Medical Center",116,1235215427,0,49,0.013,"Category 2",0,1,1,1,1,2,594,91,41,1,1,4,0,0,NA,0,NA
+"Geisinger Medical Center",116,1235215427,0,8,0.018,"Category 3",0,1,1,1,1,2,594,91,41,1,1,4,0,0,NA,0,NA
+"Geisinger Medical Center",116,1235215427,0,16,0.04,"Category 4",0,1,1,1,1,2,594,91,41,1,1,4,0,0,NA,0,NA
+"Helen DeVos Children's Hospital",698,1922090554,0,216,0.004,"Category 1",0,1,1,1,1,1,241,241,108,0,1,4,1,1,34,1,45
+"Helen DeVos Children's Hospital",698,1922090554,1,207,0.018,"Category 2",0.00483091787439614,1,1,1,1,1,241,241,108,0,1,4,1,1,34,1,45
+"Helen DeVos Children's Hospital",698,1922090554,0,113,0.025,"Category 3",0,1,1,1,1,1,241,241,108,0,1,4,1,1,34,1,45
+"Helen DeVos Children's Hospital",698,1922090554,5,137,0.075,"Category 4",0.0364963503649635,1,1,1,1,1,241,241,108,0,1,4,1,1,34,1,45
+"Helen DeVos Children's Hospital",698,1922090554,2,25,0.141,"Category 5",0.08,1,1,1,1,1,241,241,108,0,1,4,1,1,34,1,45
+"Inova Children's Hospital",496,1831220714,2,170,0.004,"Category 1",0.0117647058823529,1,1,1,1,1,226,226,108,1,1,4,0,0,NA,0,NA
+"Inova Children's Hospital",496,1831220714,7,174,0.012,"Category 2",0.0402298850574713,1,1,1,1,1,226,226,108,1,1,4,0,0,NA,0,NA
+"Inova Children's Hospital",496,1831220714,4,55,0.029,"Category 3",0.0727272727272727,1,1,1,1,1,226,226,108,1,1,4,0,0,NA,0,NA
+"Inova Children's Hospital",496,1831220714,5,90,0.047,"Category 4",0.0555555555555556,1,1,1,1,1,226,226,108,1,1,4,0,0,NA,0,NA
+"Inova Children's Hospital",496,1831220714,3,7,0.125,"Category 5",0.428571428571429,1,1,1,1,1,226,226,108,1,1,4,0,0,NA,0,NA
+"Jackson Memorial Hospital",332,1225033020,2,123,0.003,"Category 1",0.016260162601626,1,1,1,1,1,1550,245,126,0,1,3,1,0,NA,0,NA
+"Jackson Memorial Hospital",332,1225033020,1,110,0.011,"Category 2",0.00909090909090909,1,1,1,1,1,1550,245,126,0,1,3,1,0,NA,0,NA
+"Jackson Memorial Hospital",332,1225033020,0,22,0.024,"Category 3",0,1,1,1,1,1,1550,245,126,0,1,3,1,0,NA,0,NA
+"Jackson Memorial Hospital",332,1225033020,8,70,0.048,"Category 4",0.114285714285714,1,1,1,1,1,1550,245,126,0,1,3,1,0,NA,0,NA
+"Jackson Memorial Hospital",332,1225033020,1,7,0.14,"Category 5",0.142857142857143,1,1,1,1,1,1550,245,126,0,1,3,1,0,NA,0,NA
+"Joe DiMaggio Children's Hospital",569,1306177589,2,169,0.003,"Category 1",0.0118343195266272,1,1,1,1,1,226,226,84,0,1,3,1,1,48,0,NA
+"Joe DiMaggio Children's Hospital",569,1306177589,4,182,0.016,"Category 2",0.021978021978022,1,1,1,1,1,226,226,84,0,1,3,1,1,48,0,NA
+"Joe DiMaggio Children's Hospital",569,1306177589,2,55,0.025,"Category 3",0.0363636363636364,1,1,1,1,1,226,226,84,0,1,3,1,1,48,0,NA
+"Joe DiMaggio Children's Hospital",569,1306177589,8,136,0.065,"Category 4",0.0588235294117647,1,1,1,1,1,226,226,84,0,1,3,1,1,48,0,NA
+"Joe DiMaggio Children's Hospital",569,1306177589,5,27,0.105,"Category 5",0.185185185185185,1,1,1,1,1,226,226,84,0,1,3,1,1,48,0,NA
+"Johns Hopkins All Children's Hospital",705,1427114099,0,185,0.004,"Category 1",0,1,2,1,1,2,259,NA,97,0,1,4,1,0,NA,1,47
+"Johns Hopkins All Children's Hospital",705,1427114099,3,263,0.014,"Category 2",0.0114068441064639,1,2,1,1,2,259,NA,97,0,1,4,1,0,NA,1,47
+"Johns Hopkins All Children's Hospital",705,1427114099,4,58,0.025,"Category 3",0.0689655172413793,1,2,1,1,2,259,NA,97,0,1,4,1,0,NA,1,47
+"Johns Hopkins All Children's Hospital",705,1427114099,12,156,0.063,"Category 4",0.0769230769230769,1,2,1,1,2,259,NA,97,0,1,4,1,0,NA,1,47
+"Johns Hopkins All Children's Hospital",705,1427114099,6,43,0.116,"Category 5",0.13953488372093,1,2,1,1,2,259,NA,97,0,1,4,1,0,NA,1,47
+"Le Bonheur Children's Hospital",1018,1386709871,1,345,0.005,"Category 1",0.00289855072463768,1,1,1,1,1,255,NA,60,0,1,4,1,1,13,1,46
+"Le Bonheur Children's Hospital",1018,1386709871,2,286,0.019,"Category 2",0.00699300699300699,1,1,1,1,1,255,NA,60,0,1,4,1,1,13,1,46
+"Le Bonheur Children's Hospital",1018,1386709871,2,87,0.03,"Category 3",0.0229885057471264,1,1,1,1,1,255,NA,60,0,1,4,1,1,13,1,46
+"Le Bonheur Children's Hospital",1018,1386709871,12,260,0.077,"Category 4",0.0461538461538462,1,1,1,1,1,255,NA,60,0,1,4,1,1,13,1,46
+"Le Bonheur Children's Hospital",1018,1386709871,7,40,0.223,"Category 5",0.175,1,1,1,1,1,255,NA,60,0,1,4,1,1,13,1,46
+"Loma Linda University Medical Center and Children's Hospital",725,1194731935,3,218,0.006,"Category 1",0.0137614678899083,1,1,1,1,1,343,NA,84,0,1,4,0,0,NA,0,NA
+"Loma Linda University Medical Center and Children's Hospital",725,1194731935,2,225,0.016,"Category 2",0.00888888888888889,1,1,1,1,1,343,NA,84,0,1,4,0,0,NA,0,NA
+"Loma Linda University Medical Center and Children's Hospital",725,1194731935,3,63,0.024,"Category 3",0.0476190476190476,1,1,1,1,1,343,NA,84,0,1,4,0,0,NA,0,NA
+"Loma Linda University Medical Center and Children's Hospital",725,1194731935,17,185,0.065,"Category 4",0.0918918918918919,1,1,1,1,1,343,NA,84,0,1,4,0,0,NA,0,NA
+"Loma Linda University Medical Center and Children's Hospital",725,1194731935,7,34,0.156,"Category 5",0.205882352941176,1,1,1,1,1,343,NA,84,0,1,4,0,0,NA,0,NA
+"Maine Medical Center",316,1760436216,0,129,0.003,"Category 1",0,1,1,1,1,1,116,NA,31,0,1,3,0,0,NA,0,NA
+"Maine Medical Center",316,1760436216,2,107,0.013,"Category 2",0.0186915887850467,1,1,1,1,1,116,NA,31,0,1,3,0,0,NA,0,NA
+"Maine Medical Center",316,1760436216,2,42,0.025,"Category 3",0.0476190476190476,1,1,1,1,1,116,NA,31,0,1,3,0,0,NA,0,NA
+"Maine Medical Center",316,1760436216,3,33,0.039,"Category 4",0.0909090909090909,1,1,1,1,1,116,NA,31,0,1,3,0,0,NA,0,NA
+"Maine Medical Center",316,1760436216,3,5,0.157,"Category 5",0.6,1,1,1,1,1,116,NA,31,0,1,3,0,0,NA,0,NA
+"Mayo Clinic Hospital - Rochester",1460,1841266194,1,282,0.004,"Category 1",0.00354609929078014,1,1,1,1,1,148,NA,NA,0,1,NA,1,1,42,0,NA
+"Mayo Clinic Hospital - Rochester",1460,1841266194,11,546,0.018,"Category 2",0.0201465201465201,1,1,1,1,1,148,NA,NA,0,1,NA,1,1,42,0,NA
+"Mayo Clinic Hospital - Rochester",1460,1841266194,2,152,0.022,"Category 3",0.0131578947368421,1,1,1,1,1,148,NA,NA,0,1,NA,1,1,42,0,NA
+"Mayo Clinic Hospital - Rochester",1460,1841266194,17,459,0.038,"Category 4",0.037037037037037,1,1,1,1,1,148,NA,NA,0,1,NA,1,1,42,0,NA
+"Mayo Clinic Hospital - Rochester",1460,1841266194,7,21,0.206,"Category 5",0.333333333333333,1,1,1,1,1,148,NA,NA,0,1,NA,1,1,42,0,NA
+"Mercy Medical Center",380,1508964883,0,111,0.003,"Category 1",0,1,2,1,1,2,178,NA,NA,0,1,3,0,0,NA,0,NA
+"Mercy Medical Center",380,1508964883,0,165,0.01,"Category 2",0,1,2,1,1,2,178,NA,NA,0,1,3,0,0,NA,0,NA
+"Mercy Medical Center",380,1508964883,0,36,0.019,"Category 3",0,1,2,1,1,2,178,NA,NA,0,1,3,0,0,NA,0,NA
+"Mercy Medical Center",380,1508964883,4,66,0.057,"Category 4",0.0606060606060606,1,2,1,1,2,178,NA,NA,0,1,3,0,0,NA,0,NA
+"Mercy Medical Center",380,1508964883,1,2,0.146,"Category 5",0.5,1,2,1,1,2,178,NA,NA,0,1,3,0,0,NA,0,NA
+"Mount Sinai Hospital",512,1932103413,2,208,0.005,"Category 1",0.00961538461538462,1,1,1,1,1,102,102,NA,0,1,4,1,0,NA,0,NA
+"Mount Sinai Hospital",512,1932103413,5,149,0.016,"Category 2",0.0335570469798658,1,1,1,1,1,102,102,NA,0,1,4,1,0,NA,0,NA
+"Mount Sinai Hospital",512,1932103413,3,61,0.019,"Category 3",0.0491803278688525,1,1,1,1,1,102,102,NA,0,1,4,1,0,NA,0,NA
+"Mount Sinai Hospital",512,1932103413,7,88,0.05,"Category 4",0.0795454545454545,1,1,1,1,1,102,102,NA,0,1,4,1,0,NA,0,NA
+"Mount Sinai Hospital",512,1932103413,1,6,0.108,"Category 5",0.166666666666667,1,1,1,1,1,102,102,NA,0,1,4,1,0,NA,0,NA
+"MUSC Children's Hospital",1152,1073605879,1,356,0.004,"Category 1",0.00280898876404494,1,1,1,1,1,250,NA,66,0,1,4,1,1,10,0,NA
+"MUSC Children's Hospital",1152,1073605879,2,339,0.014,"Category 2",0.00589970501474926,1,1,1,1,1,250,NA,66,0,1,4,1,1,10,0,NA
+"MUSC Children's Hospital",1152,1073605879,0,146,0.023,"Category 3",0,1,1,1,1,1,250,NA,66,0,1,4,1,1,10,0,NA
+"MUSC Children's Hospital",1152,1073605879,15,252,0.062,"Category 4",0.0595238095238095,1,1,1,1,1,250,NA,66,0,1,4,1,1,10,0,NA
+"MUSC Children's Hospital",1152,1073605879,4,59,0.153,"Category 5",0.0677966101694915,1,1,1,1,1,250,NA,66,0,1,4,1,1,10,0,NA
+"Nationwide Children's Hospital",1399,1093894131,2,400,0.004,"Category 1",0.005,1,1,1,1,1,673,NA,114,0,1,4,1,1,32,1,6
+"Nationwide Children's Hospital",1399,1093894131,10,456,0.015,"Category 2",0.0219298245614035,1,1,1,1,1,673,NA,114,0,1,4,1,1,32,1,6
+"Nationwide Children's Hospital",1399,1093894131,6,145,0.027,"Category 3",0.0413793103448276,1,1,1,1,1,673,NA,114,0,1,4,1,1,32,1,6
+"Nationwide Children's Hospital",1399,1093894131,23,260,0.063,"Category 4",0.0884615384615385,1,1,1,1,1,673,NA,114,0,1,4,1,1,32,1,6
+"Nationwide Children's Hospital",1399,1093894131,20,138,0.12,"Category 5",0.144927536231884,1,1,1,1,1,673,NA,114,0,1,4,1,1,32,1,6
+"Nemours Children's Hospital",110,1881944346,0,61,0.002,"Category 1",0,1,2,1,1,2,130,NA,NA,0,1,3,0,0,NA,0,NA
+"Nemours Children's Hospital",110,1881944346,0,22,0.014,"Category 2",0,1,2,1,1,2,130,NA,NA,0,1,3,0,0,NA,0,NA
+"Nemours Children's Hospital",110,1881944346,0,9,0.016,"Category 3",0,1,2,1,1,2,130,NA,NA,0,1,3,0,0,NA,0,NA
+"Nemours Children's Hospital",110,1881944346,1,18,0.025,"Category 4",0.0555555555555556,1,2,1,1,2,130,NA,NA,0,1,3,0,0,NA,0,NA
+"New York Presbyterian / Morgan Stanley Children's Hospital",2420,1194832477,4,794,0.004,"Category 1",0.00503778337531486,1,1,NA,1,1,299,27,62,0,1,4,1,1,21,1,20
+"New York Presbyterian / Morgan Stanley Children's Hospital",2420,1194832477,14,759,0.015,"Category 2",0.0184453227931489,1,1,NA,1,1,299,27,62,0,1,4,1,1,21,1,20
+"New York Presbyterian / Morgan Stanley Children's Hospital",2420,1194832477,7,262,0.022,"Category 3",0.0267175572519084,1,1,NA,1,1,299,27,62,0,1,4,1,1,21,1,20
+"New York Presbyterian / Morgan Stanley Children's Hospital",2420,1194832477,26,512,0.056,"Category 4",0.05078125,1,1,NA,1,1,299,27,62,0,1,4,1,1,21,1,20
+"New York Presbyterian / Morgan Stanley Children's Hospital",2420,1194832477,7,93,0.129,"Category 5",0.0752688172043011,1,1,NA,1,1,299,27,62,0,1,4,1,1,21,1,20
+"Nicklaus Children's Hospital",952,1871540237,1,296,0.004,"Category 1",0.00337837837837838,1,1,1,1,1,309,NA,40,0,1,3,1,1,46,1,35
+"Nicklaus Children's Hospital",952,1871540237,5,351,0.016,"Category 2",0.0142450142450142,1,1,1,1,1,309,NA,40,0,1,3,1,1,46,1,35
+"Nicklaus Children's Hospital",952,1871540237,0,73,0.022,"Category 3",0,1,1,1,1,1,309,NA,40,0,1,3,1,1,46,1,35
+"Nicklaus Children's Hospital",952,1871540237,20,185,0.066,"Category 4",0.108108108108108,1,1,1,1,1,309,NA,40,0,1,3,1,1,46,1,35
+"Nicklaus Children's Hospital",952,1871540237,10,47,0.161,"Category 5",0.212765957446809,1,1,1,1,1,309,NA,40,0,1,3,1,1,46,1,35
+"Norton Children's Hospital",879,1982609442,1,323,0.003,"Category 1",0.00309597523219814,1,1,1,1,1,300,NA,101,0,1,4,1,0,NA,0,NA
+"Norton Children's Hospital",879,1982609442,5,254,0.017,"Category 2",0.0196850393700787,1,1,1,1,1,300,NA,101,0,1,4,1,0,NA,0,NA
+"Norton Children's Hospital",879,1982609442,7,96,0.025,"Category 3",0.0729166666666667,1,1,1,1,1,300,NA,101,0,1,4,1,0,NA,0,NA
+"Norton Children's Hospital",879,1982609442,14,177,0.063,"Category 4",0.0790960451977401,1,1,1,1,1,300,NA,101,0,1,4,1,0,NA,0,NA
+"Norton Children's Hospital",879,1982609442,7,29,0.195,"Category 5",0.241379310344828,1,1,1,1,1,300,NA,101,0,1,4,1,0,NA,0,NA
+"Ochsner Health System",374,1811973100,0,132,0.003,"Category 1",0,1,1,1,1,1,125,71,54,0,1,4,1,1,42,0,NA
+"Ochsner Health System",374,1811973100,4,151,0.015,"Category 2",0.0264900662251656,1,1,1,1,1,125,71,54,0,1,4,1,1,42,0,NA
+"Ochsner Health System",374,1811973100,0,25,0.024,"Category 3",0,1,1,1,1,1,125,71,54,0,1,4,1,1,42,0,NA
+"Ochsner Health System",374,1811973100,4,57,0.063,"Category 4",0.0701754385964912,1,1,1,1,1,125,71,54,0,1,4,1,1,42,0,NA
+"Ochsner Health System",374,1811973100,1,9,0.124,"Category 5",0.111111111111111,1,1,1,1,1,125,71,54,0,1,4,1,1,42,0,NA
+"Penn State Children's Hospital",581,1568435477,0,211,0.004,"Category 1",0,1,1,1,1,1,134,72,42,0,1,4,1,1,16,1,38
+"Penn State Children's Hospital",581,1568435477,0,190,0.015,"Category 2",0,1,1,1,1,1,134,72,42,0,1,4,1,1,16,1,38
+"Penn State Children's Hospital",581,1568435477,0,64,0.021,"Category 3",0,1,1,1,1,1,134,72,42,0,1,4,1,1,16,1,38
+"Penn State Children's Hospital",581,1568435477,2,87,0.06,"Category 4",0.0229885057471264,1,1,1,1,1,134,72,42,0,1,4,1,1,16,1,38
+"Penn State Children's Hospital",581,1568435477,3,29,0.218,"Category 5",0.103448275862069,1,1,1,1,1,134,72,42,0,1,4,1,1,16,1,38
+"Phoenix Children's Hospital",1572,1760480503,2,463,0.003,"Category 1",0.00431965442764579,1,1,1,1,1,433,46,33,0,1,3,1,0,NA,1,37
+"Phoenix Children's Hospital",1572,1760480503,7,526,0.016,"Category 2",0.0133079847908745,1,1,1,1,1,433,46,33,0,1,3,1,0,NA,1,37
+"Phoenix Children's Hospital",1572,1760480503,1,176,0.023,"Category 3",0.00568181818181818,1,1,1,1,1,433,46,33,0,1,3,1,0,NA,1,37
+"Phoenix Children's Hospital",1572,1760480503,9,339,0.07,"Category 4",0.0265486725663717,1,1,1,1,1,433,46,33,0,1,3,1,0,NA,1,37
+"Phoenix Children's Hospital",1572,1760480503,4,68,0.136,"Category 5",0.0588235294117647,1,1,1,1,1,433,46,33,0,1,3,1,0,NA,1,37
+"Primary Children's Hospital",1377,1235148594,4,310,0.003,"Category 1",0.0129032258064516,1,1,1,1,1,289,160,50,0,1,4,1,1,44,0,NA
+"Primary Children's Hospital",1377,1235148594,6,431,0.013,"Category 2",0.0139211136890951,1,1,1,1,1,289,160,50,0,1,4,1,1,44,0,NA
+"Primary Children's Hospital",1377,1235148594,1,172,0.015,"Category 3",0.00581395348837209,1,1,1,1,1,289,160,50,0,1,4,1,1,44,0,NA
+"Primary Children's Hospital",1377,1235148594,25,395,0.045,"Category 4",0.0632911392405063,1,1,1,1,1,289,160,50,0,1,4,1,1,44,0,NA
+"Primary Children's Hospital",1377,1235148594,10,69,0.114,"Category 5",0.144927536231884,1,1,1,1,1,289,160,50,0,1,4,1,1,44,0,NA
+"Providence Sacred Heart Medical Center and Children's Hospital",479,1891947263,0,137,0.003,"Category 1",0,1,1,1,1,1,632,177,NA,0,1,4,0,0,NA,0,NA
+"Providence Sacred Heart Medical Center and Children's Hospital",479,1891947263,4,165,0.013,"Category 2",0.0242424242424242,1,1,1,1,1,632,177,NA,0,1,4,0,0,NA,0,NA
+"Providence Sacred Heart Medical Center and Children's Hospital",479,1891947263,0,60,0.023,"Category 3",0,1,1,1,1,1,632,177,NA,0,1,4,0,0,NA,0,NA
+"Providence Sacred Heart Medical Center and Children's Hospital",479,1891947263,4,83,0.05,"Category 4",0.0481927710843374,1,1,1,1,1,632,177,NA,0,1,4,0,0,NA,0,NA
+"Providence Sacred Heart Medical Center and Children's Hospital",479,1891947263,2,34,0.117,"Category 5",0.0588235294117647,1,1,1,1,1,632,177,NA,0,1,4,0,0,NA,0,NA
+"Rady Children's Hospital San Diego",1136,1710065933,1,298,0.003,"Category 1",0.00335570469798658,1,1,1,1,1,505,NA,60,0,1,4,1,1,21,1,18
+"Rady Children's Hospital San Diego",1136,1710065933,7,373,0.014,"Category 2",0.0187667560321716,1,1,1,1,1,505,NA,60,0,1,4,1,1,21,1,18
+"Rady Children's Hospital San Diego",1136,1710065933,0,118,0.026,"Category 3",0,1,1,1,1,1,505,NA,60,0,1,4,1,1,21,1,18
+"Rady Children's Hospital San Diego",1136,1710065933,21,320,0.064,"Category 4",0.065625,1,1,1,1,1,505,NA,60,0,1,4,1,1,21,1,18
+"Rady Children's Hospital San Diego",1136,1710065933,1,27,0.132,"Category 5",0.037037037037037,1,1,1,1,1,505,NA,60,0,1,4,1,1,21,1,18
+"Rainbow Babies & Children's Hospital",148,1518042175,0,42,0.003,"Category 1",0,1,1,0,1,1,244,NA,NA,0,1,4,1,0,NA,1,20
+"Rainbow Babies & Children's Hospital",148,1518042175,1,61,0.02,"Category 2",0.0163934426229508,1,1,0,1,1,244,NA,NA,0,1,4,1,0,NA,1,20
+"Rainbow Babies & Children's Hospital",148,1518042175,1,18,0.027,"Category 3",0.0555555555555556,1,1,0,1,1,244,NA,NA,0,1,4,1,0,NA,1,20
+"Rainbow Babies & Children's Hospital",148,1518042175,1,25,0.052,"Category 4",0.04,1,1,0,1,1,244,NA,NA,0,1,4,1,0,NA,1,20
+"Rainbow Babies & Children's Hospital",148,1518042175,0,2,0.148,"Category 5",0,1,1,0,1,1,244,NA,NA,0,1,4,1,0,NA,1,20
+"Randall Children's Hospital at Legacy Emanuel",502,1831112358,0,166,0.003,"Category 1",0,1,1,1,1,1,165,24,45,0,1,4,1,0,NA,1,14
+"Randall Children's Hospital at Legacy Emanuel",502,1831112358,1,188,0.012,"Category 2",0.00531914893617021,1,1,1,1,1,165,24,45,0,1,4,1,0,NA,1,14
+"Randall Children's Hospital at Legacy Emanuel",502,1831112358,1,62,0.014,"Category 3",0.0161290322580645,1,1,1,1,1,165,24,45,0,1,4,1,0,NA,1,14
+"Randall Children's Hospital at Legacy Emanuel",502,1831112358,3,66,0.04,"Category 4",0.0454545454545455,1,1,1,1,1,165,24,45,0,1,4,1,0,NA,1,14
+"Randall Children's Hospital at Legacy Emanuel",502,1831112358,4,20,0.131,"Category 5",0.2,1,1,1,1,1,165,24,45,0,1,4,1,0,NA,1,14
+"Riley Hospital for Children at Indiana University Health",1409,1295928299,3,408,0.004,"Category 1",0.00735294117647059,1,1,1,1,1,465,NA,60,0,1,4,1,1,5,1,14
+"Riley Hospital for Children at Indiana University Health",1409,1295928299,6,439,0.02,"Category 2",0.0136674259681093,1,1,1,1,1,465,NA,60,0,1,4,1,1,5,1,14
+"Riley Hospital for Children at Indiana University Health",1409,1295928299,2,208,0.019,"Category 3",0.00961538461538462,1,1,1,1,1,465,NA,60,0,1,4,1,1,5,1,14
+"Riley Hospital for Children at Indiana University Health",1409,1295928299,16,301,0.095,"Category 4",0.053156146179402,1,1,1,1,1,465,NA,60,0,1,4,1,1,5,1,14
+"Riley Hospital for Children at Indiana University Health",1409,1295928299,6,53,0.181,"Category 5",0.113207547169811,1,1,1,1,1,465,NA,60,0,1,4,1,1,5,1,14
+"Seattle Children's Hospital",1426,1467536276,0,392,0.004,"Category 1",0,1,1,1,1,1,407,59,32,0,1,4,1,1,16,1,10
+"Seattle Children's Hospital",1426,1467536276,4,409,0.016,"Category 2",0.0097799511002445,1,1,1,1,1,407,59,32,0,1,4,1,1,16,1,10
+"Seattle Children's Hospital",1426,1467536276,2,158,0.021,"Category 3",0.0126582278481013,1,1,1,1,1,407,59,32,0,1,4,1,1,16,1,10
+"Seattle Children's Hospital",1426,1467536276,18,397,0.051,"Category 4",0.0453400503778338,1,1,1,1,1,407,59,32,0,1,4,1,1,16,1,10
+"Seattle Children's Hospital",1426,1467536276,12,70,0.13,"Category 5",0.171428571428571,1,1,1,1,1,407,59,32,0,1,4,1,1,16,1,10
+"SSM Health Cardinal Glennon Children's Hospital",782,1255664645,0,198,0.005,"Category 1",0,1,1,1,1,1,195,NA,65,0,1,4,1,1,45,1,48
+"SSM Health Cardinal Glennon Children's Hospital",782,1255664645,5,297,0.014,"Category 2",0.0168350168350168,1,1,1,1,1,195,NA,65,0,1,4,1,1,45,1,48
+"SSM Health Cardinal Glennon Children's Hospital",782,1255664645,2,89,0.023,"Category 3",0.0224719101123595,1,1,1,1,1,195,NA,65,0,1,4,1,1,45,1,48
+"SSM Health Cardinal Glennon Children's Hospital",782,1255664645,8,163,0.072,"Category 4",0.049079754601227,1,1,1,1,1,195,NA,65,0,1,4,1,1,45,1,48
+"SSM Health Cardinal Glennon Children's Hospital",782,1255664645,5,35,0.178,"Category 5",0.142857142857143,1,1,1,1,1,195,NA,65,0,1,4,1,1,45,1,48
+"St. Christopher's Hospital for Children",223,1114959582,0,99,0.004,"Category 1",0,1,1,1,1,1,189,NA,NA,0,1,4,1,0,NA,0,NA
+"St. Christopher's Hospital for Children",223,1114959582,2,78,0.017,"Category 2",0.0256410256410256,1,1,1,1,1,189,NA,NA,0,1,4,1,0,NA,0,NA
+"St. Christopher's Hospital for Children",223,1114959582,0,15,0.024,"Category 3",0,1,1,1,1,1,189,NA,NA,0,1,4,1,0,NA,0,NA
+"St. Christopher's Hospital for Children",223,1114959582,7,28,0.138,"Category 4",0.25,1,1,1,1,1,189,NA,NA,0,1,4,1,0,NA,0,NA
+"St. Christopher's Hospital for Children",223,1114959582,1,3,0.3,"Category 5",0.333333333333333,1,1,1,1,1,189,NA,NA,0,1,4,1,0,NA,0,NA
+"St. Joseph's Children's Hospital BayCare Health System",512,1881632818,0,162,0.003,"Category 1",0,1,2,1,1,2,219,NA,64,0,1,4,1,1,17,1,8
+"St. Joseph's Children's Hospital BayCare Health System",512,1881632818,2,190,0.013,"Category 2",0.0105263157894737,1,2,1,1,2,219,NA,64,0,1,4,1,1,17,1,8
+"St. Joseph's Children's Hospital BayCare Health System",512,1881632818,2,52,0.021,"Category 3",0.0384615384615385,1,2,1,1,2,219,NA,64,0,1,4,1,1,17,1,8
+"St. Joseph's Children's Hospital BayCare Health System",512,1881632818,7,95,0.064,"Category 4",0.0736842105263158,1,2,1,1,2,219,NA,64,0,1,4,1,1,17,1,8
+"St. Joseph's Children's Hospital BayCare Health System",512,1881632818,1,13,0.148,"Category 5",0.0769230769230769,1,2,1,1,2,219,NA,64,0,1,4,1,1,17,1,8
+"St. Louis Children's Hospital",1060,1992727663,0,334,0.003,"Category 1",0,1,1,NA,1,1,402,NA,122,0,1,4,1,0,NA,1,5
+"St. Louis Children's Hospital",1060,1992727663,3,317,0.011,"Category 2",0.00946372239747634,1,1,NA,1,1,402,NA,122,0,1,4,1,0,NA,1,5
+"St. Louis Children's Hospital",1060,1992727663,3,122,0.029,"Category 3",0.0245901639344262,1,1,NA,1,1,402,NA,122,0,1,4,1,0,NA,1,5
+"St. Louis Children's Hospital",1060,1992727663,14,244,0.057,"Category 4",0.0573770491803279,1,1,NA,1,1,402,NA,122,0,1,4,1,0,NA,1,5
+"St. Louis Children's Hospital",1060,1992727663,9,43,0.137,"Category 5",0.209302325581395,1,1,NA,1,1,402,NA,122,0,1,4,1,0,NA,1,5
+"Sutter Medical Center, Sacramento: Women's and Children's Center",371,1811946734,0,146,0.003,"Category 1",0,1,NA,1,1,NA,242,60,NA,0,1,NA,1,0,NA,0,NA
+"Sutter Medical Center, Sacramento: Women's and Children's Center",371,1811946734,0,120,0.016,"Category 2",0,1,NA,1,1,NA,242,60,NA,0,1,NA,1,0,NA,0,NA
+"Sutter Medical Center, Sacramento: Women's and Children's Center",371,1811946734,1,40,0.018,"Category 3",0.025,1,NA,1,1,NA,242,60,NA,0,1,NA,1,0,NA,0,NA
+"Sutter Medical Center, Sacramento: Women's and Children's Center",371,1811946734,7,56,0.053,"Category 4",0.125,1,NA,1,1,NA,242,60,NA,0,1,NA,1,0,NA,0,NA
+"Sutter Medical Center, Sacramento: Women's and Children's Center",371,1811946734,2,9,0.096,"Category 5",0.222222222222222,1,NA,1,1,NA,242,60,NA,0,1,NA,1,0,NA,0,NA
+"Texas Children's Hospital",2703,1477643690,0,783,0.003,"Category 1",0,1,1,1,1,1,973,NA,173,0,1,4,1,1,1,1,3
+"Texas Children's Hospital",2703,1477643690,9,841,0.015,"Category 2",0.0107015457788347,1,1,1,1,1,973,NA,173,0,1,4,1,1,1,1,3
+"Texas Children's Hospital",2703,1477643690,3,261,0.031,"Category 3",0.0114942528735632,1,1,1,1,1,973,NA,173,0,1,4,1,1,1,1,3
+"Texas Children's Hospital",2703,1477643690,21,725,0.058,"Category 4",0.0289655172413793,1,1,1,1,1,973,NA,173,0,1,4,1,1,1,1,3
+"Texas Children's Hospital",2703,1477643690,10,93,0.128,"Category 5",0.10752688172043,1,1,1,1,1,973,NA,173,0,1,4,1,1,1,1,3
+"The Children's Hospital of Alabama",1149,1205935012,1,390,0.003,"Category 1",0.00256410256410256,1,1,1,1,1,332,NA,48,0,1,4,1,1,28,1,29
+"The Children's Hospital of Alabama",1149,1205935012,5,341,0.018,"Category 2",0.0146627565982405,1,1,1,1,1,332,NA,48,0,1,4,1,1,28,1,29
+"The Children's Hospital of Alabama",1149,1205935012,3,119,0.03,"Category 3",0.0252100840336134,1,1,1,1,1,332,NA,48,0,1,4,1,1,28,1,29
+"The Children's Hospital of Alabama",1149,1205935012,18,259,0.072,"Category 4",0.0694980694980695,1,1,1,1,1,332,NA,48,0,1,4,1,1,28,1,29
+"The Children's Hospital of Alabama",1149,1205935012,8,40,0.177,"Category 5",0.2,1,1,1,1,1,332,NA,48,0,1,4,1,1,28,1,29
+"The Johns Hopkins Hospital",859,1780665315,0,217,0.007,"Category 1",0,1,1,1,1,1,196,137,45,0,1,4,1,1,29,1,20
+"The Johns Hopkins Hospital",859,1780665315,3,367,0.015,"Category 2",0.00817438692098093,1,1,1,1,1,196,137,45,0,1,4,1,1,29,1,20
+"The Johns Hopkins Hospital",859,1780665315,1,94,0.02,"Category 3",0.0106382978723404,1,1,1,1,1,196,137,45,0,1,4,1,1,29,1,20
+"The Johns Hopkins Hospital",859,1780665315,10,165,0.058,"Category 4",0.0606060606060606,1,1,1,1,1,196,137,45,0,1,4,1,1,29,1,20
+"The Johns Hopkins Hospital",859,1780665315,4,16,0.193,"Category 5",0.25,1,1,1,1,1,196,137,45,0,1,4,1,1,29,1,20
+"UC Davis Medical Center",327,1710918545,0,104,0.004,"Category 1",0,1,1,1,1,1,129,72,49,0,1,4,1,1,36,1,29
+"UC Davis Medical Center",327,1710918545,2,108,0.013,"Category 2",0.0185185185185185,1,1,1,1,1,129,72,49,0,1,4,1,1,36,1,29
+"UC Davis Medical Center",327,1710918545,1,40,0.02,"Category 3",0.025,1,1,1,1,1,129,72,49,0,1,4,1,1,36,1,29
+"UC Davis Medical Center",327,1710918545,5,62,0.052,"Category 4",0.0806451612903226,1,1,1,1,1,129,72,49,0,1,4,1,1,36,1,29
+"UC Davis Medical Center",327,1710918545,3,13,0.114,"Category 5",0.230769230769231,1,1,1,1,1,129,72,49,0,1,4,1,1,36,1,29
+"UCLA Mattel Children's Hospital",521,1609131655,1,181,0.004,"Category 1",0.00552486187845304,1,1,1,1,1,156,62,22,0,1,4,1,0,NA,0,NA
+"UCLA Mattel Children's Hospital",521,1609131655,4,165,0.013,"Category 2",0.0242424242424242,1,1,1,1,1,156,62,22,0,1,4,1,0,NA,0,NA
+"UCLA Mattel Children's Hospital",521,1609131655,0,34,0.021,"Category 3",0,1,1,1,1,1,156,62,22,0,1,4,1,0,NA,0,NA
+"UCLA Mattel Children's Hospital",521,1609131655,9,130,0.054,"Category 4",0.0692307692307692,1,1,1,1,1,156,62,22,0,1,4,1,0,NA,0,NA
+"UCLA Mattel Children's Hospital",521,1609131655,1,11,0.216,"Category 5",0.0909090909090909,1,1,1,1,1,156,62,22,0,1,4,1,0,NA,0,NA
+"UCSF Benioff Children's Hospital",1211,1689772592,0,379,0.004,"Category 1",0,1,1,1,1,1,183,NA,50,0,1,4,1,0,NA,0,NA
+"UCSF Benioff Children's Hospital",1211,1689772592,4,420,0.015,"Category 2",0.00952380952380952,1,1,1,1,1,183,NA,50,0,1,4,1,0,NA,0,NA
+"UCSF Benioff Children's Hospital",1211,1689772592,3,128,0.021,"Category 3",0.0234375,1,1,1,1,1,183,NA,50,0,1,4,1,0,NA,0,NA
+"UCSF Benioff Children's Hospital",1211,1689772592,10,240,0.061,"Category 4",0.0416666666666667,1,1,1,1,1,183,NA,50,0,1,4,1,0,NA,0,NA
+"UCSF Benioff Children's Hospital",1211,1689772592,7,44,0.112,"Category 5",0.159090909090909,1,1,1,1,1,183,NA,50,0,1,4,1,0,NA,0,NA
+"UF Health Shands Children's Hospital",824,1699874248,0,227,0.003,"Category 1",0,1,1,1,1,NA,208,NA,52,0,1,4,1,1,12,0,NA
+"UF Health Shands Children's Hospital",824,1699874248,3,291,0.011,"Category 2",0.0103092783505155,1,1,1,1,NA,208,NA,52,0,1,4,1,1,12,0,NA
+"UF Health Shands Children's Hospital",824,1699874248,0,69,0.021,"Category 3",0,1,1,1,1,NA,208,NA,52,0,1,4,1,1,12,0,NA
+"UF Health Shands Children's Hospital",824,1699874248,2,218,0.046,"Category 4",0.00917431192660551,1,1,1,1,NA,208,NA,52,0,1,4,1,1,12,0,NA
+"UF Health Shands Children's Hospital",824,1699874248,2,19,0.119,"Category 5",0.105263157894737,1,1,1,1,NA,208,NA,52,0,1,4,1,1,12,0,NA
+"University Hospital",490,1821011248,0,137,0.004,"Category 1",0,1,1,1,1,1,244,244,NA,0,1,4,1,0,NA,1,14
+"University Hospital",490,1821011248,2,162,0.013,"Category 2",0.0123456790123457,1,1,1,1,1,244,244,NA,0,1,4,1,0,NA,1,14
+"University Hospital",490,1821011248,2,75,0.017,"Category 3",0.0266666666666667,1,1,1,1,1,244,244,NA,0,1,4,1,0,NA,1,14
+"University Hospital",490,1821011248,5,94,0.068,"Category 4",0.0531914893617021,1,1,1,1,1,244,244,NA,0,1,4,1,0,NA,1,14
+"University Hospital",490,1821011248,5,22,0.174,"Category 5",0.227272727272727,1,1,1,1,1,244,244,NA,0,1,4,1,0,NA,1,14
+"University of Kentucky Healthcare",27,1518911338,0,17,0.003,"Category 1",0,1,1,NA,1,1,149,28,90,0,1,4,1,1,14,0,NA
+"University of Kentucky Healthcare",27,1518911338,0,5,0.006,"Category 2",0,1,1,NA,1,1,149,28,90,0,1,4,1,1,14,0,NA
+"University of Kentucky Healthcare",27,1518911338,0,3,0.017,"Category 3",0,1,1,NA,1,1,149,28,90,0,1,4,1,1,14,0,NA
+"University of Kentucky Healthcare",27,1518911338,0,2,0.033,"Category 4",0,1,1,NA,1,1,149,28,90,0,1,4,1,1,14,0,NA
+"University of Maryland Children's Hospital",494,1174660120,0,159,0.004,"Category 1",0,1,1,1,1,1,123,19,52,0,1,4,1,1,1,0,NA
+"University of Maryland Children's Hospital",494,1174660120,1,190,0.016,"Category 2",0.00526315789473684,1,1,1,1,1,123,19,52,0,1,4,1,1,1,0,NA
+"University of Maryland Children's Hospital",494,1174660120,0,38,0.02,"Category 3",0,1,1,1,1,1,123,19,52,0,1,4,1,1,1,0,NA
+"University of Maryland Children's Hospital",494,1174660120,2,93,0.046,"Category 4",0.021505376344086,1,1,1,1,1,123,19,52,0,1,4,1,1,1,0,NA
+"University of Maryland Children's Hospital",494,1174660120,3,14,0.132,"Category 5",0.214285714285714,1,1,1,1,1,123,19,52,0,1,4,1,1,1,0,NA
+"University of Minnesota Masonic Children's Hospital",483,1013994359,1,143,0.006,"Category 1",0.00699300699300699,1,3,NA,1,3,212,NA,NA,0,1,4,1,0,NA,0,NA
+"University of Minnesota Masonic Children's Hospital",483,1013994359,5,179,0.013,"Category 2",0.0279329608938547,1,3,NA,1,3,212,NA,NA,0,1,4,1,0,NA,0,NA
+"University of Minnesota Masonic Children's Hospital",483,1013994359,3,55,0.017,"Category 3",0.0545454545454545,1,3,NA,1,3,212,NA,NA,0,1,4,1,0,NA,0,NA
+"University of Minnesota Masonic Children's Hospital",483,1013994359,9,97,0.053,"Category 4",0.0927835051546392,1,3,NA,1,3,212,NA,NA,0,1,4,1,0,NA,0,NA
+"University of Minnesota Masonic Children's Hospital",483,1013994359,0,9,0.11,"Category 5",0,1,3,NA,1,3,212,NA,NA,0,1,4,1,0,NA,0,NA
+"University of Virginia Children's Hospital",740,1780630608,1,206,0.005,"Category 1",0.00485436893203883,1,1,1,1,1,105,54,51,0,1,4,1,1,37,0,NA
+"University of Virginia Children's Hospital",740,1780630608,6,232,0.024,"Category 2",0.0258620689655172,1,1,1,1,1,105,54,51,0,1,4,1,1,37,0,NA
+"University of Virginia Children's Hospital",740,1780630608,4,88,0.035,"Category 3",0.0454545454545455,1,1,1,1,1,105,54,51,0,1,4,1,1,37,0,NA
+"University of Virginia Children's Hospital",740,1780630608,12,163,0.059,"Category 4",0.0736196319018405,1,1,1,1,1,105,54,51,0,1,4,1,1,37,0,NA
+"University of Virginia Children's Hospital",740,1780630608,4,51,0.149,"Category 5",0.0784313725490196,1,1,1,1,1,105,54,51,0,1,4,1,1,37,0,NA
+"Yale-New Haven Children's Hospital",271,1336139500,1,131,0.004,"Category 1",0.00763358778625954,1,1,1,1,1,202,NA,NA,0,1,4,1,0,NA,1,43
+"Yale-New Haven Children's Hospital",271,1336139500,0,88,0.015,"Category 2",0,1,1,1,1,1,202,NA,NA,0,1,4,1,0,NA,1,43
+"Yale-New Haven Children's Hospital",271,1336139500,1,26,0.019,"Category 3",0.0384615384615385,1,1,1,1,1,202,NA,NA,0,1,4,1,0,NA,1,43
+"Yale-New Haven Children's Hospital",271,1336139500,1,22,0.054,"Category 4",0.0454545454545455,1,1,1,1,1,202,NA,NA,0,1,4,1,0,NA,1,43
+"Yale-New Haven Children's Hospital",271,1336139500,1,4,0.09,"Category 5",0.25,1,1,1,1,1,202,NA,NA,0,1,4,1,0,NA,1,43
