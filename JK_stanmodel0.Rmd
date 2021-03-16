@@ -1,0 +1,73 @@
+---
+title: "Stanpractice"
+author: "Jennifer Kampe"
+date: "2/18/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(rstan)
+library(rstanarm)
+library(tidyverse)
+library(xtable)
+```
+
+# Prepping the data
+Because stan gets mad if I give it the raw hospital ID, I create a new index
+```{r}
+
+# Generate hospital index 
+hosp <- read.csv("hosp_full.csv", header=TRUE)
+hosp_table <- data.frame(id = unique(hosp$id), hosp_index = c(1:length(unique(hosp$id))))
+hosp <- inner_join(hosp, hosp_table) %>%
+  filter(category!="Overall")
+```
+
+# Create stan data list and run the stan file
+Stan doesn't like factors, so create a model matrix and DO NOT FORGET TO DROP LEVELS, because rstan will not do that for you. Consider scaling X
+```{r}
+
+# Missing values cause trouble
+apply(hosp, 2,function(x) sum(is.na(x)))
+
+# Set up data and select model matrix, selecting desired vars
+
+y = hosp$deaths
+n = hosp$procedures
+X = model.matrix(deaths ~ -1 + category + prop_45 + nbeds + top50_ped_cardio + 
+                   top50_ped_pulm , data=hosp)
+g = hosp$hosp_index
+
+N = nrow(hosp)
+M = length(unique(hosp$id))
+K = ncol(X)
+
+stan_data = list(N=N, M = M, K = K, n=n, y = y, x = X, g = g)
+
+start_time <- Sys.time()
+fit1 <- stan("JK_stanmodel0.stan", data = stan_data, chains = 2, iter = 1000)
+end_time <- Sys.time()
+
+end_time - start_time
+
+```
+
+BEWARE THE DUMMY VARIABLE TRAP!
+```{r}
+# Look at fixed effect coefficients
+fixed_effects <- summary(fit1, pars=c("beta"), 
+       probs = c(0.025, 0.975), digits_summary=3)$summary
+
+row.names(fixed_effects) <- c( colnames(X)) # fix coefficient names
+fixed_effects
+
+# Look at hospital random effects
+random_effects <- summary(fit1, pars=c("a"), 
+       probs = c(0.025, 0.975), digits_summary=3)$summary
+row.names(random_effects) <- unique(hosp$hospital) # this should be right, double check
+random_effects
+
+traceplot(fit1 ,pars = c("beta[1]","beta[2]","beta[3]","beta[4]"),
+	ncol=1,nrow=6,inc_warmup=F)
+```

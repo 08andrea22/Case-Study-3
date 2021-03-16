@@ -81,7 +81,8 @@ write.csv(hos, "hospital_covariates.csv", row.names=FALSE)
 Combine hospital covariates and Dunson's data
 ```{r}
 # Drop overall category
-df1 <- filter(df,category!="Overall")
+#df1 <- filter(df,category!="Overall")
+df1 <- df
 
 # Add procedures , proportions by hospital
 cats <- dcast(melt(df1[, c(1,6,8)]), hospital  ~ category + variable)
@@ -90,13 +91,18 @@ df1 <- inner_join(df1, cats)
 df1 <- df1 %>% rename(cat1 = `Category 1_procedures`, cat2 = `Category 2_procedures`, 
                cat3 = `Category 3_procedures`, cat4 = `Category 4_procedures`, 
                cat5 = `Category 5_procedures`, total_procedures = volume) %>%
-      mutate(prop_5 = cat5/total_procedures, prop_4 = cat4/total_procedures, 
-              prop_45 = (cat4 + cat5)/ total_procedures) %>%
+      mutate(cat4 = ifelse(is.na(cat4), 0, cat4), cat5 = ifelse(is.na(cat5), 0, cat5), 
+             prop_5 = ifelse(cat5==0,0,cat5/total_procedures), 
+             prop_4 = ifelse(cat4==0, 0, cat4/total_procedures), 
+            prop_45 = (cat4 + cat5)/ total_procedures) %>%
       select(hospital, id, category, procedures, deaths, mort_rate, mort_rate_overall, EMR, everything()) 
 
 hosp <- read.csv("hosp.csv", header=TRUE)
-hosp <- hosp %>% select(-c(deaths, procedures, EMR, hospital))
+hosp <- hosp %>% select(-c(X, deaths, procedures, EMR, hospital, mort_rate))
 hosp_full <- left_join(df1, hosp, by = "id") 
+select(hosp_full, -Overall_procedures)
+
+apply(hosp_full, 2,function(x) sum(is.na(x)))
 write.csv(hosp_full, "hosp_full.csv", row.names=FALSE)
       
                 
@@ -107,18 +113,68 @@ EDA
 ```{r}
 # cardiology rank
 
-ggplot(hosp, aes(x = as.factor(top50_ped_cardio), y = deaths, fill = as.factor(top50_ped_cardio))) + geom_boxplot() + 
-  labs(title = "Procedures Compared to Ranking Indicator for Cardiology", fill = "Ranked in Top 50 for Cardiology") + scale_fill_discrete(labels = c("No", "Yes")) + ylab("Deaths") + xlab("Ranked Indicator")
+ggplot(hosp_full, aes(x = as.factor(top50_ped_cardio), y = prop_5, fill = as.factor(top50_ped_cardio))) + geom_boxplot() + 
+  labs( fill = "Top 50 \n Pediatric \n Cardiology") + scale_fill_discrete(labels = c("No", "Yes")) + ylab("Proportion Category Five") + xlab("Ranked Indicator")+
+    theme(text = element_text(size=27))
+
+
+colors = c("royal blue", "dark blue")
 
 # Mortality rate versus proportion of category five procedures
+hosp_full %>% filter(category=="Overall") %>%
+  ggplot(mapping = aes(x= prop_45, y= mort_rate_overall, 
+                      color = as.factor(top50_ped_cardio))) +
+                      geom_point()  +  
+                      scale_color_discrete(labels = c("No", "Yes")) + 
+                    ylab("Overall Mortality Rate") +
+                     xlab("Proportion of Category 4 and 5 Procedures") +
+                    labs(title = "Mortality Rate by Proportion of High Risk Procedures", 
+                         color = "Ranked in Top 50 for Cardiology")
+                      
+
+# Mortality rate versus cardiology ranking by category
+hosp_full %>% filter(procedures!=0)%>%
+  ggplot(mapping = aes(x= rank_ped_cardio, y= mort_rate, color = nbeds)) +
+                      geom_point()  +  
+                      ylab("Mortality Rate") +
+                      xlab("Pediatric Cardiology Ranking") +
+                      facet_wrap(~ category, scales = "free") +
+                      labs(color = "Number \n Pediatric Beds") +
+                      theme(text=element_text(size = 25))
 
 
+# Mortality rate versus cardiology ranking by category
+hosp_full %>% filter(procedures!=0)%>%
+  ggplot(mapping = aes(x= rank_ped_pulm, y= mort_rate)) +
+                      geom_point()  +  
+                      ylab("Mortality Rate") +
+                      xlab("Pediatric Pulmonology Ranking") +
+                      facet_wrap(~ category, scales = "free")
 
- df1 %>% group_by(hospital)%>%
-  summarize(total_cat45=sum(deaths), tot=sum(procedures))%>%
-  mutate(fatality=deaths/tot) %>%
-  select(category, fatality, ) %>%
-  filter(category !="Overall")
+
+ggplot(data = hosp_full[hosp_full$category!="Overall", ], aes(x = category, y = sqrt(mort_rate), fill = as.factor(top50_ped_cardio))) + geom_boxplot() +
+  ylab(TeX("$\\sqrt{OMR}$")) + labs(fill = "Top 50 \n Pediatric \n Cardiology") + scale_fill_discrete(label = c("No", "Yes")) + xlab("") +
+    theme(text = element_text(size=27))
+
+
+hosp_full %>% 
+  ggplot(aes(x=procedures, y=mort_rate, color=as.factor(top50_ped_cardio))) + 
+  geom_point()  + 
+  facet_wrap(~ category, scales="free") + 
+  labs(color="Ranked in \n Cardiology") + 
+  scale_color_discrete(label = c("No", "Yes")) +
+  theme(text = element_text(size=27)) +
+  xlab("Number of Procedures") +
+  ylab("Mortality Rate")
+
+hosp_full %>% 
+  ggplot(aes(x=procedures, y=mort_rate, color=rank_ped_cardio)) + 
+  geom_point()  + 
+  facet_wrap(~ category, scales="free") + 
+  labs(color="Pediatric \n Cardiology \n Ranking") + 
+  theme(text = element_text(size=27)) +
+  xlab("Number of Procedures") +
+  ylab("Mortality Rate")
 
 
 
