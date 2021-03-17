@@ -32,8 +32,8 @@ hosp_red <- read.csv("hosp.csv") # "reduced" hospital data
 
 y = hosp$deaths
 n = hosp$procedures
-X = model.matrix(deaths ~ -1 + category, data=hosp)[, -1] # make category 1 baseline
-Z =  model.matrix(deaths ~ -1 + log(procedures) + top50_ped_cardio + 
+X = model.matrix(deaths ~ category, data=hosp) # make category 1 baseline
+Z =  model.matrix(deaths ~ log(procedures) + top50_ped_cardio + 
                    top50_ped_pulm , data=hosp_red)
 g = hosp$hosp_index
 
@@ -48,7 +48,7 @@ stan_data = list(N=N, M = M, K = K, P = P, n=n, y = y, x = X, z = Z, g = g)
 
 options(mc.cores = 2)
 start_time <- Sys.time()
-fit1 <- stan("ADSM.stan", data = stan_data, chains = 2, iter = 1000, cores = 2)
+fit1 <- stan("ADSM.stan", data = stan_data, chains = 2, iter = 10000, cores = 2)
 end_time <- Sys.time()
 
 end_time - start_time
@@ -58,7 +58,9 @@ end_time - start_time
 alpha <- summary(fit1, pars = "a", probs = c(0.025, 0.975))$summary
 alpha <- as.data.frame(alpha)
 
-plot(hosp_red$procedures, alpha$mean)
+stan_hist(fit1, pars = c("alpha", "xi")) # all hospital random effect coefficients shrunk near zero besides intercept... probably due to sparsity
+
+stan_plot(fit1, pars = "a") # all a's are more or less shrunk towards the intercept
 
 ``` 
 
