@@ -14,11 +14,16 @@ load("cardiomort.RData")
 load("amy.rdata")
 
 ta=table(cardio$`Hospital Name`)
-ta
+#ta
 length(ta)
 
 cardiooverall=cardio %>% filter(`Procedure Type`=="Overall")
 ```
+```{r}
+hs=read.csv("hospital_covariates.csv")
+```
+
+
 
 ```{r}
 dt=cardio%>%
@@ -44,98 +49,314 @@ ggplot(dt, aes(x=num,y=logf))+
 
 ```{r}
 coordinates=c(
-  9533040, 41+52/60+55/60^2, 87+37/60+40/60^2, Illinois, Chicago,
-  705686, 41+4/60+23/60^2, 81+31/60+4/60^2, , Akron,
-  1170483, 42+39/60+9/60^2, 73+45/60+26/60^2, , Albany,
-  6069875, 39+44/60+45/60^2, 75+32/60+48/60^2, Delaware, Wilmington,
-  654230, 43+4/60+29/60^2, 89+23/60+3/60^2, Wisconsin, Madison,
-  9533040, 41+52/60+55/60^2, 87+37/60+40/60^2, Illinois, Chicago,
-  738344, 34+44/60+10/60^2, 92+19/60+52/60^2, Arkansas, Little_Rock,
-  2387138, 28+32/60+24/60^2, 81+22/60+48/60^2, Florida, Orlando,
-  4628910, 42+21/60+29/60^2, 71+3/60+49/60^2, Massachusetts, Boston,
-  4292060, 42+16/60+53/60^2, 83+44/60+54/60^2, Michigan, Ann_Arbor,
-  
-  7233323, 32+46/60+45/60^2, 96+48/60+32/60^2, Texas, Dallas,
-  6020864, 33+45/60+18/60^2, 84+23/60+24/60^2, Georgia, Atlanta,
+  9533040, 41+52/60+55/60^2, 87+37/60+40/60^2, "Illinois", "Chicago", NA,
+  705686, 41+4/60+23/60^2, 81+31/60+4/60^2, "Ohio", "Akron", NA,
+  1170483, 42+39/60+9/60^2, 73+45/60+26/60^2, "NY", "Albany", NA,
+  6069875, 39+44/60+45/60^2, 75+32/60+48/60^2, "Delaware", "Wilmington", NA,
+  654230, 43+4/60+29/60^2, 89+23/60+3/60^2, "Wisconsin", "Madison", NA,
+  9533040, 41+52/60+55/60^2, 87+37/60+40/60^2, "Illinois", "Chicago", NA,
+  738344, 34+44/60+10/60^2, 92+19/60+52/60^2, "Arkansas", "Little_Rock", NA,
+  2387138, 28+32/60+24/60^2, 81+22/60+48/60^2, "Florida", "Orlando", NA,
+  4628910, 42+21/60+29/60^2, 71+3/60+49/60^2, "Massachusetts", "Boston", NA,
+  4292060, 42+16/60+53/60^2, 83+44/60+54/60^2, "Michigan", "Ann_Arbor", NA,
+  #
+  7233323, 32+46/60+45/60^2, 96+48/60+32/60^2, "Texas", "Dallas", NA,
+  6020864, 33+45/60+18/60^2, 84+23/60+24/60^2, "Georgia", "Atlanta", NA,
   NA,NA,NA,NA,NA,NA,
-  2932415, 39+44/60+21/60^2, 104+59/60+25/60^2, Colorado, Denver,
-  1270530, 29+95/60, 90+8/60, Louisiana, New_Orleans,
-  373590, 40+43/60+15/60^2, 89+36/60+34/60^2, Illinois, Peoria,
-  13131431, 34+3/60, 118+15/60, California, Los_Angeles,
-  4292060, 42+19/60+53/60^2, 83+2/60+45/60^2, Michigan, Detroit,
-  6096120, 39+57/60+10/60^2, 75+9/60+49/60^2, Pennsylvania, Philadelphia,
-  2362453, 40+26/60+23/60^2, 79+58/60+35/60^2, Pennsylvania, Pittsburgh,
-  
-  1725246, 36+55/60, 76+12/60, Virginia, Norfolk,
-  1572245, 43+5/60, 87+95/60, Wisconsin, Milwaukee,
-  3629190, 44+58/60+55/60^2, 93+16/60+9/60^2, Minnesota, Minneapolis,
-  7066141, 29+45/60+46/60^2, 95+22/60+59/60^2, Texas, Houston,
-  2143651, 39+5/60+59/60^2, 94+34/60+42/60^2, Missouri, Kansas_City,
-  13131431, 34+3/60, 118+15/60, California, Los_Angeles,
-  2137406, 39+6/60, 84+31/60, Ohio, Cincinnati,
-  2057009, 41+29/60, 81+40/60, Ohio, Cleveland,
-  2636883, 35+13/60+38/60^2, 80+50/60+35/60^2, NC, Charlotte,
-  19979477, 40.753141, 73.708444, NY, NY,
-  
-  1214295, 41.753679, 72.681676, Connecticut, Hartford,
-  7102796, 32.73648, 97.3408, Texas, Fort_Worth,
-  2227083, 30.303195, 97.707078, Texas, Austin,
-  2478810, 45.4998, 122.6885, Oregon, Portland,
-  542710, 36.0072, 78.9373, NC, Durham,
-  2387138, 28+32/60+24/60^2, 81+22/60+48/60^2, Florida, Orlando,
-  4699, 40.9678905, 76.6050616, Pennsylvania, Danville,
-  1077370, 42.97051, 85.66581, Michigan, Grand_Rapids,
-  6133552, 38.8575, 77.2278, Washington, DC,
-  6158824, 25.791525, -80.212575, Florida, Miami,
-  
-  6158824, 25+46/60+31/60^2, 80+12/60+32/60^2, Florida, Miami, 215,
-  2870569, 27.764495, 82.640584, Florida, St_Petersburg, 259,
-  1348260, 35.1440, 90.0325, Tennessee, Menphis, 255,
-  4224851, 34.0525, 117.264167, California, San_Bernardino, 507,
-  243537, 43.653, 70.276, Maine, Portland, 637,
-  219802, 44.020278, 92.481667, Minnesota, Rochester, 2059,
+  2932415, 39+44/60+21/60^2, 104+59/60+25/60^2, "Colorado", "Denver", NA,
+  1270530, 29+95/60, 90+8/60, "Louisiana", "New_Orleans", NA,
+  373590, 40+43/60+15/60^2, 89+36/60+34/60^2, "Illinois", "Peoria", NA,
+  13131431, 34+3/60, 118+15/60, "California", "Los_Angeles", NA,
+  4292060, 42+19/60+53/60^2, 83+2/60+45/60^2, "Michigan", "Detroit", NA,
+  6096120, 39+57/60+10/60^2, 75+9/60+49/60^2, "Pennsylvania", "Philadelphia", NA,
+  2362453, 40+26/60+23/60^2, 79+58/60+35/60^2, "Pennsylvania", "Pittsburgh", NA,
+  #
+  1725246, 36+55/60, 76+12/60, "Virginia", "Norfolk", NA,
+  1572245, 43+5/60, 87+95/60, "Wisconsin", "Milwaukee", NA,
+  3629190, 44+58/60+55/60^2, 93+16/60+9/60^2, "Minnesota", "Minneapolis", NA,
+  7066141, 29+45/60+46/60^2, 95+22/60+59/60^2, "Texas", "Houston", NA,
+  2143651, 39+5/60+59/60^2, 94+34/60+42/60^2, "Missouri", "Kansas_City", NA,
+  13131431, 34+3/60, 118+15/60, "California", "Los_Angeles", NA,
+  2137406, 39+6/60, 84+31/60, "Ohio", "Cincinnati", NA,
+  2057009, 41+29/60, 81+40/60, "Ohio", "Cleveland", NA,
+  2636883, 35+13/60+38/60^2, 80+50/60+35/60^2, "NC", "Charlotte", NA,
+  19979477, 40.753141, 73.708444, "NY", "NY", NA,
+  #
+  1214295, 41.753679, 72.681676, "Connecticut", "Hartford", NA,
+  7102796, 32.73648, 97.3408, "Texas", "Fort_Worth", NA,
+  2227083, 30.303195, 97.707078, "Texas", "Austin", NA,
+  2478810, 45.4998, 122.6885, "Oregon", "Portland", NA,
+  542710, 36.0072, 78.9373, "NC", "Durham", NA,
+  2387138, 28+32/60+24/60^2, 81+22/60+48/60^2, "Florida", "Orlando", NA,
+  4699, 40.9678905, 76.6050616, "Pennsylvania", "Danville", NA,
+  1077370, 42.97051, 85.66581, "Michigan", "Grand_Rapids", NA,
+  6133552, 38.8575, 77.2278, "Washington", "DC", NA,
+  6158824, 25.791525, -80.212575, "Florida", "Miami", NA,
+  #
+  6158824, 25+46/60+31/60^2, 80+12/60+32/60^2, "Florida", "Miami", 215,
+  2870569, 27.764495, 82.640584, "Florida", "St_Petersburg", 259,
+  1348260, 35.1440, 90.0325, "Tennessee", "Menphis", 255,
+  4224851, 34.0525, 117.264167, "California", "San_Bernardino", 507,
+  243537, 43.653, 70.276, "Maine", "Portland", 637,
+  219802, 44.020278, 92.481667, "Minnesota", "Rochester", 2059,
   NA,NA,NA,NA,NA,NA,
-  19979477, 40.790066, 73.953249, NY, NY, 1141,
-  548404, 32.782455, 79.951245, SC, Charleston, 279,
-  2078035, 39.953235, 82.979359, Ohio, Columbus, 673,
-  
-  2387138, 28.376702, 81.273605, Florida, Orlando, 130,
-  19979477, 40.8397, 73.9412, NY, NY, 299,
-  6158824, 25.741458, 80.294267, Florida, Miami, 289,
-  1265108, 38.248444, 85.749722, Kentucky, Louisville, 300,
-  1270530, 29.963231, 90.145370, Louisiana, New_Orleans, 767,
-  577941, 40.264096, 76.673541, Pennsylvania, Harrisburg, 134,
-  4857962, 33.478909, 112.041576, Arizona, Phoenix, 433,
-  1222540, 40.771111, 111.838889, Utah, Salt_Lak_City, 289,
-  573493, 47.649, 117.413, Washington, Spokane, 632,
-  3338330, 32.798056, 117.151111, California, San_Digo, 524,
-  
-  2057009, 41.504444, 81.605833, Ohio, Clevland, 244,
-  2478810, 45.5446, 122.6700, Oregon, Portland, 165,
-  2048703, 39.776806, 86.179167, Indiana, Indianapolis, 354,
-  3979845, 47.662778, 122.281667, Washington, Sattle, 407,
-  2807338, 38.6212, 90.2392, Missouri, St_Louis, NA,
-  6096120, 40.0066, 75.1245, Pennsylvania, Philadelphia, 189,
-  3097859, 27.968056, 82.476389, Florida, Tampa, NA,
-  2807338, 38.6375, 90.2651, Missouri, St_Louis, 402,
-  2500000, 38.581667, 121.494444, California, Sacramento, 242,
-  7066141, 29.7077, 95.4016, Texas, Houston, 973,
-  
-  1151801, 33.505556, 86.806111, Alabama, Birmingham, 332,
-  2802789, 39.296251, 76.591805, Maryland, Baltimore, 1091,
-  2500000, 38.5549, 121.4565, California, Sacramento, 625,
-  13131431, 34.066351, 118.447094, California, Los_Angeles, 156,
-  4729484, 37.7647974, 122.389903, California, San_Francisco, 183,
-  288212, 29.6399, 82.3431, Florida, Gainesville, 208,
+  19979477, 40.790066, 73.953249, "NY", "NY", 1141,
+  548404, 32.782455, 79.951245, "SC", "Charleston", 279,
+  2078035, 39.953235, 82.979359, "Ohio", "Columbus", 673,
+  #
+  2387138, 28.376702, 81.273605, "Florida", "Orlando", 130,
+  19979477, 40.8397, 73.9412, "NY", "NY", 299,
+  6158824, 25.741458, 80.294267, "Florida", "Miami", 289,
+  1265108, 38.248444, 85.749722, "Kentucky", "Louisville", 300,
+  1270530, 29.963231, 90.145370, "Louisiana", "New_Orleans", 767,
+  577941, 40.264096, 76.673541, "Pennsylvania", "Harrisburg", 134,
+  4857962, 33.478909, 112.041576, "Arizona", "Phoenix", 433,
+  1222540, 40.771111, 111.838889, "Utah", "Salt_Lak_City", 289,
+  573493, 47.649, 117.413, "Washington", "Spokane", 632,
+  3338330, 32.798056, 117.151111, "California", "San_Digo", 524,
+  #
+  2057009, 41.504444, 81.605833, "Ohio", "Clevland", 244,
+  2478810, 45.5446, 122.6700, "Oregon", "Portland", 165,
+  2048703, 39.776806, 86.179167, "Indiana", "Indianapolis", 354,
+  3979845, 47.662778, 122.281667, "Washington", "Sattle", 407,
+  2807338, 38.6212, 90.2392, "Missouri", "St_Louis", NA,
+  6096120, 40.0066, 75.1245, "Pennsylvania", "Philadelphia", 189,
+  3097859, 27.968056, 82.476389, "Florida", "Tampa", NA,
+  2807338, 38.6375, 90.2651, "Missouri", "St_Louis", 402,
+  2500000, 38.581667, 121.494444, "California", "Sacramento", 242,
+  7066141, 29.7077, 95.4016, "Texas", "Houston", 973,
+  #
+  1151801, 33.505556, 86.806111, "Alabama", "Birmingham", 332,
+  2802789, 39.296251, 76.591805, "Maryland", "Baltimore", 1091,
+  2500000, 38.5549, 121.4565, "California", "Sacramento", 625,
+  13131431, 34.066351, 118.447094, "California", "Los_Angeles", 156,
+  4729484, 37.7647974, 122.389903, "California", "San_Francisco", 183,
+  288212, 29.6399, 82.3431, "Florida", "Gainesville", 208,
   NA,NA,NA,NA,NA,NA,
-  517056, 38.0312, 84.5074, Kentucky, Lexington, NA,
-  2802789, 39.2883, 76.6236, Maryland, Baltimore, 767,
-  3629190, 44.967222, 93.2375, Minnesota, Minneapolis, 212,
-  
-  229304, 38.032778, 78.497370, Virginia, Charlottesville, 106,
-  862477, 41.304354, 72.936647, Connecticut, New_Haven, 202,
+  517056, 38.0312, 84.5074, "Kentucky", "Lexington", NA,
+  2802789, 39.2883, 76.6236, "Maryland", "Baltimore", 767,
+  3629190, 44.967222, 93.2375, "Minnesota", "Minneapolis", 212,
+  #
+  229304, 38.032778, 78.497370, "Virginia", "Charlottesville", 106,
+  862477, 41.304354, 72.936647, "Connecticut", "New_Haven", 202
 )
 
-ta[71:80]
+length(coordinates)-82*6
+
+coo=matrix(as.vector(coordinates), ncol=6, byrow=T)
+
+
+popul=as.numeric(coo[,1])
+lat=as.numeric(coo[,2])
+long=-abs(as.numeric(coo[,3]))
+beds=as.numeric(coo[,6])
+
+#cardiooverall$`Hospital Name`
+
+labs=data.frame(names=cardiooverall$`Hospital Name`,
+                state=coo[,4],
+                city=coo[,5],
+                lat=lat, 
+                long=long, 
+                popul=popul, 
+                beds=beds)
+
+#coo=as.data.frame(coo)
+
+write.csv(labs, "demographicdata.csv")
+
+labs
+#ta[71:80]
 ```
+
+
+
+```{r}
+library(usmap)
+library(ggplot2)
+library(ggmap)
+library(maps)
+library(mapdata)
+
+states <- map_data("state")
+usa <- map_data("usa") # we already did this, but we can do it again
+ggplot() + 
+  geom_polygon(data = usa, aes(x=long, y = lat, group = group), fill = NA, color = "red") + 
+  coord_fixed(1.3)
+
+ggplot(data = states) + 
+  geom_polygon(aes(x = long, 
+                   y = lat,
+                   color = "white",
+                   fill = "white",
+                   group = group), 
+               color = "white") + 
+  coord_fixed(1.3) +
+  geom_point(data = labs, 
+             aes(x = long, 
+                 y = lat), 
+             #color = "red", 
+             alpha=0.5,
+             size = size^0.8/50000)+
+  theme_bw()+
+  guides(fill=FALSE)+
+  labs(x="",y="",size="Population")
+  
+  # do this to leave off the color legend
+```
+
+```{r}
+cardio$names=cardio$`Hospital Name`
+
+#zuzu=merge(cardio, labs)
+card5=cardio %>%
+  filter(`Procedure Type`=="STAT Mortality Category 5")%>%
+  mutate(prop5=`Observed Deaths`/`Total Procedures`)
+
+card4=cardio %>%
+  filter(`Procedure Type`=="STAT Mortality Category 4")%>%
+  mutate(prop4=`Observed Deaths`/`Total Procedures`)%>%
+  select(names,prop4)
+
+card3=cardio %>%
+  filter(`Procedure Type`=="STAT Mortality Category 3")%>%
+  mutate(prop3=`Observed Deaths`/`Total Procedures`)%>%
+  select(names,prop3)
+
+card2=cardio %>%
+  filter(`Procedure Type`=="STAT Mortality Category 2")%>%
+  mutate(prop2=`Observed Deaths`/`Total Procedures`)%>%
+  select(names,prop2)
+
+card1=cardio %>%
+  filter(`Procedure Type`=="STAT Mortality Category 1")%>%
+  mutate(prop1=`Observed Deaths`/`Total Procedures`)%>%
+  select(names,prop1)
+
+cardP=cardio %>%
+  filter(`Procedure Type`=="Overall")%>%
+  mutate(propP=`Observed Deaths`/`Total Procedures`)%>%
+  select(names,propP)
+
+card$names=card$`Hospital Name`
+
+zuzu=merge(card5, labs, by="names")
+zuzu=merge(zuzu, card4, by="names")
+zuzu=merge(zuzu, card3, by="names")
+zuzu=merge(zuzu, card2, by="names")
+zuzu=merge(zuzu, card1, by="names")
+zuzu=merge(zuzu, cardP, by="names")
+
+#plot(zuzu$popul,zuzu$prop5)
+
+p1=ggplot(data=NULL)+
+  geom_point(aes(x=zuzu$popul,y=zuzu$prop1),col=rgb(0.1,0.9,1))+
+  geom_smooth(aes(x=zuzu$popul,y=zuzu$prop1),method="lm")+
+  labs(y="Mortality", x="Population", title="Procedure 1")
+p2=ggplot(data=NULL)+
+  geom_point(aes(x=zuzu$popul,y=zuzu$prop2),col=rgb(0.2,0.8,1))+
+  geom_smooth(aes(x=zuzu$popul,y=zuzu$prop2),method="lm")+
+  labs(y="Mortality", x="Population", title="Procedure 2")
+p3=ggplot(data=NULL)+
+  geom_point(aes(x=zuzu$popul,y=zuzu$prop3),col=rgb(0.3,0.7,1))+
+  geom_smooth(aes(x=zuzu$popul,y=zuzu$prop3),method="lm")+
+  labs(y="Mortality", x="Population", title="Procedure 3")
+p4=ggplot(data=NULL)+
+  geom_point(aes(x=zuzu$popul,y=zuzu$prop4),col=rgb(0.4,0.6,1))+
+  geom_smooth(aes(x=zuzu$popul,y=zuzu$prop4),method="lm")+
+  labs(y="Mortality", x="Population", title="Procedure 4")
+p5=ggplot(data=NULL)+
+  geom_point(aes(x=zuzu$popul,y=zuzu$prop5),col=rgb(0.5,0.5,1))+
+  geom_smooth(aes(x=zuzu$popul,y=zuzu$prop5),method="lm")+
+  labs(y="Mortality", x="Population", title="Procedure 5")
+pP=ggplot(data=NULL)+
+  geom_point(aes(x=zuzu$popul,y=zuzu$propP),col=rgb(0.5,0.5,1))+
+  geom_smooth(aes(x=zuzu$popul,y=zuzu$propP),method="lm")+
+  labs(y="Mortality", x="Population", title="Overall")
+
+
+
+grid.arrange(p1,p3,p5,p2,p4,pP, ncol=3)
+```
+
+```{r}
+cardioproce5=cardio%>%
+  filter(`Procedure Type`=="STAT Mortality Category 5")%>%
+  mutate(totproc5=`Total Procedures`)
+
+cardiototproc=cardio%>%
+  filter(`Procedure Type`=="Overall")%>%
+  mutate(totproc=`Total Procedures`)
+
+procedure=merge(cardioproce5,cardiototproc,by="Hospital Name")
+
+procedure=procedure%>%
+  mutate(fivevstot=totproc5/totproc)%>%
+  select(`Hospital Name`,fivevstot)%>%
+  mutate(names=`Hospital Name`)%>%
+  select(names,fivevstot)
+
+zuzu=merge(zuzu,procedure,by="names")
+
+
+ggplot(data=NULL)+
+  geom_point(aes(x=zuzu$popul, y=zuzu$fivevstot))+
+  geom_smooth(aes(x=zuzu$popul, y=zuzu$fivevstot))
+```
+
+
+
+
+
+```{r}
+library(tidyverse)
+
+qq25=quantile(zuzu$popul, na.rm=T, probs = 0.25)
+qq50=quantile(zuzu$popul, na.rm=T, probs = 0.50)
+qq75=quantile(zuzu$popul, na.rm=T, probs = 0.75)
+
+zuzu=zuzu %>%
+  mutate(dimension=case_when(popul<qq25~"Tiny",
+                             (popul>qq25 & popul<qq50)~"Small", 
+                             (popul>qq50 & popul<qq75)~"Big",
+                             popul>qq75~"Huge"))
+
+zuzu=zuzu %>%
+  mutate(hospital=names)
+
+zzz=hosp_full
+zzz=merge(zzz, zuzu, by="hospital")
+
+
+ggplot(data = zzz, aes(x = category, y = sqrt(mort_rate), fill = as.factor(dimension))) + geom_boxplot() +
+  ylab(TeX("$\\sqrt{OMR}$")) + labs(title = "Observed Mortality Rate (OMR) with cities dimension", fill = "Dimension") #+ 
+  scale_fill_discrete(label = c("Small", "Yes"))
+```
+
+```{r}
+ggplot()+
+  geom_point(aes(y=zzz$rank_ped_cardio,x=zzz$popul))+
+  geom_smooth(aes(y=zzz$rank_ped_cardio,x=zzz$popul), method = "lm")+
+  labs(x="Population", y="Rank (Cardio)")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
