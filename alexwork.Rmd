@@ -311,19 +311,19 @@ dell
 
 * it would appear that Dell has very few procedures for high categories... leading to high mortality rates
 
-# Bayesian Hospital Compare Model (Reference Model)
+# Bayesian Hospital Compare Model (Reference Model) (facet_wrap(~category, scales = "free))
 
 ```{r}
-#options(mc.cores = 2)
-#hosp_comp <- stan_glmer(cbind(deaths, procedures - deaths) ~ category + name + (1|name),
-                   #data = cardio_cat,
-                   #family = binomial(link = "logit"),
-                   #chains = 2,
-                   #iter = 1000,
-                   #control = list(adapt_delta = 0.85))
+options(mc.cores = 2)
+hosp_comp <- stan_glmer(cbind(deaths, procedures - deaths) ~ category + (1|name),
+                   data = cardio_cat,
+                   family = binomial(link = "logit"),
+                   chains = 2,
+                   iter = 1000,
+                   control = list(adapt_delta = 0.85))
 
 # saving
-#saveRDS(hosp_comp, "hosp_comp.rds")
+saveRDS(hosp_comp, "hosp_comp.rds")
 
 # posterity
 hosp_comp <- readRDS("hosp_comp.rds")
@@ -353,7 +353,7 @@ ggplot(data = fits, aes(x = procedures, y = P_hat)) + geom_point() + labs(title 
 # Figure 3(a) from Paper (not stratified)
 ahat <- data.frame("name" = cardio_ov$hospital, "procedures" = cardio_ov$procedures, "alpha_hat" = alpha_means)
 
-ggplot(data = ahat, aes(x = procedures, y = alpha_hat)) + geom_point() + labs(title = TeX("$\\hat{\\alpha}$ Values Against Procedures"))
+ggplot(data = ahat, aes(x = procedures, y = alpha_hat)) + geom_point() + labs(title = TeX("$\\hat{\\alpha}$ Values Against Procedures")) + geom_hline(yintercept = 0, color = "red", linetype = "dashed")
 
 
 ```
