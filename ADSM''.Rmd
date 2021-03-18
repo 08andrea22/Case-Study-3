@@ -32,13 +32,36 @@ demographicdata=demographicdata%>%
 
 aadata=merge(tableaa,demographicdata, by="hospital")
 
-dist1=dist2=matrix(nrow=82, ncol=82)
+dist1=dist2=dist3=matrix(nrow=82, ncol=82)
 for(j in 1:82){
   for(jj in 1:82){
-    dist1[j,jj]=abs(tableaa$rank_ped_cardio[j]-tableaa$rank_ped_cardio[jj])
+    dist1[j,jj]=(abs(tableaa$rank_ped_cardio[j]-tableaa$rank_ped_cardio[jj]))/75
     dist2[j,jj]=abs(log(aadata$popul[j])-log(aadata$popul[jj]))
+    dist3[j,jj]=if_else(j!=jj,1,0)
   }
 }
+
+library(matrixcalc)
+
+sigma2=1
+phi1=1
+phi2=1
+phi3=1
+
+SIGMA=matrix(nrow=82,ncol=82)
+for(j in 1:M){
+  for(jj in 1:M){
+    SIGMA[j,jj]=sigma2*exp(-phi1*dist1[j,jj]-phi2*dist2[j,jj]-phi3*dist3[j,jj]);
+  }
+}
+
+det(SIGMA)
+
+is.positive.definite(SIGMA)
+
+
+
+
 
 
 
@@ -72,7 +95,7 @@ P = ncol(Z)
 
 
 ### Actually Sampling ###
-stan_data = list(N=N, M = M, K = K, P = P, n=n, y = y, x = X, z = Z, g = g, dist1=dist1, dist2=dist2)
+stan_data = list(N=N, M = M, K = K, P = P, n=n, y = y, x = X, z = Z, g = g, dist1=dist1, dist2=dist2, dist3=dist3)
 
 options(mc.cores = 2)
 start_time <- Sys.time()
@@ -91,3 +114,14 @@ alpha <- as.data.frame(alpha)
 stan_plot(fit1, pars = "a") # all a's are more or less shrunk towards the intercept
 
 ``` 
+
+
+
+
+```{r}
+eps=0.01
+Maat=matrix(c(1,0,1-eps,0,1,0,1-eps,0,1), ncol=3)
+Maat
+is.positive.definite(Maat)
+```
+

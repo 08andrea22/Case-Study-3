@@ -62,7 +62,7 @@ coordinates=c(
   #
   7233323, 32+46/60+45/60^2, 96+48/60+32/60^2, "Texas", "Dallas", NA,
   6020864, 33+45/60+18/60^2, 84+23/60+24/60^2, "Georgia", "Atlanta", NA,
-  NA,NA,NA,NA,NA,NA,
+  975454,41.25,96,"Nebraska","Omaha",145,
   2932415, 39+44/60+21/60^2, 104+59/60+25/60^2, "Colorado", "Denver", NA,
   1270530, 29+95/60, 90+8/60, "Louisiana", "New_Orleans", NA,
   373590, 40+43/60+15/60^2, 89+36/60+34/60^2, "Illinois", "Peoria", NA,
@@ -99,7 +99,7 @@ coordinates=c(
   4224851, 34.0525, 117.264167, "California", "San_Bernardino", 507,
   243537, 43.653, 70.276, "Maine", "Portland", 637,
   219802, 44.020278, 92.481667, "Minnesota", "Rochester", 2059,
-  NA,NA,NA,NA,NA,NA,
+  2057009, 41.504444, 81.605833, "Ohio", "Clevland",NA,
   19979477, 40.790066, 73.953249, "NY", "NY", 1141,
   548404, 32.782455, 79.951245, "SC", "Charleston", 279,
   2078035, 39.953235, 82.979359, "Ohio", "Columbus", 673,
@@ -132,7 +132,7 @@ coordinates=c(
   13131431, 34.066351, 118.447094, "California", "Los_Angeles", 156,
   4729484, 37.7647974, 122.389903, "California", "San_Francisco", 183,
   288212, 29.6399, 82.3431, "Florida", "Gainesville", 208,
-  NA,NA,NA,NA,NA,NA,
+  2057009, 41.504444, 81.605833, "Ohio", "Clevland",NA,
   517056, 38.0312, 84.5074, "Kentucky", "Lexington", NA,
   2802789, 39.2883, 76.6236, "Maryland", "Baltimore", 767,
   3629190, 44.967222, 93.2375, "Minnesota", "Minneapolis", 212,
@@ -165,7 +165,7 @@ labs=data.frame(names=cardiooverall$`Hospital Name`,
 
 write.csv(labs, "demographicdata.csv")
 
-labs
+#labs
 #ta[71:80]
 ```
 
