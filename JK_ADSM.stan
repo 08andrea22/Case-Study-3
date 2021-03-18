@@ -25,9 +25,11 @@ transformed parameters{
   vector[M] mu; // random effects linear predictor
   real<lower=0> sigma; // standard deviation
   real<lower=0> tau; // RE sd component
+  vector[M] gamma;
   mu = z * xi;
   sigma = sqrt(sigma2);
   tau = sqrt(tau2);
+  gamma = a - alpha;
 }
 model {
   a ~ normal(alpha + mu,sigma); // centered random intercepts
