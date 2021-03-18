@@ -1,0 +1,93 @@
+
+---
+title: "AA Stanfile"
+author: "AA from AD"
+date: "3/17/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(dplyr)
+library(ggplot2)
+library(grid)
+library(gridExtra)
+library(tibble)
+library(rstanarm)
+library(latex2exp)
+library(tidyr)
+library(rstan)
+```
+
+```{r}
+tableaa=hosp_full%>%
+  filter(category=="Overall")%>%
+  select(hospital,rank_ped_cardio)
+
+tableaa[is.na(tableaa)]=75
+
+demographicdata=demographicdata%>%
+  mutate(hospital=names)
+
+aadata=merge(tableaa,demographicdata, by="hospital")
+
+dist1=dist2=matrix(nrow=82, ncol=82)
+for(j in 1:82){
+  for(jj in 1:82){
+    dist1[j,jj]=abs(tableaa$rank_ped_cardio[j]-tableaa$rank_ped_cardio[jj])
+    dist2[j,jj]=abs(log(aadata$popul[j])-log(aadata$popul[jj]))
+  }
+}
+
+
+
+#dist[is.na(dist)] = 0
+
+
+
+### Set up ###
+
+# Generate hospital index 
+hosp <- read.csv("hosp_full.csv", header=TRUE)
+hosp_table <- data.frame(id = unique(hosp$id), 
+                         hosp_index = c(1:length(unique(hosp$id))))
+hosp <- inner_join(hosp, 
+                   hosp_table) %>%
+  filter(category!="Overall")
+hosp_red <- read.csv("hosp.csv") # "reduced" hospital data
+
+
+y = hosp$deaths
+n = hosp$procedures
+X = model.matrix(deaths ~ category, data=hosp) # make category 1 baseline
+Z =  model.matrix(deaths ~ log(procedures) + top50_ped_cardio + 
+                   top50_ped_pulm , data=hosp_red)
+g = hosp$hosp_index
+
+N = nrow(hosp)
+M = length(unique(hosp$id))
+K = ncol(X)
+P = ncol(Z)
+
+
+### Actually Sampling ###
+stan_data = list(N=N, M = M, K = K, P = P, n=n, y = y, x = X, z = Z, g = g, dist1=dist1, dist2=dist2)
+
+options(mc.cores = 2)
+start_time <- Sys.time()
+fit1 <- stan("ADSM''.stan", data = stan_data, chains = 2, iter = 1000, cores = 2)
+end_time <- Sys.time()
+
+end_time - start_time
+
+
+### Summaries ###
+alpha <- summary(fit1, pars = "a", probs = c(0.025, 0.975))$summary
+alpha <- as.data.frame(alpha)
+
+#stan_hist(fit1, pars = c("alpha", "xi")) # all hospital random effect coefficients shrunk near zero besides intercept... probably due to sparsity
+
+stan_plot(fit1, pars = "a") # all a's are more or less shrunk towards the intercept
+
+``` 
