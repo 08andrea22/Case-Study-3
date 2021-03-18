@@ -31,7 +31,9 @@ hosp_red <- read.csv("hosp.csv") # "reduced" hospital data
 
 # Generate distances for covariance matrix
 demographicdata <- read.csv("demographicdata.csv", header=TRUE)
-tableaa=hosp %>%
+hosp_full <- read.csv("hosp_full.csv", header=TRUE)
+
+tableaa=hosp_full%>%
   filter(category=="Overall")%>%
   select(hospital,rank_ped_cardio)
 
