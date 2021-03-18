@@ -32,35 +32,39 @@ hosp_red <- read.csv("hosp.csv") # "reduced" hospital data
 
 y = hosp$deaths
 n = hosp$procedures
-X = model.matrix(deaths ~ category, data=hosp) # make category 1 baseline
-Z =  model.matrix(deaths ~ log(procedures) + top50_ped_cardio + 
-                   top50_ped_pulm , data=hosp_red)
+X = model.matrix(deaths ~ category, data=hosp)[, -1]
+Z =  model.matrix(deaths ~ -1 + log(procedures) + top50_ped_anyspecialty, data=hosp_red)
+V = model.matrix(deaths ~ -1 + log(procedures) + top50_ped_anyspecialty, data=hosp_red)
+
 g = hosp$hosp_index
 
 N = nrow(hosp)
 M = length(unique(hosp$id))
 K = ncol(X)
 P = ncol(Z)
-
+Q = ncol(V)
 
 ### Actually Sampling ###
-stan_data = list(N=N, M = M, K = K, P = P, n=n, y = y, x = X, z = Z, g = g)
+stan_data = list(N=N, M = M, K = K, P = P, Q = Q, n=n, y = y, x = X, z = Z, V = V, g = g)
 
 options(mc.cores = 2)
 start_time <- Sys.time()
-fit1 <- stan("ADSM.stan", data = stan_data, chains = 2, iter = 10000, cores = 2)
+fit1 <- stan("ADSM.stan", data = stan_data, chains = 2, iter = 5000, cores = 2)
 end_time <- Sys.time()
 
 end_time - start_time
 
 
 ### Summaries ###
-alpha <- summary(fit1, pars = "a", probs = c(0.025, 0.975))$summary
-alpha <- as.data.frame(alpha)
+gamma <- summary(fit1, pars = "gamma", probs = c(0.025, 0.975))$summary
+gamma <- as.data.frame(gamma)
+gamma_hat <- gamma$mean
 
-stan_hist(fit1, pars = c("alpha", "xi")) # all hospital random effect coefficients shrunk near zero besides intercept... probably due to sparsity
+stan_hist(fit1, pars = c("xi", "delta")) 
 
-stan_plot(fit1, pars = "a") # all a's are more or less shrunk towards the intercept
+stan_plot(fit1, pars = "gamma")
+stan_plot(fit1, pars = "xi")
+stan_plot(fit1, pars = "delta")
 
 ``` 
 
