@@ -45,15 +45,16 @@ demographicdata=demographicdata%>%
 aadata=merge(tableaa,demographicdata, by="hospital")
 
 # consider changing distance vars: procedures, prop_45 could be relevant
-dist1=dist2=dist3=matrix(nrow=82, ncol=82)
+dist1=dist2=dist3=dist=matrix(nrow=82, ncol=82)
 for(j in 1:82){
   for(jj in 1:82){
     dist1[j,jj]=(abs(tableaa$rank_ped_cardio[j]-tableaa$rank_ped_cardio[jj]))/75
-    dist2[j,jj]=abs(log(aadata$popul[j])-log(aadata$popul[jj]))
+    dist2[j,jj]=(abs(log(aadata$popul[j])-log(aadata$popul[jj])))/8.35
     dist3[j,jj]=if_else(j!=jj,1,0)
   }
 }
 
+dist=(dist1+dist2+dist3/6)/3
 
 
 y = hosp$deaths
@@ -71,16 +72,18 @@ P = ncol(Z)
 Q = ncol(V)
 
 ### Actually Sampling ###
-stan_data = list(N=N, M = M, K = K, P = P, Q = Q, n=n, y = y, x = X, z = Z, V = V, g = g)
+stan_data = list(N=N, M = M, K = K, P = P, Q = Q, n=n, y = y, x = X, z = Z, V = V, g = g, dist=dist)
 
 options(mc.cores = 2)
 start_time <- Sys.time()
-fit1 <- stan("ADSM.stan", data = stan_data, chains = 2, iter = 1000, cores = 2)
+fit1 <- stan("ADSM'''.stan", data = stan_data, chains = 2, iter = 1000, cores = 2)
 end_time <- Sys.time()
 
 end_time - start_time
+```
 
 
+```{r}
 ### Summaries ###
 
 # Random intecepts
@@ -100,5 +103,14 @@ stan_plot(fit1, pars = "gamma")
 stan_plot(fit1, pars = "xi")
 stan_plot(fit1, pars = "delta")
 
-``` 
+traceplot(fit1, pars = c("phi"), inc_warmup = TRUE, nrow = 2)
+
+
+Gamma=as.data.frame(gamma_hat)
+rownames(Gamma)=unique(hosp$hospital)
+Gamma
+
+rank(Gamma)
+
+```
 

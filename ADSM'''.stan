@@ -15,9 +15,9 @@ data {
     matrix[M,P] z; // hospital level covariates for mu (intercept not included)
     matrix[M,Q] V; // hospital level covariates for v (intercept not included)
     int g[N];    // map obs to groups (observations to hospitals)
-    real dist1[M,M]; //dist 1 for corr matrix
-    real dist2[M,M]; //dist 2 for corr matrix
-    real dist3[M,M]; //pd correction factor for corr matrix
+    real dist[M,M]; //dist 1 for corr matrix
+    //real dist2[M,M]; //dist 2 for corr matrix
+    //real dist3[M,M]; //pd correction factor for corr matrix
 }
 parameters {
     real alpha; // global intercept (inside of RE for centered param)
@@ -28,9 +28,9 @@ parameters {
     real<lower=0> sigma2;  // random effect variance
     real<lower=0> tau2; // random effect reg coeff variance component
     real<lower=0> epsilon2; // random effect var reg variance
-    real<lower=0> phi1; // RE corr parameter
-    real<lower=0> phi2; // RE corr parameter
-    real<lower=0> phi3; // RE corr parameter
+    real<lower=0> phi; // RE corr parameter
+    //real<lower=0> phi2; // RE corr parameter
+    //real<lower=0> phi3; // RE corr parameter
 }
 transformed parameters{
   vector[M] mu; // random effects linear predictor
@@ -49,7 +49,8 @@ transformed parameters{
   gamma = a - alpha;
   for(j in 1:M){
     for(jj in 1:M){
-      R[j,jj]=exp(-phi1*dist1[j,jj]-phi2*dist2[j,jj]-phi3*dist3[j,jj]);
+      R[j,jj]=exp(-phi*dist[j,jj]);
+      //exp(-phi1*dist1[j,jj]-phi2*dist2[j,jj]-phi3*dist3[j,jj]);
     }
   }
   SIGMA = diag_matrix(v)' * R * diag_matrix(v);
@@ -59,13 +60,16 @@ model {
   alpha ~ normal(0, 2.5); // global intercept in the RE
   xi ~ normal(0, tau*sigma); // regression coefficients for RE mean
   delta ~ normal(0, epsilon * sigma); // regression coeffs for RE var
-  beta ~ normal(0,2.5); //fixed effects
+  beta ~ normal(0, 2.5); //fixed effects
   for(i in 1:N) {
     y[i] ~ binomial(n[i], inv_logit( a[g[i]] + x[i]*beta));
   }
   sigma2 ~ inv_gamma(1,1); // exp(1) precision prior
   tau2 ~ inv_gamma(1,1); // exp(1) precision prior
   epsilon2 ~ inv_gamma(1,1); // exp(1) precision prior
+  phi ~ gamma(1,1);
+  //phi2 ~ gamma(1,1);
+  //phi3 ~ gamma(0.01,0.01);
 }
 generated quantities{
   // posterior predictive samples
