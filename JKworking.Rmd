@@ -180,3 +180,32 @@ hosp_full %>%
 
 ```
 
+Now do some clustering
+
+```{r}
+hosps <- hosp_full %>% filter(category=="Overall") %>%
+  mutate(helipad = ifelse(is.na(helipad),1,helipad)) %>%
+  mutate(trauma_level = ifelse(is.na(trauma_level),1,trauma_level)) %>%
+    mutate(nicu_level = ifelse(is.na(nicu_level),1,nicu_level)) %>%
+  mutate(rank_ped_cardio = ifelse(is.na(rank_ped_cardio), 100, rank_ped_cardio)) %>%
+  mutate(rank_ped_pulm = ifelse(is.na(rank_ped_pulm), 100, rank_ped_pulm)) %>%
+  select(-c(npediatricbeds, nbassinets, ped_trauma_level, ped_trauma, category, hospital))
+
+apply(hosps, 2, function(x) sum(is.na(x)))
+
+
+# Determine the number of clusters
+wss <- (nrow(hosps)-1)*sum(apply(hosps,2,var))
+for (i in 2:15) wss[i] <- sum(kmeans(hosps,
+   centers=i)$withinss)
+plot(1:15, wss, type="b", xlab="Number of Clusters",
+  ylab="Within groups sum of squares")
+
+# K-Means Cluster Analysis
+fit <- kmeans(hosps, 4) # 4 cluster solution
+# get cluster means
+aggregate(hosps,by=list(fit$cluster),FUN=mean)
+# append cluster assignment
+clusters1 <- data.frame(hosps, fit$cluster)
+
+```
