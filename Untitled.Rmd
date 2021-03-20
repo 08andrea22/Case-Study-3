@@ -1,26 +1,21 @@
 ---
-title: "AD Stanfile"
-author: "Alex Dombowsky"
-date: "3/17/2021"
-output: html_document
+title: "ADSM''''"
+author: "Andrea Aveni"
+date: "3/20/2021"
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-
-library(dplyr)
-library(ggplot2)
-library(grid)
-library(gridExtra)
-library(tibble)
-library(rstanarm)
-library(latex2exp)
-library(tidyr)
-library(rstan)
 ```
+
+
 
 ```{r}
 ### Set up ###
+small=demographicdata$popul[popul<2000000]
+big=demographicdata$popul[popul<10000000 & popul>2000000]
+huge=demographicdata$popul[popul>10000000]
 
 # Generate hospital index 
 hosp <- read.csv("hosp_full.csv", header=TRUE)
@@ -136,17 +131,6 @@ rownames(YY) <- sub("category", "", colnames(X))
 sub("category", "", colnames(X))
 
 rank(YY[,1])
-
-
-
-
-
-
-
-
-
-
-
 for(j in )
 
 for(j in 500:1000){

@@ -132,7 +132,7 @@ coordinates=c(
   13131431, 34.066351, 118.447094, "California", "Los_Angeles", 156,
   4729484, 37.7647974, 122.389903, "California", "San_Francisco", 183,
   288212, 29.6399, 82.3431, "Florida", "Gainesville", 208,
-  2057009, 41.504444, 81.605833, "Ohio", "Clevland",NA,
+  2057009, 41.504444, 81.605833, "Ohio", "Cleveland",NA,
   517056, 38.0312, 84.5074, "Kentucky", "Lexington", NA,
   2802789, 39.2883, 76.6236, "Maryland", "Baltimore", 767,
   3629190, 44.967222, 93.2375, "Minnesota", "Minneapolis", 212,
@@ -160,6 +160,11 @@ labs=data.frame(names=cardiooverall$`Hospital Name`,
                 long=long, 
                 popul=popul, 
                 beds=beds)
+
+table(labs$city)
+table(labs$state)
+
+length(labs$popul[popul>10000000])
 
 #coo=as.data.frame(coo)
 
@@ -196,8 +201,8 @@ ggplot(data = states) +
              aes(x = long, 
                  y = lat), 
              #color = "red", 
-             alpha=0.5,
-             size = size^0.8/50000)+
+             alpha=0.5)+#,
+             #size = popul^0.8/50000)+
   theme_bw()+
   guides(fill=FALSE)+
   labs(x="",y="",size="Population")

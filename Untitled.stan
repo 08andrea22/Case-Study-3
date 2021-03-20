@@ -1,3 +1,4 @@
+
 // Basic model: random intercepts and random intecept variance
 // RE covariance: dependent
 // Global intercept is within RE, Category 1 dropped
@@ -80,11 +81,6 @@ generated quantities{
   real y_new[N];
   real Prob[N];
   real y_test[N_test];
-  real rankp1[M];
-  real rankp2[M];
-  real rankp3[M];
-  real rankp4[M];
-  real rankp5[M];
   for (i in 1:N) {
     y_new[i] = binomial_rng(n[i], inv_logit(a[g[i]] + x[i]*beta));
     Prob[i]=inv_logit( a[g[i]] + x[i]*beta);
@@ -93,10 +89,4 @@ generated quantities{
   for (i in 1:N_test) {
     y_test[i] = binomial_rng(n_test[i], inv_logit(a[g_test[i]] + x_test[i]*beta));
   }
-  rankp1=rank();
-  rankp2=rank();
-  rankp3=rank();
-  rankp4=rank();
-  rankp5=rank();
 }
-
