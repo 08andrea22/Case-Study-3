@@ -17,6 +17,7 @@ library(rstanarm)
 library(latex2exp)
 library(tidyr)
 library(rstan)
+library(bayesplot)
 ```
 
 ```{r}
@@ -51,7 +52,7 @@ aadata=merge(tableaa,demographicdata, by="hospital")
 smp_size <- floor(0.8 * nrow(hosp))
 set.seed(123)
 train_ind <- sort(sample(nrow(hosp), size = smp_size))
-ifelse(length(unique(train_hosp$id))!=82, print("STOP RESAMPLE, ALL HOSPITALS ARE NOT IN TRAINING DATA"), print("Nice sample"))
+#ifelse(length(unique(train_hosp$id))!=82, print("STOP RESAMPLE, ALL HOSPITALS ARE NOT IN TRAINING DATA"), print("Nice sample"))
 
 # Subset full data set, leave reduced data set alone since we keep all hospitals
 train_hosp <- hosp[train_ind, ]
@@ -120,6 +121,34 @@ stanmodel <- stan_model(file = "ADSM'''.stan")
 
 # Options to fix this: move tranformed parameters to gq's block, ...
 fit1_test <- gqs(stanmodel, draws=as.matrix(fit1), data= stan_data_test)
+
+# alternatively, using posterior means as a way to predict
+fit_summ <- summary(fit1, pars = c("beta", "gamma"))$summary
+pmeans <- fit_summ[, 1]
+bmeans <- pmeans[1:4] # fixed effects
+ameans <- pmeans[-c(1:4) ] # random effects
+names(ameans) <- 1:length(ameans)
+ameans <- ameans[g_test]
+test_LP <- X_test %*% bmeans + ameans
+phat_test <- invlogit(test_LP)
+
+
+
+### Predicting using generated quantities block
+
+start_time <- Sys.time()
+stan_data <- list(N=N_train, N_test = N_test, M = M_train, K = K, P = P, Q = Q, n=n_train, n_test = n_test,y = y_train, x = X_train, x_test = X_test, z = Z_train, V = V_train, g = g_train, g_test = g_test, dist=dist)
+fit1 <- stan("ADSM'''.stan", data = stan_data, chains =1, iter = 1000, cores = 2)
+end_time <- Sys.time()
+preds <- as.matrix(fit1, pars = "y_test")
+
+# graphical summaries for predictions
+## for just 1st observations in testing data
+ggplot(data.frame(y_one = preds[, 1]), aes(x = y_one)) + geom_histogram() + geom_vline(xintercept = y_test[1], color = "red")
+
+## for overall testing data
+ppc_dens_overlay(y_test, preds)
+
 ```
 
 

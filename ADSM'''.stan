@@ -3,7 +3,8 @@
 // Global intercept is within RE, Category 1 dropped
 
 data {
-    int N; // number of observations
+    int N; // number of training observations
+    int N_test; // number of test observations
     int M; // number of groups (hospitals)
     int K; // number of predictors
     int P; // number of hospital covariates for Z
@@ -11,10 +12,13 @@ data {
     
     int y[N]; // "successes": deaths
     int n[N]; // trials: number of procedures
+    int n_test[N_test]; // trials for testing data
     row_vector[K] x[N]; // predictors (intercept not included)
+    row_vector[K] x_test[N_test]; // predictors for test data
     matrix[M,P] z; // hospital level covariates for mu (intercept not included)
     matrix[M,Q] V; // hospital level covariates for v (intercept not included)
     int g[N];    // map obs to groups (observations to hospitals)
+    int g_test[N_test]; // map testing obs to groups
     real dist[M,M]; //dist 1 for corr matrix
     //real dist2[M,M]; //dist 2 for corr matrix
     //real dist3[M,M]; //pd correction factor for corr matrix
@@ -72,10 +76,10 @@ model {
   //phi3 ~ gamma(0.01,0.01);
 }
 generated quantities{
-  // posterior predictive samples
-  real y_new[N];
-  for (i in 1:N) {
-    y_new[i] = binomial_rng(n[i], inv_logit(a[g[i]] + x[i]*beta));
+  // posterior predictive samples for training data
+  real y_test[N_test];
+  for (i in 1:N_test) {
+    y_test[i] = binomial_rng(n_test[i], inv_logit(a[g_test[i]] + x_test[i]*beta));
   }
 }
 
