@@ -1,0 +1,124 @@
+
+---
+title: "AD Stanfile"
+author: "Alex Dombowsky"
+date: "3/17/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(dplyr)
+library(ggplot2)
+library(grid)
+library(gridExtra)
+library(tibble)
+library(rstanarm)
+library(latex2exp)
+library(tidyr)
+library(rstan)
+```
+
+```{r}
+### Set up ###
+demographicdata
+
+# Generate hospital index 
+hosp <- read.csv("hosp_full.csv", header=TRUE)
+hosp_table <- data.frame(id = unique(hosp$id), hosp_index = c(1:length(unique(hosp$id))))
+hosp <- inner_join(hosp, hosp_table) %>%
+  filter(category!="Overall")
+hosp_red <- read.csv("hosp.csv") # "reduced" hospital data
+
+# Generate distances for covariance matrix
+demographicdata <- read.csv("demographicdata.csv", header=TRUE)
+hosp_full <- read.csv("hosp_full.csv", header=TRUE)
+
+tableaa=hosp_full%>%
+  filter(category=="Overall")%>%
+  select(hospital,rank_ped_cardio)
+
+tableaa[is.na(tableaa)]=75
+
+demographicdata=demographicdata%>%
+  mutate(hospital=names)
+
+aadata=merge(tableaa,demographicdata, by="hospital")
+
+# consider changing distance vars: procedures, prop_45 could be relevant
+dist1=dist2=dist3=dist=matrix(nrow=82, ncol=82)
+for(j in 1:82){
+  for(jj in 1:82){
+    dist1[j,jj]=(abs(tableaa$rank_ped_cardio[j]-tableaa$rank_ped_cardio[jj]))/75
+    dist2[j,jj]=(abs(log(aadata$popul[j])-log(aadata$popul[jj])))/8.35
+    dist3[j,jj]=if_else(j!=jj,1,0)
+  }
+}
+
+dist=(dist1+dist2+dist3/6)/3
+
+
+y = hosp$deaths
+n = hosp$procedures
+X = model.matrix(deaths ~ category, data=hosp)[, -1] # Drop category 1 and intercept
+Z =  model.matrix(deaths ~ -1 + log(procedures) + top50_ped_anyspecialty, data=hosp_red)
+V = model.matrix(deaths ~ -1 + log(procedures) + top50_ped_anyspecialty, data=hosp_red)
+
+g = hosp$hosp_index
+
+N = nrow(hosp)
+M = length(unique(hosp$id))
+K = ncol(X)
+P = ncol(Z)
+Q = ncol(V)
+
+### Actually Sampling ###
+stan_data = list(N=N, M = M, K = K, P = P, Q = Q, n=n, y = y, x = X, z = Z, V = V, g = g, dist=dist)
+
+options(mc.cores = 2)
+start_time <- Sys.time()
+fit1 <- stan("ADSM'''.stan", data = stan_data, chains = 2, iter = 10000, cores = 2)
+end_time <- Sys.time()
+
+end_time - start_time
+```
+
+
+```{r}
+### Summaries ###
+
+# Random intecepts
+gamma <- summary(fit1, pars = "gamma", probs = c(0.025, 0.975))$summary
+gamma <- as.data.frame(gamma)
+rownames(gamma) <- unique(hosp$hospital)
+gamma[, c(1,2,4,5)]
+gamma_hat <- gamma$mean
+
+beta <- summary(fit1, pars = "beta", probs = c(0.025, 0.975))$summary
+rownames(beta) <- sub("category", "", colnames(X))
+beta[, c(1,2,4,5)]
+
+stan_hist(fit1, pars = c("xi", "delta")) 
+
+stan_plot(fit1, pars = "gamma")
+stan_plot(fit1, pars = "xi")
+stan_plot(fit1, pars = "delta")
+
+traceplot(fit1, pars = c("phi"), inc_warmup = TRUE, nrow = 2)
+
+
+Gamma=as.data.frame(gamma_hat)
+Rank=rank(gamma_hat)
+Gamma$Rank=Rank
+rownames(Gamma)=unique(hosp$hospital)
+Gamma
+
+hosp=hosp_full%>%
+  filter(category=="Overall")
+
+Gamma$OldRankCardio=hosp$rank_ped_cardio
+Gamma$OldRankPulm=hosp$rank_ped_pulm
+
+Gamma
+```

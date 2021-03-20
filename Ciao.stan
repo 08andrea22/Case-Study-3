@@ -1,10 +1,10 @@
+
 // Basic model: random intercepts and random intecept variance
 // RE covariance: dependent
 // Global intercept is within RE, Category 1 dropped
 
 data {
     int N; // number of training observations
-    int N_test; // number of test observations
     int M; // number of groups (hospitals)
     int K; // number of predictors
     int P; // number of hospital covariates for Z
@@ -12,13 +12,10 @@ data {
     
     int y[N]; // "successes": deaths
     int n[N]; // trials: number of procedures
-    int n_test[N_test]; // trials for testing data
     row_vector[K] x[N]; // predictors (intercept not included)
-    row_vector[K] x_test[N_test]; // predictors for test data
     matrix[M,P] z; // hospital level covariates for mu (intercept not included)
     matrix[M,Q] V; // hospital level covariates for v (intercept not included)
     int g[N];    // map obs to groups (observations to hospitals)
-    int g_test[N_test]; // map testing obs to groups
     real dist[M,M]; //dist 1 for corr matrix
     //real dist2[M,M]; //dist 2 for corr matrix
     //real dist3[M,M]; //pd correction factor for corr matrix
@@ -45,6 +42,11 @@ transformed parameters{
   vector[M] gamma; // de-centered RE intercepts
   matrix[M, M] R; // RE correlation matrix 
   cov_matrix[M] SIGMA; // RE cov matrix
+  vector[M] Z1; //a
+  vector[M] Z2;
+  vector[M] Z3;
+  vector[M] Z4;
+  vector[M] Z5;
   mu = z * xi;
   sigma = sqrt(sigma2);
   tau = sqrt(tau2);
@@ -58,6 +60,11 @@ transformed parameters{
     }
   }
   SIGMA = diag_matrix(v)' * R * diag_matrix(v);
+  Z1[j]=gamma[j];
+  Z2[j]=gamma[j]+beta[K-3];
+  Z3[j]=gamma[j]+beta[K-2];
+  Z4[j]=gamma[j]+beta[K-1];
+  Z5[j]=gamma[j]+beta[K];
 }
 model {
   a ~ multi_normal(alpha + mu, SIGMA);// centered dependent random intercepts
@@ -85,11 +92,11 @@ generated quantities{
   real rankp3[M];
   real rankp4[M];
   real rankp5[M];
-  rankp1=rank();
-  rankp2=rank();
-  rankp3=rank();
-  rankp4=rank();
-  rankp5=rank();
+  rankp1=rank(Z1);
+  rankp2=rank(Z2);
+  rankp3=rank(Z3);
+  rankp4=rank(Z4);
+  rankp5=rank(Z5);
   for (i in 1:N) {
     y_new[i] = binomial_rng(n[i], inv_logit(a[g[i]] + x[i]*beta));
     Prob[i]=inv_logit( a[g[i]] + x[i]*beta);
