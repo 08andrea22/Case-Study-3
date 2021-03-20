@@ -1,0 +1,185 @@
+---
+title: "AD Stanfile"
+author: "Alex Dombowsky"
+date: "3/17/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(dplyr)
+library(ggplot2)
+library(grid)
+library(gridExtra)
+library(tibble)
+library(rstanarm)
+library(latex2exp)
+library(tidyr)
+library(rstan)
+library(bayesplot)
+```
+
+```{r}
+### Set up 1: prepping the data ###
+
+# Generate hospital index 
+hosp <- read.csv("hosp_full.csv", header=TRUE)
+hosp_table <- data.frame(id = unique(hosp$id), hosp_index = c(1:length(unique(hosp$id))))
+hosp <- inner_join(hosp, hosp_table) %>%
+  filter(category!="Overall")
+hosp_red <- read.csv("hosp.csv") # "reduced" hospital data
+
+# Generate distances for covariance matrix
+demographicdata <- read.csv("demographicdata.csv", header=TRUE)
+hosp_full <- read.csv("hosp_full.csv", header=TRUE)
+
+tableaa=hosp_full%>%
+  filter(category=="Overall")%>%
+  select(hospital,rank_ped_cardio)
+
+tableaa[is.na(tableaa)]=75
+
+demographicdata=demographicdata%>%
+  mutate(hospital=names)
+
+aadata=merge(tableaa,demographicdata, by="hospital")
+
+### Set up 2: data splitting: hold out 20% of observations randomly, but keep all hospitals ###
+
+
+# Holdout 20% of hospitals, but make sure each hospital shows up in training at least once
+smp_size <- floor(0.8 * nrow(hosp))
+set.seed(123)
+train_ind <- sort(sample(nrow(hosp), size = smp_size))
+#ifelse(length(unique(train_hosp$id))!=82, print("STOP RESAMPLE, ALL HOSPITALS ARE NOT IN TRAINING DATA"), print("Nice sample"))
+
+# Subset full data set, leave reduced data set alone since we keep all hospitals
+train_hosp <- hosp[train_ind, ]
+test_hosp <- hosp[-train_ind, ]
+
+# Distances unchanged
+dist1=dist2=dist3=dist=matrix(nrow=82, ncol=82)
+for(j in 1:82){
+  for(jj in 1:82){
+    dist1[j,jj]=(abs(tableaa$rank_ped_cardio[j]-tableaa$rank_ped_cardio[jj]))/75
+    dist2[j,jj]=(abs(log(aadata$popul[j])-log(aadata$popul[jj])))/8.35
+    dist3[j,jj]=if_else(j!=jj,1,0)
+  }
+}
+
+dist=(dist1+dist2+dist3/6)/3
+
+
+# Data list: training
+y_train = train_hosp$deaths
+n_train = train_hosp$procedures
+X_train = model.matrix(deaths ~ category, data=train_hosp)[, -1] # Drop category 1 and intercept
+Z_train =  model.matrix(deaths ~ -1 + log(procedures) + top50_ped_anyspecialty, data=hosp_red)
+V_train = model.matrix(deaths ~ -1 + log(procedures) + top50_ped_anyspecialty, data=hosp_red)
+
+g_train = train_hosp$hosp_index
+
+N_train = nrow(train_hosp)
+M_train = length(unique(train_hosp$id))
+K = ncol(X_train)
+P = ncol(Z_train)
+Q = ncol(V_train)
+
+
+# Data list: test
+y_test = test_hosp$deaths
+n_test = test_hosp$procedures
+X_test = model.matrix(deaths ~ category, data=test_hosp)[, -1] # Drop category 1 and intercept
+Z_test =  model.matrix(deaths ~ -1 + log(procedures) + top50_ped_anyspecialty, data=hosp_red)
+V_test = model.matrix(deaths ~ -1 + log(procedures) + top50_ped_anyspecialty, data=hosp_red)
+
+g_test = test_hosp$hosp_index
+
+N_test = nrow(test_hosp)
+M_test = length(unique(test_hosp$id))
+
+```
+
+Running the sampler
+```{r}
+
+### Actually Sampling: training data ###
+stan_data_train = list(N=N_train, M = M_train, K = K, P = P, Q = Q, n=n_train, y = y_train, x = X_train, z = Z_train, V = V_train, g = g_train, dist=dist)
+
+#options(mc.cores = 2)
+start_time <- Sys.time()
+fit1 <- stan("ADSM'''.stan", data = stan_data_train, chains =1, iter = 1000, cores = 2)
+end_time <- Sys.time()
+
+end_time - start_time
+
+### Fit with test data ###
+stan_data_test = list(N=N_test, M = M_test, K = K, P = P, Q = Q, n=n_test, y = y_test, x = X_test, z = Z_test, V = V_test, g = g_test, dist=dist)
+
+stanmodel <- stan_model(file = "ADSM'''.stan")
+
+# Options to fix this: move tranformed parameters to gq's block, ...
+fit1_test <- gqs(stanmodel, draws=as.matrix(fit1), data= stan_data_test)
+
+# alternatively, using posterior means as a way to predict
+fit_summ <- summary(fit1, pars = c("beta", "gamma"))$summary
+pmeans <- fit_summ[, 1]
+bmeans <- pmeans[1:4] # fixed effects
+ameans <- pmeans[-c(1:4) ] # random effects
+names(ameans) <- 1:length(ameans)
+ameans <- ameans[g_test]
+test_LP <- X_test %*% bmeans + ameans
+phat_test <- invlogit(test_LP)
+
+
+
+### Predicting using generated quantities block
+
+start_time <- Sys.time()
+stan_data <- list(N=N_train, N_test = N_test, M = M_train, K = K, P = P, Q = Q, n=n_train, n_test = n_test,y = y_train, x = X_train, x_test = X_test, z = Z_train, V = V_train, g = g_train, g_test = g_test, dist=dist)
+fit1 <- stan("ADSM'''.stan", data = stan_data, chains =1, iter = 1000, cores = 2)
+end_time <- Sys.time()
+preds <- as.matrix(fit1, pars = "y_test")
+
+# graphical summaries for predictions
+## for just 1st observations in testing data
+ggplot(data.frame(y_one = preds[, 1]), aes(x = y_one)) + geom_histogram() + geom_vline(xintercept = y_test[1], color = "red")
+
+## for overall testing data
+ppc_dens_overlay(y_test, preds)
+
+```
+
+
+```{r}
+### Summaries ###
+
+# Random intecepts
+gamma <- summary(fit1, pars = "gamma", probs = c(0.025, 0.975))$summary
+gamma <- as.data.frame(gamma)
+rownames(gamma) <- unique(hosp$hospital)
+gamma[, c(1,2,4,5)]
+gamma_hat <- gamma$mean
+
+beta <- summary(fit1, pars = "beta", probs = c(0.025, 0.975))$summary
+rownames(beta) <- sub("category", "", colnames(X))
+beta[, c(1,2,4,5)]
+
+stan_hist(fit1, pars = c("xi", "delta")) 
+
+stan_plot(fit1, pars = "gamma")
+stan_plot(fit1, pars = "xi")
+stan_plot(fit1, pars = "delta")
+
+traceplot(fit1, pars = c("phi"), inc_warmup = TRUE, nrow = 2)
+
+
+Gamma=as.data.frame(gamma_hat)
+rownames(Gamma)=unique(hosp$hospital)
+Gamma
+
+rank(Gamma)
+
+```
+

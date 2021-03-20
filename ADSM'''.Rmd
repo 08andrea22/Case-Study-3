@@ -122,3 +122,24 @@ Gamma
 
 ```
 
+
+
+```{r}
+YY=extract(fit1, pars="y_new")
+
+YY=(YY$y_new)
+
+dim(YY)
+
+YYY=as(YY[600,])
+rownames(YY) <- sub("category", "", colnames(X))
+sub("category", "", colnames(X))
+
+rank(YY[,1])
+for(j in )
+
+for(j in 500:1000){
+  Yoverall=
+}
+```
+
