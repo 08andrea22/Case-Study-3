@@ -74,8 +74,10 @@ model {
 generated quantities{
   // posterior predictive samples
   real y_new[N];
+  real Prob[N];
   for (i in 1:N) {
     y_new[i] = binomial_rng(n[i], inv_logit(a[g[i]] + x[i]*beta));
+    Prob[i]=inv_logit( a[g[i]] + x[i]*beta);
   }
 }
 

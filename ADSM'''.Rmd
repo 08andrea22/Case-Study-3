@@ -76,7 +76,7 @@ stan_data = list(N=N, M = M, K = K, P = P, Q = Q, n=n, y = y, x = X, z = Z, V = 
 
 options(mc.cores = 2)
 start_time <- Sys.time()
-fit1 <- stan("ADSM'''.stan", data = stan_data, chains = 2, iter = 1000, cores = 2)
+fit1 <- stan("ADSM'''.stan", data = stan_data, chains = 2, iter = 10000, cores = 2)
 end_time <- Sys.time()
 
 end_time - start_time
@@ -107,10 +107,18 @@ traceplot(fit1, pars = c("phi"), inc_warmup = TRUE, nrow = 2)
 
 
 Gamma=as.data.frame(gamma_hat)
+Rank=rank(gamma_hat)
+Gamma$Rank=Rank
 rownames(Gamma)=unique(hosp$hospital)
 Gamma
 
-rank(Gamma)
+hosp=hosp_full%>%
+  filter(category=="Overall")
+
+Gamma$OldRankCardio=hosp$rank_ped_cardio
+Gamma$OldRankPulm=hosp$rank_ped_pulm
+
+Gamma
 
 ```
 
