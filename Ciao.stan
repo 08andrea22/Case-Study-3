@@ -2,19 +2,20 @@
 // Basic model: random intercepts and random intecept variance
 // RE covariance: dependent
 // Global intercept is within RE, Category 1 dropped
-
 data {
     int N; // number of training observations
     int M; // number of groups (hospitals)
     int K; // number of predictors
     int P; // number of hospital covariates for Z
     int Q; // number of hospital covariates for V
+    int r; // number of clusters
     
     int y[N]; // "successes": deaths
     int n[N]; // trials: number of procedures
     row_vector[K] x[N]; // predictors (intercept not included)
     matrix[M,P] z; // hospital level covariates for mu (intercept not included)
     matrix[M,Q] V; // hospital level covariates for v (intercept not included)
+    matrix[N, 4 * r] q; // matrix of interactions
     int g[N];    // map obs to groups (observations to hospitals)
     real dist[M,M]; //dist 1 for corr matrix
     //real dist2[M,M]; //dist 2 for corr matrix
@@ -26,6 +27,7 @@ parameters {
     vector[P] xi; // hospital mean regression parameters
     vector[Q] delta; // hospital variance regression parameters
     vector[K] beta; // fixed effects coefficients
+    vector[4 * r] kappa; // cluster-category interactions
     real<lower=0> sigma2;  // random effect variance
     real<lower=0> tau2; // random effect reg coeff variance component
     real<lower=0> epsilon2; // random effect var reg variance
@@ -42,11 +44,12 @@ transformed parameters{
   vector[M] gamma; // de-centered RE intercepts
   matrix[M, M] R; // RE correlation matrix 
   cov_matrix[M] SIGMA; // RE cov matrix
-  vector[M] Z1; //a
-  vector[M] Z2;
-  vector[M] Z3;
-  vector[M] Z4;
-  vector[M] Z5;
+  vector[N] G_rep; // vector needed to calculate z's
+  vector[N] Z1; //a
+  vector[N] Z2;
+  vector[N] Z3;
+  vector[N] Z4;
+  vector[N] Z5;
   mu = z * xi;
   sigma = sqrt(sigma2);
   tau = sqrt(tau2);
@@ -60,11 +63,12 @@ transformed parameters{
     }
   }
   SIGMA = diag_matrix(v)' * R * diag_matrix(v);
-  Z1[j]=gamma[j];
-  Z2[j]=gamma[j]+beta[K-3];
-  Z3[j]=gamma[j]+beta[K-2];
-  Z4[j]=gamma[j]+beta[K-1];
-  Z5[j]=gamma[j]+beta[K];
+  G_rep = gamma[g];
+  Z1 = G_rep;
+  Z2 = G_rep + q[, 1 : r] * kappa[1:r] ;
+  Z3 = G_rep + q[, (r+1):2*r] * kappa[(r+1):2*r];
+  Z4 = G_rep + q[, (2*r + 1):3*r] * kappa[(2*r + 1):3*r];
+  Z5 = G_rep + q[, (3*r + 1): 4*r] * kappa[(3*r + 1): 4*r];
 }
 model {
   a ~ multi_normal(alpha + mu, SIGMA);// centered dependent random intercepts
@@ -73,7 +77,7 @@ model {
   delta ~ normal(0, epsilon * sigma); // regression coeffs for RE var
   beta ~ normal(0, 2.5); //fixed effects
   for(i in 1:N) {
-    y[i] ~ binomial(n[i], inv_logit( a[g[i]] + x[i]*beta));
+    y[i] ~ binomial(n[i], inv_logit( a[g[i]] + x[i]*beta +  q[i] * kappa));
   }
   sigma2 ~ inv_gamma(1,1); // exp(1) precision prior
   tau2 ~ inv_gamma(1,1); // exp(1) precision prior
@@ -81,29 +85,5 @@ model {
   phi ~ gamma(1,1);
   //phi2 ~ gamma(1,1);
   //phi3 ~ gamma(0.01,0.01);
-}
-generated quantities{
-  // posterior predictive samples
-  real y_new[N];
-  real Prob[N];
-  real y_test[N_test];
-  real rankp1[M];
-  real rankp2[M];
-  real rankp3[M];
-  real rankp4[M];
-  real rankp5[M];
-  rankp1=rank(Z1);
-  rankp2=rank(Z2);
-  rankp3=rank(Z3);
-  rankp4=rank(Z4);
-  rankp5=rank(Z5);
-  for (i in 1:N) {
-    y_new[i] = binomial_rng(n[i], inv_logit(a[g[i]] + x[i]*beta));
-    Prob[i]=inv_logit( a[g[i]] + x[i]*beta);
-  }
-    
-  for (i in 1:N_test) {
-    y_test[i] = binomial_rng(n_test[i], inv_logit(a[g_test[i]] + x_test[i]*beta));
-  }
 }
 

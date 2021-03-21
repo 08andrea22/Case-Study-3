@@ -122,3 +122,82 @@ Gamma$OldRankPulm=hosp$rank_ped_pulm
 
 Gamma
 ```
+
+
+# Alex's Stuff Implementing Ciao
+```{r}
+
+### Set up ###
+hc <- read.csv("hosp_clusters.csv")
+
+# Generate hospital index 
+hosp <- read.csv("hosp_full.csv", header=TRUE)
+hosp_table <- data.frame(id = unique(hosp$id), hosp_index = c(1:length(unique(hosp$id))))
+hosp <- inner_join(hosp, hosp_table) %>%
+  filter(category!="Overall")
+hosp_red <- read.csv("hosp.csv") # "reduced" hospital data
+
+# Generate distances for covariance matrix
+demographicdata <- read.csv("demographicdata.csv", header=TRUE)
+hosp_full <- read.csv("hosp_full.csv", header=TRUE)
+
+tableaa=hosp_full%>%
+  filter(category=="Overall")%>%
+  select(hospital,rank_ped_cardio)
+
+tableaa[is.na(tableaa)]=75
+
+demographicdata=demographicdata%>%
+  mutate(hospital=names)
+
+aadata=merge(tableaa,demographicdata, by="hospital")
+
+# consider changing distance vars: procedures, prop_45 could be relevant
+dist1=dist2=dist3=dist=matrix(nrow=82, ncol=82)
+for(j in 1:82){
+  for(jj in 1:82){
+    dist1[j,jj]=(abs(tableaa$rank_ped_cardio[j]-tableaa$rank_ped_cardio[jj]))/75
+    dist2[j,jj]=(abs(log(aadata$popul[j])-log(aadata$popul[jj])))/8.35
+    dist3[j,jj]=if_else(j!=jj,1,0)
+  }
+}
+
+dist=(dist1+dist2+dist3/6)/3
+
+
+# formatting q
+hosp <- full_join(hosp, data.frame(id = hc$id, cluster_kmeans = hc$cluster_kmeans, cluster_pop = hc$cluster_pop))
+hosp$cluster_kmeans <- as.factor(hosp$cluster_kmeans)
+hosp$cluster_pop <- as.factor(hosp$cluster_pop)
+
+y = hosp$deaths
+n = hosp$procedures
+X = model.matrix(deaths ~ category, data=hosp)[, -1] # Drop category 1 and intercept
+Z =  model.matrix(deaths ~ -1 + log(procedures) + top50_ped_anyspecialty, data=hosp_red)
+V = model.matrix(deaths ~ -1 + log(procedures) + top50_ped_anyspecialty, data=hosp_red)
+q = model.matrix(deaths ~ 1 + (cluster_pop + category)^2, data = hosp)
+ind <- grepl(":", colnames(q), fixed = TRUE)
+q <- q[, ind]
+
+
+g = hosp$hosp_index
+
+N = nrow(hosp)
+M = length(unique(hosp$id))
+K = ncol(X)
+P = ncol(Z)
+Q = ncol(V)
+r = (ncol(q)/4)
+### Actually Sampling ###
+stan_data = list(N=N, M = M, K = K, P = P, Q = Q, r = r, n=n, y = y, x = X, z = Z, V = V, q = q, g = g, dist=dist)
+f1 <- stan("Ciao.stan", data = stan_data, iter = 1000, chains = 1)
+
+## Extracting Z
+Z1 <- as.matrix(f1, pars = "Z1")
+Z2 <- as.matrix(f1, pars = "Z2")
+Z3 <- as.matrix(f1, pars = "Z3")
+Z4 <- as.matrix(f1, pars = "Z4")
+Z5 <- as.matrix(f1, pars = "Z5")
+
+```
+
