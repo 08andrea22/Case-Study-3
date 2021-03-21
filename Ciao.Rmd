@@ -22,7 +22,6 @@ library(rstan)
 
 ```{r}
 ### Set up ###
-demographicdata
 
 # Generate hospital index 
 hosp <- read.csv("hosp_full.csv", header=TRUE)
@@ -83,7 +82,6 @@ end_time <- Sys.time()
 
 end_time - start_time
 ```
-
 
 ```{r}
 ### Summaries ###
@@ -166,7 +164,9 @@ dist=(dist1+dist2+dist3/6)/3
 
 
 # formatting q
-hosp <- full_join(hosp, data.frame(id = hc$id, cluster_kmeans = hc$cluster_kmeans, cluster_pop = hc$cluster_pop))
+#hosp <- full_join(hosp, data.frame(id = hc$id, cluster_kmeans = hc$cluster_kmeans, cluster_pop = hc$cluster_pop))
+#write.csv(hosp, file="cacca.csv")
+hosp=read.csv("SUPERhosp.csv")
 hosp$cluster_kmeans <- as.factor(hosp$cluster_kmeans)
 hosp$cluster_pop <- as.factor(hosp$cluster_pop)
 
@@ -198,6 +198,226 @@ Z2 <- as.matrix(f1, pars = "Z2")
 Z3 <- as.matrix(f1, pars = "Z3")
 Z4 <- as.matrix(f1, pars = "Z4")
 Z5 <- as.matrix(f1, pars = "Z5")
+```
+# Ranking
+```{r}
+index1=(1:82)*5-4
+index1+4
 
+dim(Z1)[1]
+unique(Z1[1,])#-as.numeric(Z1[1,index])
+Z2[1,index+1]
+Z3[1,index+2]
+Z4[1,index+3]
+
+RR1=RR2=RR3=RR4=RR5=matrix(ncol=82,nrow=dim(Z1)[1])
+
+for(j in 1:dim(Z1)[1]){
+  RR1[j,]=rank(as.numeric(Z1[j,index1]))
+  RR2[j,]=rank(as.numeric(Z2[j,index1+1]))
+  RR3[j,]=rank(as.numeric(Z3[j,index1+2]))
+  RR4[j,]=rank(as.numeric(Z4[j,index1+3]))
+  RR5[j,]=rank(as.numeric(Z5[j,index1+4]))
+}
+
+#Z=RR=array(dim=c(5,dim(Z1)[1],dim(Z1)[2]))
+#Z[1,,]=Z1
+#Z[2,,]=Z2
+#Z[3,,]=Z3
+#Z[4,,]=Z4
+#Z[5,,]=Z5
+
+#rank(as.numeric(Z[5,500,index1+4]))
+
+#for(i in 1:5){
+#  for(j in 1:dim(Z1)[1]){
+#    RR[i,j,]=rank(as.numeric(Z[i,j,index1+i-1]))
+#  }
+#}
+#dim(RR[5,,])
+#dim(RR5)
+#RR[5,,]-RR5
+
+R1=matrix(nrow=82,ncol=7)
+for(j in 1:82){
+t=table(RR1[,j])
+x=as.numeric(which.max(t))
+R1[j,1]=as.numeric(names(t[x]))
+R1[j,2]=as.numeric(t[x])/sum(t)*100
+tt=t[-x]
+xx=as.numeric(which.max(tt))
+R1[j,3]=as.numeric(names(tt[xx]))
+R1[j,4]=as.numeric(tt[xx])/sum(t)*100
+ttt=tt[-xx]
+xxx=as.numeric(which.max(ttt))
+R1[j,5]=as.numeric(names(ttt[xxx]))
+R1[j,6]=as.numeric(ttt[xxx])/sum(t)*100
+#Probability of being in the top10
+z=0
+for(jj in 1:10){#length(t)){
+  if(as.numeric(names(t[jj]))<=10){z=z+as.numeric(t[jj])}
+}
+R1[j,7]=z/sum(t)
+}
+
+R2=matrix(nrow=82,ncol=7)
+for(j in 1:82){
+t=table(RR2[,j])
+x=as.numeric(which.max(t))
+R2[j,1]=as.numeric(names(t[x]))
+R2[j,2]=as.numeric(t[x])/sum(t)*100
+tt=t[-x]
+xx=as.numeric(which.max(tt))
+R2[j,3]=as.numeric(names(tt[xx]))
+R2[j,4]=as.numeric(tt[xx])/sum(t)*100
+ttt=tt[-xx]
+xxx=as.numeric(which.max(ttt))
+R2[j,5]=as.numeric(names(ttt[xxx]))
+R2[j,6]=as.numeric(ttt[xxx])/sum(t)*100
+#Probability of being in the top10
+z=0
+for(jj in 1:10){#length(t)){
+  if(as.numeric(names(t[jj]))<=10){z=z+as.numeric(t[jj])}
+}
+R2[j,7]=z/sum(t)
+}
+
+R3=matrix(nrow=82,ncol=7)
+for(j in 1:82){
+t=table(RR3[,j])
+x=as.numeric(which.max(t))
+R3[j,1]=as.numeric(names(t[x]))
+R3[j,2]=as.numeric(t[x])/sum(t)*100
+tt=t[-x]
+xx=as.numeric(which.max(tt))
+R3[j,3]=as.numeric(names(tt[xx]))
+R3[j,4]=as.numeric(tt[xx])/sum(t)*100
+ttt=tt[-xx]
+xxx=as.numeric(which.max(ttt))
+R3[j,5]=as.numeric(names(ttt[xxx]))
+R3[j,6]=as.numeric(ttt[xxx])/sum(t)*100
+#Probability of being in the top10
+z=0
+for(jj in 1:10){#length(t)){
+  if(as.numeric(names(t[jj]))<=10){z=z+as.numeric(t[jj])}
+}
+R3[j,7]=z/sum(t)
+}
+
+R4=matrix(nrow=82,ncol=7)
+for(j in 1:82){
+t=table(RR4[,j])
+x=as.numeric(which.max(t))
+R4[j,1]=as.numeric(names(t[x])) #The most common rank
+R4[j,2]=as.numeric(t[x])/sum(t)*100 #Its frequency
+tt=t[-x]
+xx=as.numeric(which.max(tt))
+R4[j,3]=as.numeric(names(tt[xx])) #Second rank
+R4[j,4]=as.numeric(tt[xx])/sum(t)*100 #The frequency of the second most common rank (NB: it could be the same as the first, and in this case the second rank is worst than the first! (and that's great!))
+ttt=tt[-xx]
+xxx=as.numeric(which.max(ttt))
+R4[j,5]=as.numeric(names(ttt[xxx])) #third rank
+R4[j,6]=as.numeric(ttt[xxx])/sum(t)*100 #freq third rank
+#Probability of being in the top10
+z=0
+for(jj in 1:10){#length(t)){   #This is faster!!  Pigeons
+  if(as.numeric(names(t[jj]))<=10){z=z+as.numeric(t[jj])}
+}
+R4[j,7]=z/sum(t)
+}
+
+R5=matrix(nrow=82,ncol=7)
+for(j in 1:82){
+t=table(RR5[,j])
+x=as.numeric(which.max(t))
+R5[j,1]=as.numeric(names(t[x]))
+R5[j,2]=as.numeric(t[x])/sum(t)*100
+tt=t[-x]
+xx=as.numeric(which.max(tt))
+R5[j,3]=as.numeric(names(tt[xx]))
+R5[j,4]=as.numeric(tt[xx])/sum(t)*100
+ttt=tt[-xx]
+xxx=as.numeric(which.max(ttt))
+R5[j,5]=as.numeric(names(ttt[xxx]))
+R5[j,6]=as.numeric(ttt[xxx])/sum(t)*100
+#Probability of being in the top10
+z=0
+for(jj in 1:10){#length(t)){
+  if(as.numeric(names(t[jj]))<=10){z=z+as.numeric(t[jj])}
+}
+R5[j,7]=z/sum(t)
+}
+
+nnames=demographicdata$names
+
+Result1=data.frame(Hospital=nnames,
+                   FirstRank1=R1[,1],
+                   ProbFirstRank1=R1[,2],
+                   SecondRank1=R1[,3],
+                   ProbSecondRank1=R1[,4],
+                   ThirdRank1=R1[,5],
+                   ProbThirdRank1=R1[,6],
+                   ProbTopTen1=R1[,7])
+
+Result2=data.frame(Hospital=nnames,
+                   FirstRank2=R2[,1],
+                   ProbFirstRank2=R2[,2],
+                   SecondRank2=R2[,3],
+                   ProbSecondRank2=R2[,4],
+                   ThirdRank2=R2[,5],
+                   ProbThirdRank2=R2[,6],
+                   ProbTopTen2=R2[,7])
+
+Result3=data.frame(Hospital=nnames,
+                   FirstRank3=R3[,1],
+                   ProbFirstRank3=R3[,2],
+                   SecondRank3=R3[,3],
+                   ProbSecondRank3=R3[,4],
+                   ThirdRank3=R3[,5],
+                   ProbThirdRank3=R3[,6],
+                   ProbTopTen3=R3[,7])
+
+Result4=data.frame(Hospital=nnames,
+                   FirstRank4=R4[,1],
+                   ProbFirstRank4=R4[,2],
+                   SecondRank4=R4[,3],
+                   ProbSecondRank4=R4[,4],
+                   ThirdRank4=R4[,5],
+                   ProbThirdRank4=R4[,6],
+                   ProbTopTen4=R4[,7])
+
+Result5=data.frame(Hospital=nnames,
+                   FirstRank5=R5[,1],
+                   ProbFirstRank5=R5[,2],
+                   SecondRank5=R5[,3],
+                   ProbSecondRank5=R5[,4],
+                   ThirdRank5=R5[,5],
+                   ProbThirdRank5=R5[,6],
+                   ProbTopTen5=R5[,7])
+
+Result5
+
+
+#The Best Hospital is
+One=c(which.max(R1[,7]),
+      which.max(R2[,7]),
+      which.max(R3[,7]),
+      which.max(R4[,7]),
+      which.max(R5[,7]))
+#The second best is
+Two=c(which.max(R1[-One[1],7]),
+      which.max(R2[-One[2],7]),
+      which.max(R3[-One[3],7]),
+      which.max(R4[-One[4],7]),
+      which.max(R5[-One[5],7]))
+
+Three=c(which.max(R1[-c(One[1],Two[1]),7]),
+      which.max(R2[-c(One[2],Two[2]),7]),
+      which.max(R3[-c(One[3],Two[3]),7]),
+      which.max(R4[-c(One[4],Two[4]),7]),
+      which.max(R5[-c(One[5],Two[5]),7]))
+
+winners=data.frame(Category=1:5,First=One, Second=Two, Third=Three)
+winners
 ```
 
