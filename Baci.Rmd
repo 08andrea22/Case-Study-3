@@ -432,6 +432,8 @@ ggplot(Dunson)+
 
 ```
 ```{r, Traceplot of rankings}
+E5[37]
+
 hosp3=10
 
 ggplot(data=NULL)+
