@@ -18,6 +18,7 @@ library(rstanarm)
 library(latex2exp)
 library(tidyr)
 library(rstan)
+library(xtable)
 ```
 
 ```{r}
@@ -172,7 +173,7 @@ hosp$cluster_pop <- as.factor(hosp$cluster_pop)
 
 y = hosp$deaths
 n = hosp$procedures
-X = model.matrix(deaths ~ category, data=hosp)[, -1] # Drop category 1 and intercept
+X = model.matrix(deaths ~ category + top50_ped_anyspecialty, data=hosp)[, -1] # Drop category 1 and intercept
 Z =  model.matrix(deaths ~ -1 + log(procedures) + top50_ped_anyspecialty, data=hosp_red)
 V = model.matrix(deaths ~ -1 + log(procedures) + top50_ped_anyspecialty, data=hosp_red)
 q = model.matrix(deaths ~ 1 + (cluster_pop + category)^2, data = hosp)
@@ -190,7 +191,8 @@ Q = ncol(V)
 r = (ncol(q)/4)
 ### Actually Sampling ###
 stan_data = list(N=N, M = M, K = K, P = P, Q = Q, r = r, n=n, y = y, x = X, z = Z, V = V, q = q, g = g, dist=dist)
-f1 <- stan("Ciao.stan", data = stan_data, iter = 1000, chains = 1)
+options(mc.cores = 2)
+f1 <- stan("Ciao.stan", data = stan_data, iter = 10000, chains = 2, cores = 2, refresh = 100)
 
 ## Extracting Z
 Z1 <- as.matrix(f1, pars = "Z1")
@@ -206,9 +208,9 @@ index1+4
 
 dim(Z1)[1]
 unique(Z1[1,])#-as.numeric(Z1[1,index])
-Z2[1,index+1]
-Z3[1,index+2]
-Z4[1,index+3]
+Z2[1,index1+1]
+Z3[1,index1+2]
+Z4[1,index1+3]
 
 RR1=RR2=RR3=RR4=RR5=matrix(ncol=82,nrow=dim(Z1)[1])
 
@@ -419,5 +421,7 @@ Three=c(which.max(R1[-c(One[1],Two[1]),7]),
 
 winners=data.frame(Category=1:5,First=One, Second=Two, Third=Three)
 winners
+
+print(xtable(winners), type = "latex")
 ```
 
