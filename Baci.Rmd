@@ -302,6 +302,8 @@ R5[j,7]=z/sum(t)
 
 nnames=demographicdata$names
 
+RTT5=as.integer(rank(-R5[,7]))
+
 Result1=data.frame(Hospital=nnames,
                    FirstRank1=R1[,1],
                    ProbFirstRank1=R1[,2],
@@ -338,16 +340,21 @@ Result4=data.frame(Hospital=nnames,
                    ProbThirdRank4=R4[,6],
                    ProbTopTen4=R4[,7])
 
-Result5=data.frame(Hospital=nnames,
-                   FirstRank5=R5[,1],
+Result5=data.frame(#Hospital=nnames,
+                   FirstRank5=as.integer(R5[,1]),
                    ProbFirstRank5=R5[,2],
-                   SecondRank5=R5[,3],
+                   SecondRank5=as.integer(R5[,3]),
                    ProbSecondRank5=R5[,4],
-                   ThirdRank5=R5[,5],
+                   ThirdRank5=as.integer(R5[,5]),
                    ProbThirdRank5=R5[,6],
-                   ProbTopTen5=R5[,7])
+                   RankTTP=RTT5,
+                   ProbTopTen5=R5[,7]*100,
+                   E5=as.integer(E5))
 
 Result5
+library(ursa)
+library(xtable)
+print(xtable(Result5, type = "latex"), file = "Result55.tex")
 ```
 
 
@@ -426,7 +433,7 @@ E5=rank(ER5)
 
 
 ```{r}
-hosp1=70
+hosp1=37
 
 Alex=RR5[,hosp1]
 Florida=c()
@@ -436,7 +443,7 @@ for(j in 1:82){
 
 #plot(Florida)
 
-hosp2=10
+hosp2=76#5#43 
 
 Jenn=RR5[,hosp2]
 Duke=c()
@@ -449,11 +456,11 @@ for(j in 1:82){
 Dunson=data.frame(t=1:82, Florida=Florida, Duke=Duke)
 
 ggplot(Dunson)+
-  geom_line(aes(x=t,y=Florida), color="red")+
-  geom_vline(xintercept = E5[hosp1],color="red")+
+  geom_area(aes(x=t,y=Florida), color=rgb(0.8,0.2,0.2), fill=rgb(1,0.5,0.5),alpha=0.5)+
+  geom_vline(xintercept = E5[hosp1],color=rgb(0.8,0.2,0.2))+
   #geom_vline(xintercept = mode(Florida),color="orange")+
-  geom_line(aes(x=t,y=Duke), color="green")+
-  geom_vline(xintercept = E5[hosp2], color="green")+
+  geom_area(aes(x=t,y=Duke), color=rgb(0.2,0.8,0.2), fill=rgb(0.5,1,0.5),alpha=0.5)+
+  geom_vline(xintercept = E5[hosp2], color=rgb(0.2,0.8,0.2))+
   #geom_vline(xintercept = mode(Duke), color="lightblue")+
   labs(x="Rank", y="Density", title="Density plot of the Rank of two hospitals")
 
@@ -476,5 +483,9 @@ SUPER=SUPERhosp%>%filter(category=="Category 1")
 
 plot(SUPER$rank_ped_cardio,E5)
 SUPER$rank_ped_cardio
+```
+
+```{r hpd}
+
 ```
 
