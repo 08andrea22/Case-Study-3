@@ -142,7 +142,7 @@ Q = ncol(V)
 r = (ncol(q)/4)
 ### Actually Sampling ###
 stan_data = list(N=N, M = M, K = K, P = P, Q = Q, r = r, n=n, y = y, x = X, z = Z, V = V, q = q, g = g, dist=dist)
-f1 <- stan("Ciao.stan", data = stan_data, iter = 1000, chains = 1)
+f1 <- stan("Ciao.stan", data = stan_data, iter = 5000, chains = 1)
 
 ## Extracting Z
 Z1 <- as.matrix(f1, pars = "Z1")
@@ -348,9 +348,37 @@ Result5=data.frame(Hospital=nnames,
                    ProbTopTen5=R5[,7])
 
 Result5
+```
 
 
+```{r HTUP}
 #The Best Hospital is
+One=c(which.max(R1[,2]),
+      which.max(R2[,2]),
+      which.max(R3[,2]),
+      which.max(R4[,2]),
+      which.max(R5[,2]))
+#The second best is
+Two=c(which.max(R1[-One[1],2]),
+      which.max(R2[-One[2],2]),
+      which.max(R3[-One[3],2]),
+      which.max(R4[-One[4],2]),
+      which.max(R5[-One[5],2]))
+
+Three=c(which.max(R1[-c(One[1],Two[1]),2]),
+      which.max(R2[-c(One[2],Two[2]),2]),
+      which.max(R3[-c(One[3],Two[3]),2]),
+      which.max(R4[-c(One[4],Two[4]),2]),
+      which.max(R5[-c(One[5],Two[5]),2]))
+
+winners=data.frame(Category=1:5,First=One, Second=Two, Third=Three)
+winners
+
+
+
+```
+
+```{r, HTTP}
 One=c(which.max(R1[,7]),
       which.max(R2[,7]),
       which.max(R3[,7]),
@@ -377,7 +405,6 @@ winners
 
 
 
-
 ```{r, Global Ranking, ie rankings based on the posterior mean of Z}
 ER1=ER2=ER3=ER4=ER5=rep(0,82)
 
@@ -399,7 +426,7 @@ E5=rank(ER5)
 
 
 ```{r}
-hosp1=37
+hosp1=70
 
 Alex=RR5[,hosp1]
 Florida=c()
@@ -409,7 +436,7 @@ for(j in 1:82){
 
 #plot(Florida)
 
-hosp2=76
+hosp2=10
 
 Jenn=RR5[,hosp2]
 Duke=c()
@@ -442,5 +469,12 @@ ggplot(data=NULL)+
   labs(x="Iteration", y="Rank", title="Traceplot of the rank of hospital x in category 5")
 
 acf(RR5[,hosp3])
+```
+```{r}
+SUPERhosp=read.csv("SUPERhosp.csv")
+SUPER=SUPERhosp%>%filter(category=="Category 1")
+
+plot(SUPER$rank_ped_cardio,E5)
+SUPER$rank_ped_cardio
 ```
 
