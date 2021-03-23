@@ -424,4 +424,31 @@ winners
 
 print(xtable(winners), type = "latex")
 ```
+# Using TTP to create a top 10 for each category
+
+```{r}
+
+# Adding Row Names
+rownames(R1) <- hosp_red$hospital
+rownames(R2) <- hosp_red$hospital
+rownames(R3) <- hosp_red$hospital
+rownames(R4) <- hosp_red$hospital
+rownames(R5) <- hosp_red$hospital
+
+
+# creating the top 10
+rks <- as.data.frame(matrix(NA, ncol = 83, nrow = 5))
+colnames(rks) <- c("Category", 1:82)
+rks$Category <- 1:5
+
+Rs <- list(R1, R2, R3, R4, R5)
+
+for (j in 1:5) {
+  t <- order(Rs[[j]][,7], decreasing = T)
+  rks[j, 2:83] <- rownames(Rs[[j]])[t]
+}
+
+write.csv(rks, "ttp_ranks", row.names = F)
+
+```
 
